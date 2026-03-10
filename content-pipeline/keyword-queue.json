@@ -1,0 +1,217 @@
+{
+  "meta": {
+    "lastUpdated": "2026-03-10",
+    "totalQueued": 30,
+    "totalPublished": 5
+  },
+  "published": [
+    "niacinamide-vs-vitamin-c-which-goes-first",
+    "skincare-routine-for-beginners",
+    "cerave-vs-the-ordinary",
+    "how-to-use-retinol-without-irritation",
+    "skincare-routine-order-morning-night",
+    "how-to-start-a-skincare-brand-2026"
+  ],
+  "queue": [
+    {
+      "keyword": "hyaluronic acid benefits for skin",
+      "slug": "hyaluronic-acid-benefits-skin",
+      "category": "ingredients",
+      "intent": "informational",
+      "priority": "high",
+      "notes": "Explain what HA actually does vs the marketing hype. MW differences."
+    },
+    {
+      "keyword": "skincare routine for oily skin",
+      "slug": "skincare-routine-oily-skin",
+      "category": "routines",
+      "intent": "informational",
+      "priority": "high",
+      "notes": "Focus: don't skip moisturizer, right cleanser, niacinamide as the key active"
+    },
+    {
+      "keyword": "the ordinary retinol review",
+      "slug": "the-ordinary-retinol-review",
+      "category": "reviews",
+      "intent": "commercial",
+      "priority": "high",
+      "notes": "Compare the different TO retinol variants. Honest take on the whole range."
+    },
+    {
+      "keyword": "azelaic acid benefits skin",
+      "slug": "azelaic-acid-benefits-uses",
+      "category": "ingredients",
+      "intent": "informational",
+      "priority": "high",
+      "notes": "Underrated ingredient. Good for rosacea, PIH, acne. Low irritation."
+    },
+    {
+      "keyword": "tretinoin vs retinol difference",
+      "slug": "tretinoin-vs-retinol",
+      "category": "versus",
+      "intent": "informational",
+      "priority": "high",
+      "notes": "The real comparison. Why tret wins. How to get it. Adjustment period."
+    },
+    {
+      "keyword": "skincare routine for dry skin",
+      "slug": "skincare-routine-dry-skin",
+      "category": "routines",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Ceramide-heavy products, humectants + occlusives, gentle actives"
+    },
+    {
+      "keyword": "best sunscreen for oily skin",
+      "slug": "best-sunscreen-oily-skin",
+      "category": "reviews",
+      "intent": "commercial",
+      "priority": "high",
+      "notes": "Euro SPFs, Altruist, La Roche-Posay Invisible. Matte finish options."
+    },
+    {
+      "keyword": "AHA vs BHA which is better",
+      "slug": "aha-vs-bha-difference",
+      "category": "versus",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "AHA for texture/tone, BHA for acne/pores. When to use each."
+    },
+    {
+      "keyword": "how to get rid of dark spots fast",
+      "slug": "how-to-fade-dark-spots-hyperpigmentation",
+      "category": "routines",
+      "intent": "informational",
+      "priority": "high",
+      "notes": "Realistic timeline. Niacinamide + azelaic + SPF combo. No miracle claims."
+    },
+    {
+      "keyword": "skincare routine for acne prone skin",
+      "slug": "skincare-routine-acne-prone-skin",
+      "category": "routines",
+      "intent": "informational",
+      "priority": "high",
+      "notes": "BHA + niacinamide + non-comedogenic moisturizer. No more than 5 products."
+    },
+    {
+      "keyword": "peptides in skincare do they work",
+      "slug": "peptides-skincare-do-they-work",
+      "category": "ingredients",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Honest take: some evidence for some peptides. Matrixyl, argireline. Not magic."
+    },
+    {
+      "keyword": "vitamin C serum best one to buy",
+      "slug": "best-vitamin-c-serum",
+      "category": "reviews",
+      "intent": "commercial",
+      "priority": "high",
+      "notes": "Stability issue. L-ascorbic acid vs derivatives. Timeless vs SkinCeuticals."
+    },
+    {
+      "keyword": "how to layer skincare actives",
+      "slug": "how-to-layer-skincare-actives",
+      "category": "routines",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Which actives conflict. AM vs PM splits. Retinol + niacinamide ok."
+    },
+    {
+      "keyword": "clean beauty movement truth",
+      "slug": "clean-beauty-is-it-worth-it",
+      "category": "ingredients",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Skeptical take. Naturalistic fallacy. Parabens are fine. What clean means."
+    },
+    {
+      "keyword": "skincare men routine simple",
+      "slug": "simple-skincare-routine-men",
+      "category": "routines",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "The same fundamentals. Different framing. 3 products. SPF especially."
+    },
+    {
+      "keyword": "shopify beauty store setup guide",
+      "slug": "shopify-beauty-store-setup",
+      "category": "beauty-business",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Angelo's expertise. Theme choice, apps, conversion basics."
+    },
+    {
+      "keyword": "beauty influencer marketing strategy",
+      "slug": "beauty-influencer-marketing-strategy",
+      "category": "beauty-business",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Micro vs macro. Gifting vs paid. TikTok vs IG vs YouTube."
+    },
+    {
+      "keyword": "cerave moisturizing cream review",
+      "slug": "cerave-moisturizing-cream-review",
+      "category": "reviews",
+      "intent": "commercial",
+      "priority": "high",
+      "notes": "Honest review. Who it works for, who it doesn't. Pilling issues."
+    },
+    {
+      "keyword": "skin barrier damaged symptoms fix",
+      "slug": "damaged-skin-barrier-how-to-fix",
+      "category": "beginner-guides",
+      "intent": "informational",
+      "priority": "high",
+      "notes": "Signs of barrier damage. Stripping routine. Recovery protocol."
+    },
+    {
+      "keyword": "retinol purging vs breakout",
+      "slug": "retinol-purging-vs-breakout",
+      "category": "ingredients",
+      "intent": "informational",
+      "priority": "high",
+      "notes": "Clear distinction. Timeline. When to stop vs push through."
+    },
+    {
+      "keyword": "snail mucin skincare does it work",
+      "slug": "snail-mucin-skincare-review",
+      "category": "ingredients",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "COSRX review. Evidence is limited but it is a solid humectant/soothing agent."
+    },
+    {
+      "keyword": "how to build skincare ecommerce brand tiktok",
+      "slug": "tiktok-beauty-brand-strategy",
+      "category": "beauty-business",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "TikTok shop. Organic content strategy. Viral product seeding."
+    },
+    {
+      "keyword": "sunscreen every day indoors necessary",
+      "slug": "do-you-need-sunscreen-indoors",
+      "category": "ingredients",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "UVA through windows. Blue light. The real answer: yes near windows, no in dark rooms."
+    },
+    {
+      "keyword": "is glycolic acid safe for sensitive skin",
+      "slug": "glycolic-acid-sensitive-skin",
+      "category": "ingredients",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Low concentration approach. Mandelic as alternative. Patch test protocol."
+    },
+    {
+      "keyword": "private label skincare brand how to start",
+      "slug": "private-label-skincare-how-to-start",
+      "category": "beauty-business",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "MOQ reality. Finding manufacturers. Packaging. Regulatory basics."
+    }
+  ]
+}
