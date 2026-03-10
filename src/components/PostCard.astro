@@ -7,9 +7,19 @@ interface Props {
   category: string;
   heroImage?: string;
   heroImageAlt?: string;
+  variant?: 'default' | 'horizontal' | 'minimal';
 }
 
-const { title, description, slug, pubDate, category, heroImage, heroImageAlt } = Astro.props;
+const {
+  title,
+  description,
+  slug,
+  pubDate,
+  category,
+  heroImage,
+  heroImageAlt,
+  variant = 'default',
+} = Astro.props;
 
 const categoryLabels: Record<string, string> = {
   'ingredients': 'Ingredients',
@@ -21,48 +31,77 @@ const categoryLabels: Record<string, string> = {
 };
 
 const formattedDate = pubDate.toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
+  month: 'short',
   day: 'numeric',
+  year: 'numeric',
 });
 ---
 
-<article class="group">
-  <a href={`/blog/${slug}`} class="no-underline block">
-    {heroImage && (
-      <div class="aspect-[16/9] rounded-lg overflow-hidden mb-4 bg-[var(--color-accent-light)]">
-        <img
-          src={heroImage}
-          alt={heroImageAlt || title}
-          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-          loading="lazy"
-        />
+{variant === 'horizontal' && (
+  <article class="reveal group">
+    <a href={`/blog/${slug}`} class="no-underline flex gap-5 items-start">
+      <div class="w-28 h-20 flex-shrink-0 rounded-sm overflow-hidden bg-[var(--bg-alt)] img-zoom">
+        {heroImage ? (
+          <img src={heroImage} alt={heroImageAlt || title} class="w-full h-full object-cover" loading="lazy" />
+        ) : (
+          <div class="w-full h-full flex items-center justify-center">
+            <span class="text-xl" style="color: var(--border)">✦</span>
+          </div>
+        )}
       </div>
-    )}
-    {!heroImage && (
-      <div class="aspect-[16/9] rounded-lg overflow-hidden mb-4 bg-[var(--color-accent-light)] flex items-center justify-center">
-        <span class="text-4xl opacity-30">✦</span>
+      <div class="flex-1 min-w-0">
+        <span class="eyebrow accent block mb-1">{categoryLabels[category] || category}</span>
+        <h3 style="font-family: var(--serif); font-weight: 700; font-size: 0.95rem; line-height: 1.35; color: var(--text);" class="group-hover:text-[var(--accent)] transition-colors line-clamp-2">
+          {title}
+        </h3>
+        <time class="eyebrow block mt-1.5">{formattedDate}</time>
       </div>
-    )}
+    </a>
+  </article>
+)}
 
-    <div>
-      <div class="flex items-center gap-2 mb-2">
-        <span class="text-xs font-medium uppercase tracking-wider" style="color: var(--color-accent)">
-          {categoryLabels[category] || category}
-        </span>
-        <span class="text-[var(--color-border)]">·</span>
-        <time class="text-xs text-[var(--color-muted)]" datetime={pubDate.toISOString()}>
-          {formattedDate}
-        </time>
+{variant === 'minimal' && (
+  <article class="reveal group py-5 border-b border-[var(--border-light)]">
+    <a href={`/blog/${slug}`} class="no-underline">
+      <span class="eyebrow accent mb-1.5 block">{categoryLabels[category] || category}</span>
+      <h3 style="font-family: var(--serif); font-weight: 700; font-size: 1.125rem; line-height: 1.35; color: var(--text);" class="group-hover:text-[var(--accent)] transition-colors">
+        {title}
+      </h3>
+      <p class="text-sm mt-1.5 leading-relaxed line-clamp-2" style="color: var(--text-muted)">{description}</p>
+    </a>
+  </article>
+)}
+
+{(!variant || variant === 'default') && (
+  <article class="reveal group flex flex-col">
+    <a href={`/blog/${slug}`} class="no-underline flex flex-col h-full">
+      <div class="aspect-[4/3] rounded-sm overflow-hidden mb-4 img-zoom" style="background: var(--bg-alt)">
+        {heroImage ? (
+          <img src={heroImage} alt={heroImageAlt || title} class="w-full h-full object-cover" loading="lazy" />
+        ) : (
+          <div class="w-full h-full flex items-center justify-center">
+            <span class="text-3xl" style="color: var(--border)">✦</span>
+          </div>
+        )}
       </div>
 
-      <h2 class="font-bold text-lg leading-snug text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors mb-2">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="eyebrow accent">{categoryLabels[category] || category}</span>
+        <span style="color: var(--border)">·</span>
+        <time class="eyebrow">{formattedDate}</time>
+      </div>
+
+      <h2 style="font-family: var(--serif); font-weight: 700; font-size: 1.125rem; line-height: 1.35; color: var(--text);" class="group-hover:text-[var(--accent)] transition-colors duration-200 mb-2">
         {title}
       </h2>
 
-      <p class="text-sm text-[var(--color-muted)] leading-relaxed line-clamp-2">
+      <p class="text-sm leading-relaxed line-clamp-2 flex-1" style="color: var(--text-muted)">
         {description}
       </p>
-    </div>
-  </a>
-</article>
+
+      <span class="eyebrow accent mt-3 inline-block group-hover:tracking-widest transition-all duration-300">
+        Read →
+      </span>
+    </a>
+  </article>
+)}

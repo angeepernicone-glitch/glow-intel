@@ -24,18 +24,9 @@ const categoryLabels: Record<string, string> = {
 };
 
 const formattedDate = pubDate.toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
+  month: 'long', day: 'numeric', year: 'numeric',
 });
 
-const updatedFormatted = updatedDate?.toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-});
-
-// JSON-LD schema for article
 const schema = {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -43,96 +34,96 @@ const schema = {
   "description": description,
   "datePublished": pubDate.toISOString(),
   "dateModified": (updatedDate || pubDate).toISOString(),
-  "publisher": {
-    "@type": "Organization",
-    "name": "Glow Intel",
-    "url": Astro.site?.href,
-  },
+  "publisher": { "@type": "Organization", "name": "Glow Intel", "url": Astro.site?.href },
   "image": heroImage ? new URL(heroImage, Astro.site).href : undefined,
 };
 ---
 
-<BaseLayout
-  title={title}
-  description={description}
-  image={heroImage}
-  imageAlt={heroImageAlt}
-  type="article"
-  pubDate={pubDate}
-  updatedDate={updatedDate}
->
+<BaseLayout title={title} description={description} image={heroImage} imageAlt={heroImageAlt} type="article" pubDate={pubDate} updatedDate={updatedDate}>
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-10">
-    <!-- Breadcrumb -->
-    <nav class="text-xs text-[var(--color-muted)] mb-6">
-      <a href="/" class="hover:text-[var(--color-accent)] no-underline">Home</a>
-      <span class="mx-2">/</span>
-      <a href="/blog" class="hover:text-[var(--color-accent)] no-underline">Blog</a>
-      <span class="mx-2">/</span>
-      <a href={`/categories/${category}`} class="hover:text-[var(--color-accent)] no-underline capitalize">
-        {categoryLabels[category] || category}
-      </a>
-    </nav>
+  <!-- Hero image — full width, cinematic -->
+  {heroImage && (
+    <div class="w-full aspect-[21/8] overflow-hidden" style="background: var(--bg-alt)">
+      <img
+        src={heroImage}
+        alt={heroImageAlt || title}
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+    </div>
+  )}
 
-    <div class="max-w-3xl">
-      <!-- Category + date -->
-      <div class="flex items-center gap-3 mb-4">
-        <a
-          href={`/categories/${category}`}
-          class="text-xs font-semibold uppercase tracking-wider no-underline hover:opacity-80"
-          style="color: var(--color-accent)"
-        >
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-12">
+    <div class="grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20">
+
+      <!-- ─── Left sidebar (sticky meta) ───────────────── -->
+      <aside class="lg:sticky lg:top-24 lg:self-start">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center gap-2 mb-8">
+          <a href="/" class="eyebrow no-underline hover:text-[var(--accent)] transition-colors">Home</a>
+          <span class="eyebrow">/</span>
+          <a href={`/categories/${category}`} class="eyebrow accent no-underline hover:opacity-70 transition-opacity">
+            {categoryLabels[category] || category}
+          </a>
+        </nav>
+
+        <div class="rule-accent mb-6"></div>
+
+        <!-- Category -->
+        <a href={`/categories/${category}`} class="eyebrow accent no-underline block mb-4">
           {categoryLabels[category] || category}
         </a>
-        <span class="text-[var(--color-border)]">·</span>
-        <time class="text-xs text-[var(--color-muted)]" datetime={pubDate.toISOString()}>
-          {formattedDate}
-        </time>
+
+        <!-- Date -->
+        <time class="eyebrow block mb-2" datetime={pubDate.toISOString()}>{formattedDate}</time>
+
         {updatedDate && (
-          <>
-            <span class="text-[var(--color-border)]">·</span>
-            <span class="text-xs text-[var(--color-muted)]">Updated {updatedFormatted}</span>
-          </>
+          <span class="eyebrow block mb-6">
+            Updated {updatedDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+          </span>
         )}
-      </div>
 
-      <!-- Title -->
-      <h1 class="font-bold text-3xl sm:text-4xl leading-tight text-[var(--color-text)] mb-6">
-        {title}
-      </h1>
-
-      <!-- Hero image -->
-      {heroImage && (
-        <div class="rounded-xl overflow-hidden mb-8 aspect-[16/7]">
-          <img
-            src={heroImage}
-            alt={heroImageAlt || title}
-            class="w-full h-full object-cover"
-            loading="eager"
-          />
-        </div>
-      )}
-    </div>
-
-    <!-- Post content -->
-    <div class="max-w-3xl">
-      <div class="prose">
-        <slot />
-      </div>
-
-      <!-- Tags -->
-      {tags.length > 0 && (
-        <div class="mt-10 pt-6 border-t border-[var(--color-border)]">
-          <div class="flex flex-wrap gap-2">
+        <!-- Tags -->
+        {tags.length > 0 && (
+          <div class="flex flex-wrap gap-2 mt-6">
             {tags.map(tag => (
-              <span class="text-xs px-3 py-1 rounded-full bg-[var(--color-accent-light)] text-[var(--color-muted)]">
+              <span class="text-xs px-3 py-1 border border-[var(--border)] rounded-full" style="color: var(--text-muted)">
                 {tag}
               </span>
             ))}
           </div>
+        )}
+
+        <!-- Back to top (desktop) -->
+        <button
+          id="back-to-top"
+          class="hidden lg:flex items-center gap-2 mt-12 eyebrow hover:text-[var(--accent)] transition-colors cursor-pointer"
+          onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+        >
+          ↑ Back to top
+        </button>
+      </aside>
+
+      <!-- ─── Main content ──────────────────────────────── -->
+      <article>
+        <!-- Title -->
+        <h1 style="font-family: var(--serif); font-weight: 900; font-size: clamp(1.875rem, 4vw, 3rem); line-height: 1.1; letter-spacing: -0.01em; color: var(--text);" class="mb-8 reveal">
+          {title}
+        </h1>
+
+        <!-- Lead paragraph (description as lede) -->
+        <p style="font-family: var(--serif); font-size: 1.1875rem; line-height: 1.65; color: var(--text-muted); border-left: 2px solid var(--accent); padding-left: 1.25rem;" class="mb-10 reveal reveal-delay-1">
+          {description}
+        </p>
+
+        <div class="rule mb-10 reveal reveal-delay-2"></div>
+
+        <!-- Post body -->
+        <div class="prose reveal reveal-delay-3">
+          <slot />
         </div>
-      )}
+      </article>
     </div>
   </div>
 </BaseLayout>

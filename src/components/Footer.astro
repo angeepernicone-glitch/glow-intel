@@ -1,57 +1,80 @@
 ---
 const year = new Date().getFullYear();
-const categories = [
-  { href: '/categories/ingredients', label: 'Ingredients' },
-  { href: '/categories/routines', label: 'Routines' },
-  { href: '/categories/reviews', label: 'Reviews' },
-  { href: '/categories/versus', label: 'Versus' },
-  { href: '/categories/beauty-business', label: 'Beauty Business' },
-  { href: '/categories/beginner-guides', label: 'Beginner Guides' },
-];
 ---
 
-<footer class="border-t border-[var(--color-border)] mt-20 py-12 px-4">
-  <div class="max-w-5xl mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+<footer style="border-top: 1px solid var(--border); background: var(--bg);" class="mt-20">
+  <!-- Top strip -->
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-12">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+
       <!-- Brand -->
-      <div>
-        <a href="/" class="font-bold text-lg no-underline">
-          Glow<span style="color: var(--color-accent)">Intel</span>
+      <div class="col-span-2 md:col-span-1">
+        <a href="/" class="no-underline block mb-3">
+          <span style="font-family: var(--serif); font-size: 1.25rem; font-weight: 900; color: var(--text);">
+            GLOW<span style="color: var(--accent);">INTEL</span>
+          </span>
         </a>
-        <p class="text-sm text-[var(--color-muted)] mt-2 leading-relaxed">
-          Honest skincare info without the fluff. No brand deals, no paid reviews — just what actually works.
+        <p class="text-xs leading-relaxed" style="color: var(--text-muted); max-width: 22ch">
+          Honest skincare intel. No brand deals. No filler.
         </p>
       </div>
 
-      <!-- Categories -->
+      <!-- Topics -->
       <div>
-        <h3 class="text-sm font-semibold uppercase tracking-wider text-[var(--color-muted)] mb-3">Topics</h3>
-        <ul class="space-y-1">
-          {categories.map(cat => (
+        <p class="eyebrow mb-4">Topics</p>
+        <ul class="space-y-2">
+          {[
+            ['Ingredients', '/categories/ingredients'],
+            ['Routines', '/categories/routines'],
+            ['Versus', '/categories/versus'],
+            ['Reviews', '/categories/reviews'],
+          ].map(([label, href]) => (
             <li>
-              <a href={cat.href} class="text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)] no-underline transition-colors">
-                {cat.label}
-              </a>
+              <a href={href} class="text-xs no-underline hover:text-[var(--accent)] transition-colors" style="color: var(--text-muted)">{label}</a>
             </li>
           ))}
         </ul>
       </div>
 
-      <!-- Links -->
+      <!-- More -->
       <div>
-        <h3 class="text-sm font-semibold uppercase tracking-wider text-[var(--color-muted)] mb-3">More</h3>
-        <ul class="space-y-1">
-          <li><a href="/about" class="text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)] no-underline transition-colors">About</a></li>
-          <li><a href="/rss.xml" class="text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)] no-underline transition-colors">RSS Feed</a></li>
-          <li><a href="/sitemap-index.xml" class="text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)] no-underline transition-colors">Sitemap</a></li>
+        <p class="eyebrow mb-4">More</p>
+        <ul class="space-y-2">
+          {[
+            ['Beauty Business', '/categories/beauty-business'],
+            ['Beginner Guides', '/categories/beginner-guides'],
+            ['All Posts', '/blog'],
+            ['About', '/about'],
+          ].map(([label, href]) => (
+            <li>
+              <a href={href} class="text-xs no-underline hover:text-[var(--accent)] transition-colors" style="color: var(--text-muted)">{label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Meta -->
+      <div>
+        <p class="eyebrow mb-4">Meta</p>
+        <ul class="space-y-2">
+          {[
+            ['RSS Feed', '/rss.xml'],
+            ['Sitemap', '/sitemap-index.xml'],
+          ].map(([label, href]) => (
+            <li>
+              <a href={href} class="text-xs no-underline hover:text-[var(--accent)] transition-colors" style="color: var(--text-muted)">{label}</a>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
+  </div>
 
-    <div class="border-t border-[var(--color-border)] pt-6 text-center">
-      <p class="text-xs text-[var(--color-muted)]">
-        &copy; {year} Glow Intel. All rights reserved.
-      </p>
+  <!-- Bottom bar -->
+  <div style="border-top: 1px solid var(--border-light);">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">
+      <p class="eyebrow">&copy; {year} Glow Intel</p>
+      <p class="eyebrow">Science-first skincare</p>
     </div>
   </div>
 </footer>

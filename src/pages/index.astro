@@ -4,66 +4,78 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PostCard from '../components/PostCard.astro';
 
 const allPosts = await getCollection('blog', ({ data }) => !data.draft);
-const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-const featuredPost = sortedPosts[0];
-const recentPosts = sortedPosts.slice(1, 7);
+const sorted = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const hero = sorted[0];
+const featured = sorted.slice(1, 4);
+const recent = sorted.slice(4, 10);
 
 const categories = [
-  { slug: 'ingredients', label: 'Ingredients', desc: 'What actually works — and why' },
-  { slug: 'routines', label: 'Routines', desc: 'By skin type, age, and concern' },
-  { slug: 'versus', label: 'Versus', desc: 'Direct comparisons, no fluff' },
-  { slug: 'reviews', label: 'Reviews', desc: 'Honest takes on real products' },
-  { slug: 'beauty-business', label: 'Beauty Business', desc: 'Ecommerce, trends, brand strategy' },
-  { slug: 'beginner-guides', label: 'Start Here', desc: 'New to skincare? Begin here' },
+  { slug: 'ingredients', label: 'Ingredients' },
+  { slug: 'routines', label: 'Routines' },
+  { slug: 'versus', label: 'Versus' },
+  { slug: 'reviews', label: 'Reviews' },
+  { slug: 'beauty-business', label: 'Business' },
+  { slug: 'beginner-guides', label: 'Start Here' },
 ];
 ---
 
 <BaseLayout
   title="Glow Intel"
-  description="Honest skincare intel without the marketing speak. Ingredient deep dives, product reviews, and beauty business insights — all backed by science."
+  description="Honest skincare intel without the marketing speak. Ingredient deep dives, product reviews, and beauty business insights."
 >
-  <!-- Hero -->
-  <section class="max-w-5xl mx-auto px-4 sm:px-6 pt-16 pb-12">
-    <div class="max-w-2xl">
-      <p class="text-sm font-semibold uppercase tracking-widest mb-3" style="color: var(--color-accent)">
-        Skincare · Beauty · Ecommerce
-      </p>
-      <h1 class="text-4xl sm:text-5xl font-bold leading-tight text-[var(--color-text)] mb-5">
-        Skincare intel, zero fluff.
-      </h1>
-      <p class="text-lg text-[var(--color-muted)] leading-relaxed">
-        Ingredient science, honest product takes, and beauty ecommerce insights. No brand deals. No filler. Just what you actually need to know.
-      </p>
+  <!-- ─── MASTHEAD ──────────────────────────────────────── -->
+  <section class="border-b border-[var(--border)] py-3">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between">
+      <div class="flex gap-4">
+        {categories.slice(0, 4).map(cat => (
+          <a href={`/categories/${cat.slug}`} class="eyebrow no-underline hover:text-[var(--accent)] transition-colors hidden sm:block">
+            {cat.label}
+          </a>
+        ))}
+      </div>
+      <span class="eyebrow" style="color: var(--border)">
+        {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}
+      </span>
     </div>
   </section>
 
-  <!-- Featured post -->
-  {featuredPost && (
-    <section class="max-w-5xl mx-auto px-4 sm:px-6 pb-16">
-      <a href={`/blog/${featuredPost.id}`} class="no-underline group block">
-        <div class="grid md:grid-cols-2 gap-8 items-center p-6 sm:p-8 rounded-2xl bg-[var(--color-accent-light)]">
-          {featuredPost.data.heroImage && (
-            <div class="aspect-[4/3] rounded-xl overflow-hidden">
+  <!-- ─── HERO POST ────────────────────────────────────── -->
+  {hero && (
+    <section class="max-w-7xl mx-auto px-5 sm:px-8 pt-12 pb-10">
+      <a href={`/blog/${hero.id}`} class="no-underline group block">
+        <div class="grid lg:grid-cols-2 gap-8 lg:gap-14 items-center">
+
+          <!-- Image -->
+          <div class="aspect-[16/10] rounded-sm overflow-hidden img-zoom reveal" style="background: var(--bg-alt)">
+            {hero.data.heroImage ? (
               <img
-                src={featuredPost.data.heroImage}
-                alt={featuredPost.data.heroImageAlt || featuredPost.data.title}
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                src={hero.data.heroImage}
+                alt={hero.data.heroImageAlt || hero.data.title}
+                class="w-full h-full object-cover"
                 loading="eager"
               />
-            </div>
-          )}
-          <div class={featuredPost.data.heroImage ? '' : 'md:col-span-2'}>
-            <p class="text-xs font-semibold uppercase tracking-wider mb-2" style="color: var(--color-accent)">
-              Featured
+            ) : (
+              <div class="w-full h-full flex items-center justify-center">
+                <span class="text-6xl" style="color: var(--border)">✦</span>
+              </div>
+            )}
+          </div>
+
+          <!-- Text -->
+          <div class="reveal reveal-delay-2">
+            <div class="rule-accent mb-5"></div>
+            <span class="eyebrow accent block mb-3">
+              {hero.data.category.replace(/-/g, ' ')}
+            </span>
+            <h1 style="font-family: var(--serif); font-weight: 900; font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.1; letter-spacing: -0.01em; color: var(--text);" class="group-hover:text-[var(--accent)] transition-colors duration-300 mb-5">
+              {hero.data.title}
+            </h1>
+            <p class="text-base leading-relaxed mb-6" style="color: var(--text-muted); max-width: 46ch">
+              {hero.data.description}
             </p>
-            <h2 class="text-2xl sm:text-3xl font-bold text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors leading-tight mb-3">
-              {featuredPost.data.title}
-            </h2>
-            <p class="text-[var(--color-muted)] leading-relaxed mb-4">
-              {featuredPost.data.description}
-            </p>
-            <span class="text-sm font-medium" style="color: var(--color-accent)">
-              Read more →
+            <span class="eyebrow accent group-hover:tracking-widest transition-all duration-300">
+              Read the story →
             </span>
           </div>
         </div>
@@ -71,17 +83,19 @@ const categories = [
     </section>
   )}
 
-  <!-- Recent posts -->
-  {recentPosts.length > 0 && (
-    <section class="max-w-5xl mx-auto px-4 sm:px-6 pb-16">
-      <div class="flex items-center justify-between mb-8">
-        <h2 class="text-xl font-bold">Latest</h2>
-        <a href="/blog" class="text-sm font-medium no-underline hover:opacity-80" style="color: var(--color-accent)">
-          View all →
-        </a>
+  <div class="rule max-w-7xl mx-auto px-5 sm:px-8"></div>
+
+  <!-- ─── FEATURED GRID (3 cards) ─────────────────────── -->
+  {featured.length > 0 && (
+    <section class="max-w-7xl mx-auto px-5 sm:px-8 py-12">
+      <div class="flex items-baseline gap-4 mb-8 reveal">
+        <h2 class="eyebrow accent">Latest</h2>
+        <div class="flex-1 h-px" style="background: var(--border)"></div>
+        <a href="/blog" class="eyebrow no-underline hover:text-[var(--accent)] transition-colors">View all</a>
       </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {recentPosts.map(post => (
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+        {featured.map((post, i) => (
           <PostCard
             title={post.data.title}
             description={post.data.description}
@@ -90,27 +104,68 @@ const categories = [
             category={post.data.category}
             heroImage={post.data.heroImage}
             heroImageAlt={post.data.heroImageAlt}
+            variant="default"
           />
         ))}
       </div>
     </section>
   )}
 
-  <!-- Categories -->
-  <section class="max-w-5xl mx-auto px-4 sm:px-6 pb-20">
-    <h2 class="text-xl font-bold mb-8">Browse by Topic</h2>
-    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+  <div class="rule max-w-7xl mx-auto px-5 sm:px-8"></div>
+
+  <!-- ─── CATEGORIES STRIP ─────────────────────────────── -->
+  <section class="max-w-7xl mx-auto px-5 sm:px-8 py-10">
+    <div class="flex items-baseline gap-4 mb-6 reveal">
+      <h2 class="eyebrow">Browse by topic</h2>
+      <div class="flex-1 h-px" style="background: var(--border)"></div>
+    </div>
+    <div class="flex flex-wrap gap-3 reveal reveal-delay-1">
       {categories.map(cat => (
         <a
           href={`/categories/${cat.slug}`}
-          class="no-underline group p-5 rounded-xl border border-[var(--color-border)] hover:border-[var(--color-accent)] transition-colors"
+          class="no-underline px-4 py-2 border border-[var(--border)] rounded-full text-xs font-medium tracking-wide uppercase hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all duration-200"
+          style="color: var(--text-muted)"
         >
-          <h3 class="font-bold text-sm text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors mb-1">
-            {cat.label}
-          </h3>
-          <p class="text-xs text-[var(--color-muted)]">{cat.desc}</p>
+          {cat.label}
         </a>
       ))}
+    </div>
+  </section>
+
+  <!-- ─── MORE POSTS (horizontal list) ────────────────── -->
+  {recent.length > 0 && (
+    <section class="max-w-7xl mx-auto px-5 sm:px-8 py-10 border-t border-[var(--border)]">
+      <div class="flex items-baseline gap-4 mb-6 reveal">
+        <h2 class="eyebrow">More reads</h2>
+        <div class="flex-1 h-px" style="background: var(--border)"></div>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-1">
+        {recent.map(post => (
+          <PostCard
+            title={post.data.title}
+            description={post.data.description}
+            slug={post.id}
+            pubDate={post.data.pubDate}
+            category={post.data.category}
+            heroImage={post.data.heroImage}
+            heroImageAlt={post.data.heroImageAlt}
+            variant="horizontal"
+          />
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- ─── ABOUT STRIP ──────────────────────────────────── -->
+  <section class="border-t border-[var(--border)] mt-4">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-16 text-center reveal">
+      <div class="rule-accent mx-auto mb-6"></div>
+      <p style="font-family: var(--serif); font-size: clamp(1.25rem, 2.5vw, 1.625rem); font-weight: 400; line-height: 1.5; max-width: 52ch; margin: 0 auto; color: var(--text);">
+        Honest skincare intel — no brand deals, no sponsored reviews, no filler. Just what the science says and what actually works.
+      </p>
+      <a href="/about" class="eyebrow accent no-underline mt-6 inline-block hover:tracking-widest transition-all duration-300">
+        About this blog →
+      </a>
     </div>
   </section>
 </BaseLayout>

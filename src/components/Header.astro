@@ -1,70 +1,107 @@
 ---
 const navLinks = [
-  { href: '/blog', label: 'All Posts' },
   { href: '/categories/ingredients', label: 'Ingredients' },
   { href: '/categories/routines', label: 'Routines' },
   { href: '/categories/versus', label: 'Versus' },
-  { href: '/categories/beauty-business', label: 'Beauty Business' },
+  { href: '/categories/reviews', label: 'Reviews' },
+  { href: '/categories/beauty-business', label: 'Business' },
   { href: '/about', label: 'About' },
 ];
 
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="border-b border-[var(--color-border)] bg-[var(--color-bg)] sticky top-0 z-50 backdrop-blur-sm">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6">
-    <div class="flex items-center justify-between h-16">
-      <!-- Logo -->
-      <a href="/" class="flex items-center gap-2 no-underline">
-        <span class="font-bold text-xl tracking-tight text-[var(--color-text)]">
-          Glow<span style="color: var(--color-accent)">Intel</span>
-        </span>
-      </a>
+<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="border-b border-[var(--border)] bg-[var(--bg)]/95 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="flex items-center justify-between h-16">
 
-      <!-- Desktop nav -->
-      <nav class="hidden md:flex items-center gap-6">
-        {navLinks.map(link => (
-          <a
-            href={link.href}
-            class={`text-sm font-medium transition-colors hover:text-[var(--color-accent)] no-underline ${
-              currentPath.startsWith(link.href)
-                ? 'text-[var(--color-accent)]'
-                : 'text-[var(--color-muted)]'
-            }`}
-          >
-            {link.label}
-          </a>
-        ))}
-      </nav>
+        <!-- Left nav (desktop) -->
+        <nav class="hidden lg:flex items-center gap-7 flex-1">
+          {navLinks.slice(0, 3).map(link => (
+            <a
+              href={link.href}
+              class={`eyebrow transition-colors hover:text-[var(--accent)] no-underline ${
+                currentPath.startsWith(link.href) ? 'accent' : ''
+              }`}
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
 
-      <!-- Mobile menu button -->
-      <button
-        id="mobile-menu-btn"
-        class="md:hidden p-2 rounded-md text-[var(--color-muted)] hover:text-[var(--color-text)]"
-        aria-label="Toggle menu"
-      >
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" />
-        </svg>
-      </button>
+        <!-- Logo -->
+        <a href="/" class="no-underline flex-shrink-0 lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+          <span style="font-family: var(--serif); font-size: 1.5rem; font-weight: 900; letter-spacing: -0.01em; color: var(--text);">
+            GLOW<span style="color: var(--accent);">INTEL</span>
+          </span>
+        </a>
+
+        <!-- Right nav (desktop) -->
+        <nav class="hidden lg:flex items-center gap-7 flex-1 justify-end">
+          {navLinks.slice(3).map(link => (
+            <a
+              href={link.href}
+              class={`eyebrow transition-colors hover:text-[var(--accent)] no-underline ${
+                currentPath.startsWith(link.href) ? 'accent' : ''
+              }`}
+            >
+              {link.label}
+            </a>
+          ))}
+          <a href="/blog" class="eyebrow no-underline hover:text-[var(--accent)] transition-colors">All Posts</a>
+        </nav>
+
+        <!-- Mobile hamburger -->
+        <button
+          id="mobile-menu-btn"
+          class="lg:hidden p-2 -mr-2 text-[var(--text-muted)] hover:text-[var(--text)] transition-colors"
+          aria-label="Toggle menu"
+        >
+          <svg id="icon-open" width="20" height="14" viewBox="0 0 20 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <line x1="0" y1="1" x2="20" y2="1"/>
+            <line x1="0" y1="7" x2="20" y2="7"/>
+            <line x1="0" y1="13" x2="20" y2="13"/>
+          </svg>
+          <svg id="icon-close" class="hidden" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <line x1="1" y1="1" x2="15" y2="15"/>
+            <line x1="15" y1="1" x2="1" y2="15"/>
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 
-  <!-- Mobile nav -->
-  <div id="mobile-menu" class="hidden md:hidden border-t border-[var(--color-border)] px-4 py-3">
-    {navLinks.map(link => (
-      <a
-        href={link.href}
-        class="block py-2 text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)] no-underline"
-      >
-        {link.label}
-      </a>
-    ))}
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-[var(--bg)] border-b border-[var(--border)]">
+    <div class="max-w-7xl mx-auto px-5 py-6 flex flex-col gap-5">
+      {[...navLinks, { href: '/blog', label: 'All Posts' }].map(link => (
+        <a href={link.href} class="eyebrow text-[var(--text-muted)] hover:text-[var(--accent)] no-underline transition-colors">
+          {link.label}
+        </a>
+      ))}
+    </div>
   </div>
 </header>
+
+<!-- Spacer for fixed header -->
+<div class="h-16"></div>
 
 <script>
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
-  btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+  const iconOpen = document.getElementById('icon-open');
+  const iconClose = document.getElementById('icon-close');
+
+  btn?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden');
+    iconOpen?.classList.toggle('hidden', !isOpen);
+    iconClose?.classList.toggle('hidden', isOpen);
+  });
+
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    header?.classList.toggle('shadow-sm', window.scrollY > 8);
+  }, { passive: true });
 </script>
