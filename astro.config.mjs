@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://glowintel.com', // Update this when you buy your domain
+  site: 'https://glow-intel.angeepernicone.workers.dev', // Update when domain is bought
   vite: {
     plugins: [tailwindcss()]
   },

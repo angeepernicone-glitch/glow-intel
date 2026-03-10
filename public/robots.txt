@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://glowintel.com/sitemap-index.xml
+Sitemap: https://glow-intel.angeepernicone.workers.dev/sitemap-index.xml
