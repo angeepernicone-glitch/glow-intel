@@ -1,0 +1,65 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+
+export async function getStaticPaths() {
+  const categories = ['ingredients', 'routines', 'reviews', 'versus', 'beauty-business', 'beginner-guides'];
+
+  const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+
+  return categories.map(category => ({
+    params: { category },
+    props: {
+      posts: allPosts
+        .filter(p => p.data.category === category)
+        .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()),
+    },
+  }));
+}
+
+const { category } = Astro.params;
+const { posts } = Astro.props;
+
+const categoryLabels: Record<string, { label: string; desc: string }> = {
+  'ingredients': { label: 'Ingredients', desc: 'Deep dives into active ingredients — what they do, what the research says, and whether they are worth it.' },
+  'routines': { label: 'Routines', desc: 'Skincare routines for every skin type, age, and concern. Cut through the noise.' },
+  'reviews': { label: 'Reviews', desc: 'Honest product reviews. No sponsored posts, no brand deals.' },
+  'versus': { label: 'Versus', desc: 'Direct comparisons. Ingredient A vs Ingredient B. Which one wins for your skin.' },
+  'beauty-business': { label: 'Beauty Business', desc: 'The business side of beauty — ecommerce strategy, brand building, industry trends.' },
+  'beginner-guides': { label: 'Beginner Guides', desc: 'New to skincare? Start here. No jargon, no overwhelm.' },
+};
+
+const info = categoryLabels[category!] || { label: category, desc: '' };
+---
+
+<BaseLayout
+  title={info.label}
+  description={`${info.desc} — Glow Intel`}
+>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
+    <div class="mb-10">
+      <p class="text-xs font-semibold uppercase tracking-widest mb-2" style="color: var(--color-accent)">Topic</p>
+      <h1 class="text-3xl font-bold mb-2">{info.label}</h1>
+      <p class="text-[var(--color-muted)] max-w-xl">{info.desc}</p>
+    </div>
+
+    {posts.length === 0 ? (
+      <p class="text-[var(--color-muted)] text-center py-20">No posts in this category yet.</p>
+    ) : (
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {posts.map((post: any) => (
+          <PostCard
+            title={post.data.title}
+            description={post.data.description}
+            slug={post.id}
+            pubDate={post.data.pubDate}
+            category={post.data.category}
+            heroImage={post.data.heroImage}
+            heroImageAlt={post.data.heroImageAlt}
+          />
+        ))}
+      </div>
+    )}
+  </div>
+</BaseLayout>

@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout
+  title="All Posts"
+  description="Every skincare and beauty ecommerce article on Glow Intel. Ingredient breakdowns, product reviews, versus comparisons, and more."
+>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
+    <div class="mb-10">
+      <h1 class="text-3xl font-bold mb-2">All Posts</h1>
+      <p class="text-[var(--color-muted)]">{sortedPosts.length} articles and counting.</p>
+    </div>
+
+    {sortedPosts.length === 0 ? (
+      <p class="text-[var(--color-muted)] text-center py-20">No posts yet. Check back soon.</p>
+    ) : (
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {sortedPosts.map(post => (
+          <PostCard
+            title={post.data.title}
+            description={post.data.description}
+            slug={post.id}
+            pubDate={post.data.pubDate}
+            category={post.data.category}
+            heroImage={post.data.heroImage}
+            heroImageAlt={post.data.heroImageAlt}
+          />
+        ))}
+      </div>
+    )}
+  </div>
+</BaseLayout>

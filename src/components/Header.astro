@@ -1,0 +1,70 @@
+---
+const navLinks = [
+  { href: '/blog', label: 'All Posts' },
+  { href: '/categories/ingredients', label: 'Ingredients' },
+  { href: '/categories/routines', label: 'Routines' },
+  { href: '/categories/versus', label: 'Versus' },
+  { href: '/categories/beauty-business', label: 'Beauty Business' },
+  { href: '/about', label: 'About' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="border-b border-[var(--color-border)] bg-[var(--color-bg)] sticky top-0 z-50 backdrop-blur-sm">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 no-underline">
+        <span class="font-bold text-xl tracking-tight text-[var(--color-text)]">
+          Glow<span style="color: var(--color-accent)">Intel</span>
+        </span>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-6">
+        {navLinks.map(link => (
+          <a
+            href={link.href}
+            class={`text-sm font-medium transition-colors hover:text-[var(--color-accent)] no-underline ${
+              currentPath.startsWith(link.href)
+                ? 'text-[var(--color-accent)]'
+                : 'text-[var(--color-muted)]'
+            }`}
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- Mobile menu button -->
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden p-2 rounded-md text-[var(--color-muted)] hover:text-[var(--color-text)]"
+        aria-label="Toggle menu"
+      >
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile nav -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-[var(--color-border)] px-4 py-3">
+    {navLinks.map(link => (
+      <a
+        href={link.href}
+        class="block py-2 text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)] no-underline"
+      >
+        {link.label}
+      </a>
+    ))}
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+</script>

@@ -1,0 +1,57 @@
+---
+const year = new Date().getFullYear();
+const categories = [
+  { href: '/categories/ingredients', label: 'Ingredients' },
+  { href: '/categories/routines', label: 'Routines' },
+  { href: '/categories/reviews', label: 'Reviews' },
+  { href: '/categories/versus', label: 'Versus' },
+  { href: '/categories/beauty-business', label: 'Beauty Business' },
+  { href: '/categories/beginner-guides', label: 'Beginner Guides' },
+];
+---
+
+<footer class="border-t border-[var(--color-border)] mt-20 py-12 px-4">
+  <div class="max-w-5xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <!-- Brand -->
+      <div>
+        <a href="/" class="font-bold text-lg no-underline">
+          Glow<span style="color: var(--color-accent)">Intel</span>
+        </a>
+        <p class="text-sm text-[var(--color-muted)] mt-2 leading-relaxed">
+          Honest skincare info without the fluff. No brand deals, no paid reviews — just what actually works.
+        </p>
+      </div>
+
+      <!-- Categories -->
+      <div>
+        <h3 class="text-sm font-semibold uppercase tracking-wider text-[var(--color-muted)] mb-3">Topics</h3>
+        <ul class="space-y-1">
+          {categories.map(cat => (
+            <li>
+              <a href={cat.href} class="text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)] no-underline transition-colors">
+                {cat.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Links -->
+      <div>
+        <h3 class="text-sm font-semibold uppercase tracking-wider text-[var(--color-muted)] mb-3">More</h3>
+        <ul class="space-y-1">
+          <li><a href="/about" class="text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)] no-underline transition-colors">About</a></li>
+          <li><a href="/rss.xml" class="text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)] no-underline transition-colors">RSS Feed</a></li>
+          <li><a href="/sitemap-index.xml" class="text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)] no-underline transition-colors">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-[var(--color-border)] pt-6 text-center">
+      <p class="text-xs text-[var(--color-muted)]">
+        &copy; {year} Glow Intel. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
