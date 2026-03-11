@@ -4,8 +4,8 @@ description: "Skincare routine order simplified: thinnest to thickest. The right
 pubDate: 2026-03-10
 category: "routines"
 tags: ["skincare routine order", "layering", "morning routine", "night routine", "skincare basics"]
-heroImage: "https://post.healthline.com/wp-content/uploads/2021/12/1774644-What-Order-Should-I-Follow-for-My-Skin-Care-Routine-1296x728-Header.jpg"
-heroImageAlt: "Skincare routine products in order of application"
+heroImage: "/images/blog/skincare-routine-order-morning-night.jpg"
+heroImageAlt: "Skin Care Routine: Morning vs. Night Steps"
 draft: false
 ---
 

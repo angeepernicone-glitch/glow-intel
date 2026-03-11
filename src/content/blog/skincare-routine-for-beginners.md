@@ -4,8 +4,8 @@ description: "A beginner skincare routine only needs 4 products. Here's the exac
 pubDate: 2026-03-10
 category: "beginner-guides"
 tags: ["skincare routine", "beginners", "basics", "cleansing", "moisturizer", "SPF"]
-heroImage: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=1200&q=80"
-heroImageAlt: "Simple skincare products arranged on a clean surface"
+heroImage: "/images/blog/skincare-routine-for-beginners.jpg"
+heroImageAlt: "The Ultimate Skin-Care Routine Guide | SELF"
 draft: false
 ---
 

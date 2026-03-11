@@ -236,17 +236,58 @@ async function fetchUnsplashImage(keyword, category) {
   };
 }
 
-// ─── 6. Hero image: Google Images first, Unsplash fallback ──────────────────
-async function fetchHeroImage(keyword, category) {
+// ─── 6c. Download image to local public/images/blog/ ────────────────────────
+async function downloadImage(url, slug) {
+  const imgDir = path.join(ROOT, 'public', 'images', 'blog');
+  if (!fs.existsSync(imgDir)) fs.mkdirSync(imgDir, { recursive: true });
+
+  const ext = url.match(/\.(jpg|jpeg|png|webp)/i)?.[1] || 'jpg';
+  const filename = `${slug}.${ext}`;
+  const filepath = path.join(imgDir, filename);
+
+  try {
+    const res = await fetch(url, {
+      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; GlowIntel/1.0)' },
+      redirect: 'follow',
+    });
+    if (!res.ok) return null;
+
+    const buffer = Buffer.from(await res.arrayBuffer());
+    // Skip if too small (likely a broken/blocked image)
+    if (buffer.length < 5000) return null;
+
+    fs.writeFileSync(filepath, buffer);
+    console.log(`  ✓ Downloaded: public/images/blog/${filename} (${(buffer.length / 1024).toFixed(0)}KB)`);
+    return `/images/blog/${filename}`;
+  } catch (e) {
+    console.warn(`    Download failed: ${e.message}`);
+    return null;
+  }
+}
+
+// ─── 6. Hero image: Google → download local, Unsplash fallback ──────────────
+async function fetchHeroImage(keyword, category, slug) {
   // Try Google Images first (best for specific products/brands)
   const googleImg = await fetchGoogleImage(keyword, category);
   if (googleImg) {
-    console.log(`  ✓ Image from Google: ${googleImg.url.slice(0, 60)}...`);
-    return googleImg;
+    // Download to local to avoid hotlink blocking
+    const localPath = await downloadImage(googleImg.url, slug);
+    if (localPath) {
+      return { url: localPath, alt: googleImg.alt };
+    }
+    console.log('    Google image download failed, trying Unsplash...');
   }
-  // Fallback to Unsplash (better for generic/lifestyle)
+
+  // Fallback to Unsplash (reliable direct URLs, no download needed)
   console.log('  → Falling back to Unsplash...');
-  return fetchUnsplashImage(keyword, category);
+  const unsplashImg = await fetchUnsplashImage(keyword, category);
+  // Also download Unsplash to local for consistency
+  const localPath = await downloadImage(unsplashImg.url, slug);
+  if (localPath) {
+    return { url: localPath, alt: unsplashImg.alt };
+  }
+  // Last resort: use Unsplash URL directly (always works)
+  return unsplashImg;
 }
 
 // ─── 7. Generate post with Claude ────────────────────────────────────────────
@@ -257,28 +298,25 @@ async function generatePost({ keyword, serpResults, paaQuestions, newsAngle, aut
 
   const voicePath = path.join(ROOT, 'voice-bank.md');
   const voiceContext = fs.existsSync(voicePath)
-    ? fs.readFileSync(voicePath, 'utf-8').slice(0, 3000)
+    ? fs.readFileSync(voicePath, 'utf-8').slice(0, 1500)
     : '';
 
-  const internalLinks = existingSlugs.slice(0, 6).map(s => `/blog/${s}`).join('\n');
+  const internalLinks = existingSlugs.slice(0, 4).map(s => `/blog/${s}`).join('\n');
 
   const serpContext = serpResults.length > 0
-    ? `TOP 5 GOOGLE RESULTS (what's already ranking — cover and SURPASS these):
-${serpResults.map(r => `- [${r.position}] ${r.title}\n  URL: ${r.url}\n  Snippet: ${r.snippet}`).join('\n\n')}`
+    ? `TOP GOOGLE RESULTS (cover and surpass these):\n${serpResults.slice(0, 3).map(r => `- ${r.title}`).join('\n')}`
     : '';
 
   const paaContext = paaQuestions.length > 0
-    ? `PEOPLE ALSO ASK (use these as H2s where relevant):
-${paaQuestions.map(q => `- ${q}`).join('\n')}`
+    ? `PEOPLE ALSO ASK:\n${paaQuestions.slice(0, 4).map(q => `- ${q}`).join('\n')}`
     : '';
 
   const newsContext = newsAngle
-    ? `TRENDING NEWS ANGLE (incorporate if relevant, don't force it):\n${newsAngle}`
+    ? `NEWS: ${newsAngle.split('\n')[0]}`
     : '';
 
   const autocompleteContext = autocomplete.length > 0
-    ? `LONG-TAIL VARIANTS (work these in naturally where relevant):
-${autocomplete.slice(0, 5).join(', ')}`
+    ? `VARIANTS: ${autocomplete.slice(0, 3).join(', ')}`
     : '';
 
   const systemPrompt = `You are a skincare content writer for Glow Intel — a science-first, opinionated skincare and beauty ecommerce blog.
@@ -334,7 +372,7 @@ Instructions:
   console.log('  → Claude API writing post...');
   const message = await client.messages.create({
     model: 'claude-sonnet-4-6',
-    max_tokens: 3000,
+    max_tokens: 2000,
     system: systemPrompt,
     messages: [{ role: 'user', content: userPrompt }],
   });
@@ -576,7 +614,7 @@ async function main() {
   }
 
   console.log('\nStep 2: Image\n');
-  const image = await fetchHeroImage(target.keyword, target.category);
+  const image = await fetchHeroImage(target.keyword, target.category, target.slug);
 
   console.log('\nStep 3: Writing\n');
   const existingSlugs = fs.readdirSync(path.join(ROOT, 'src', 'content', 'blog'))
