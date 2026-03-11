@@ -683,7 +683,10 @@ async function generatePost({ keyword, serpResults, paaQuestions, newsAngle, aut
     ? fs.readFileSync(voicePath, 'utf-8')
     : '';
 
-  const internalLinks = existingSlugs.slice(0, 6).map(s => `/blog/${s}`).join('\n');
+  // Support both old string[] and new {slug, title}[] format
+  const internalLinks = existingSlugs.slice(0, 12).map(s =>
+    typeof s === 'string' ? `/blog/${s}` : `/blog/${s.slug} — "${s.title}"`
+  ).join('\n');
 
   const serpContext = serpResults.length > 0
     ? `SERP:\n${serpResults.slice(0, 5).map(r => `- ${r.title}`).join('\n')}`
@@ -979,9 +982,16 @@ async function main() {
   const image = await fetchHeroImage(target.keyword, target.category, target.slug);
 
   console.log('\nStep 3: Writing\n');
-  const existingSlugs = fs.readdirSync(path.join(ROOT, 'src', 'content', 'blog'))
+  // Build slug+title list so Claude picks contextually relevant internal links
+  const blogDir = path.join(ROOT, 'src', 'content', 'blog');
+  const existingSlugs = fs.readdirSync(blogDir)
     .filter(f => f.endsWith('.md'))
-    .map(f => f.replace('.md', ''));
+    .map(f => {
+      const slug = f.replace('.md', '');
+      const content = fs.readFileSync(path.join(blogDir, f), 'utf-8');
+      const titleMatch = content.match(/^title:\s*"(.+)"/m);
+      return { slug, title: titleMatch ? titleMatch[1] : slug };
+    });
 
   const { title, tags, body } = await generatePost({
     keyword: target.keyword,
@@ -996,15 +1006,12 @@ async function main() {
   const cleanContent = scrub(body);
 
   console.log('\nStep 4: Quality gate\n');
-  const existingSlugsList = fs.readdirSync(path.join(ROOT, 'src', 'content', 'blog'))
-    .filter(f => f.endsWith('.md'))
-    .map(f => f.replace('.md', ''));
   const { content: validatedContent, issues } = qualityGate(cleanContent, {
     keyword: target.keyword,
     category: target.category,
     title,
     tags,
-    existingSlugs: existingSlugsList,
+    existingSlugs: existingSlugs.map(s => typeof s === 'string' ? s : s.slug),
   });
 
   const description  = extractDescription(validatedContent);

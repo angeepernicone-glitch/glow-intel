@@ -330,7 +330,7 @@ const categorySections = ['ingredients', 'beauty-business', 'routines']
           <h2 class="section-title">{section.label}</h2>
           <span class="text-sm" style="color: var(--text-muted); font-family: var(--sans);">{section.description}</span>
           <div class="flex-1 h-px" style="background: var(--border)"></div>
-          <a href={`/categories/${section.slug}`} class="cta-pill" style="flex-shrink: 0;">More</a>
+          <a href={`/categories/${section.slug}`} class="cta-pill" style="flex-shrink: 0;" aria-label={`More ${section.label} articles`}>More {section.label}</a>
         </div>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
