@@ -3,20 +3,23 @@
  * Glow Intel — Autonomous Post Generator
  *
  * Pipeline per post:
+ *   0. Discovery brain   → scan news/trends, find fresh topics, balance categories
  *   1. Serper autocomplete  → find long-tail variants, add best to queue
  *   2. Serper search        → top 5 results structure (H2s, angle, word count)
  *   3. Serper people_also_ask → real user questions → H2 ideas
  *   4. Serper news          → trending angle if relevant
- *   5. Unsplash             → hero image
+ *   5. Google Images/Unsplash → hero image (downloaded locally)
  *   6. Claude API           → write post using all context + voice bank
  *   7. AI slop scrub        → clean robotic patterns
- *   8. Save .md + update queue
+ *   8. Quality gate         → validate SEO, links, structure
+ *   9. Save .md + update queue
  *
  * Usage:
- *   node content-pipeline/generate-post.js              # next in queue
+ *   node content-pipeline/generate-post.js              # next in queue (with discovery)
  *   node content-pipeline/generate-post.js --slug foo   # specific slug
  *   node content-pipeline/generate-post.js --dry-run    # no file write
  *   node content-pipeline/generate-post.js --research-only  # just print research
+ *   node content-pipeline/generate-post.js --discover-only  # just run discovery, don't write
  */
 
 import Anthropic from '@anthropic-ai/sdk';
@@ -42,25 +45,16 @@ loadEnv();
 
 // ─── Args ────────────────────────────────────────────────────────────────────
 const args = process.argv.slice(2);
-const dryRun       = args.includes('--dry-run');
-const researchOnly = args.includes('--research-only');
-const slugArg      = args.includes('--slug') ? args[args.indexOf('--slug') + 1] : null;
+const dryRun        = args.includes('--dry-run');
+const researchOnly  = args.includes('--research-only');
+const discoverOnly  = args.includes('--discover-only');
+const slugArg       = args.includes('--slug') ? args[args.indexOf('--slug') + 1] : null;
 
 // ─── Queue ───────────────────────────────────────────────────────────────────
 const queuePath = path.join(__dirname, 'keyword-queue.json');
 const queue = JSON.parse(fs.readFileSync(queuePath, 'utf-8'));
 
-let target;
-if (slugArg) {
-  target = queue.queue.find(k => k.slug === slugArg);
-  if (!target) { console.error(`Slug "${slugArg}" not found in queue`); process.exit(1); }
-} else {
-  const high = queue.queue.filter(k => k.priority === 'high' && !queue.published.includes(k.slug));
-  target = high[0] || queue.queue.find(k => !queue.published.includes(k.slug));
-  if (!target) { console.log('Queue empty — all keywords published!'); process.exit(0); }
-}
-
-console.log(`\n🔍 Keyword: "${target.keyword}"\n`);
+let target; // set in main() after discovery
 
 // ─── Serper helper ───────────────────────────────────────────────────────────
 async function serper(endpoint, payload) {
@@ -77,9 +71,363 @@ async function serper(endpoint, payload) {
   return res.json();
 }
 
+// ─── Discovery Brain ─────────────────────────────────────────────────────────
+// Scans real-time news & trends across rotating lenses, finds fresh topics
+// that the queue doesn't already cover, and injects them with high priority.
+
+async function runDiscovery() {
+  console.log('Step 0: Discovery Brain\n');
+
+  if (!process.env.ANTHROPIC_API_KEY) {
+    console.log('  No ANTHROPIC_API_KEY — skipping discovery');
+    return 0;
+  }
+
+  // 1. Build context: what do we already have?
+  const categoryCounts = {};
+  for (const item of (queue.publishedItems || [])) {
+    categoryCounts[item.category] = (categoryCounts[item.category] || 0) + 1;
+  }
+  if (Object.keys(categoryCounts).length === 0) {
+    const blogDir = path.join(ROOT, 'src', 'content', 'blog');
+    for (const file of fs.readdirSync(blogDir).filter(f => f.endsWith('.md'))) {
+      const content = fs.readFileSync(path.join(blogDir, file), 'utf-8');
+      const catMatch = content.match(/^category:\s*"?([^"\n]+)"?/m);
+      if (catMatch) categoryCounts[catMatch[1]] = (categoryCounts[catMatch[1]] || 0) + 1;
+    }
+  }
+
+  const allCategories = ['ingredients', 'routines', 'reviews', 'versus', 'beauty-business', 'beginner-guides'];
+  const balanceStr = allCategories.map(c => `${c}: ${categoryCounts[c] || 0}`).join(', ');
+  const recentPosts = queue.published.slice(-8).join(', ');
+  const today = new Date();
+  const dayName = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][today.getDay()];
+  const monthName = today.toLocaleString('en', { month: 'long' });
+
+  console.log('  Category balance:', balanceStr);
+
+  // 2. Ask Claude: "What should we investigate today?"
+  console.log('  -> Claude thinking about what to research today...\n');
+
+  const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+
+  let searchQueries;
+  try {
+    const thinkMsg = await client.messages.create({
+      model: 'claude-sonnet-4-6',
+      max_tokens: 350,
+      system: `You are the editorial brain of Glow Intel, a skincare & beauty ecommerce blog. Your job: decide what to research TODAY. Be curious, creative, timely.
+
+Think like a real editor: "Today I feel like checking if any new DTC skincare brands launched this week" or "Let me see if there's drama in the beauty industry" or "I wonder what's trending on TikTok skincare right now" or "Time to find a Shopify beauty store to review".
+
+You have diverse interests:
+- New brand/product launches, store openings
+- Skincare drama, controversies, recalls
+- Trending ingredients on TikTok/Reddit
+- Beauty ecommerce strategies, marketing campaigns
+- New dermatology research or studies
+- Celebrity/influencer skincare brands (honest take)
+- Viral products, bestsellers, overhyped products
+- Store/website reviews (UX, conversion, design)
+
+Categories: ingredients, routines, reviews, versus, beauty-business, beginner-guides
+
+Respond ONLY with JSON array of 3 Google News search queries, no other text:
+[{"query":"your search query","category":"category","mood":"1 sentence explaining your curiosity"}]`,
+      messages: [{ role: 'user', content: `TODAY: ${dayName}, ${monthName} ${today.getDate()}, ${today.getFullYear()}
+
+BLOG BALANCE: ${balanceStr}
+RECENT POSTS: ${recentPosts}
+
+What are you curious about today? Pick 3 different angles to research. Make the queries specific enough to find real news. JSON only.` }],
+    });
+
+    const raw = thinkMsg.content[0].text.trim();
+    const jsonStr = raw.replace(/```json?\n?/g, '').replace(/```/g, '').trim();
+    searchQueries = JSON.parse(jsonStr);
+
+    if (!Array.isArray(searchQueries)) throw new Error('Not an array');
+  } catch (e) {
+    console.warn('    Claude thinking failed:', e.message);
+    // Fallback: basic news queries
+    searchQueries = [
+      { query: 'new skincare brand launch 2026', category: 'beauty-business', mood: 'Fallback: checking new brands' },
+      { query: 'skincare ingredient trending tiktok', category: 'ingredients', mood: 'Fallback: trending ingredients' },
+      { query: 'beauty ecommerce store review 2026', category: 'beauty-business', mood: 'Fallback: store reviews' },
+    ];
+  }
+
+  // Log Claude's thinking
+  for (const sq of searchQueries) {
+    console.log(`  [${sq.category}] "${sq.query}"`);
+    console.log(`    Mood: ${sq.mood}\n`);
+  }
+
+  // 3. Search news for each query in parallel
+  const allSlugs = new Set([...queue.published, ...queue.queue.map(k => k.slug)]);
+  let discovered = 0;
+
+  const searchResults = await Promise.all(
+    searchQueries.slice(0, 3).map(async (sq) => {
+      try {
+        const data = await serper('news', sq.query);
+        return { sq, news: (data.news || []).slice(0, 5) };
+      } catch {
+        return { sq, news: [] };
+      }
+    })
+  );
+
+  // Collect all headlines
+  const allHeadlines = [];
+  for (const { sq, news } of searchResults) {
+    for (const item of news) {
+      if ((item.title || '').length >= 20) {
+        allHeadlines.push({
+          headline: item.title,
+          source: item.source || '',
+          snippet: item.snippet || '',
+          category: sq.category,
+        });
+      }
+    }
+  }
+
+  if (allHeadlines.length > 0) {
+    // Claude evaluates headlines and generates SEO keywords
+    const evaluated = await evaluateHeadlines(allHeadlines, [...allSlugs]);
+
+    for (const topic of evaluated) {
+      const slug = topic.keyword.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60);
+
+      if (allSlugs.has(slug)) continue;
+      if (isDuplicate(topic.keyword, allSlugs)) continue;
+
+      queue.queue.unshift({
+        keyword: topic.keyword,
+        slug,
+        category: topic.category,
+        intent: topic.intent || 'informational',
+        priority: 'high',
+        notes: topic.notes,
+        source: 'discovery',
+        discoveredAt: new Date().toISOString().split('T')[0],
+      });
+      allSlugs.add(slug);
+      discovered++;
+      console.log(`  + Discovered: "${topic.keyword}" [${topic.category}]`);
+    }
+  }
+
+  if (discovered === 0) {
+    console.log('  No new topics discovered today (all covered or no relevant news)');
+  } else {
+    console.log(`\n  Found ${discovered} fresh topic(s)`);
+  }
+
+  // Save queue with discoveries
+  queue.meta.lastDiscovery = new Date().toISOString().split('T')[0];
+  fs.writeFileSync(queuePath, JSON.stringify(queue, null, 2));
+
+  return discovered;
+}
+
+// ─── Claude evaluates headlines → picks best topics + generates SEO keywords ─
+async function evaluateHeadlines(headlines, existingSlugs) {
+  if (!process.env.ANTHROPIC_API_KEY) return [];
+
+  const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+
+  const headlineList = headlines.slice(0, 12).map((h, i) =>
+    `${i + 1}. [${h.category}] "${h.headline}" (${h.source})`
+  ).join('\n');
+
+  const alreadyCovered = existingSlugs.slice(0, 20).join(', ');
+
+  console.log('  -> Claude evaluating headlines...');
+
+  try {
+    const message = await client.messages.create({
+      model: 'claude-sonnet-4-6',
+      max_tokens: 400,
+      system: `You are a skincare blog editor. Pick the 2-3 MOST interesting headlines for a blog post. Skip anything generic or already covered. Generate an SEO-friendly keyword (3-7 words) and assign a category.
+
+Categories: ingredients, routines, reviews, versus, beauty-business, beginner-guides
+
+Respond ONLY with JSON array, no other text:
+[{"keyword":"exact seo keyword","category":"category","intent":"informational or commercial","notes":"1-line editorial angle"}]`,
+      messages: [{ role: 'user', content: `HEADLINES:\n${headlineList}\n\nALREADY COVERED (skip similar): ${alreadyCovered}\n\nPick 2-3 best. JSON only.` }],
+    });
+
+    const raw = message.content[0].text.trim();
+    // Extract JSON from response (handle markdown code blocks)
+    const jsonStr = raw.replace(/```json?\n?/g, '').replace(/```/g, '').trim();
+    const topics = JSON.parse(jsonStr);
+
+    if (Array.isArray(topics)) {
+      return topics.filter(t => t.keyword && t.category).slice(0, 3);
+    }
+  } catch (e) {
+    console.warn('    Claude evaluation failed:', e.message);
+    // Fallback: use rule-based extraction
+    return fallbackExtract(headlines, existingSlugs);
+  }
+  return [];
+}
+
+// Fallback if Claude evaluation fails
+function fallbackExtract(headlines, existingSlugs) {
+  const results = [];
+  const slugSet = new Set(existingSlugs);
+
+  for (const h of headlines.slice(0, 6)) {
+    const kw = extractKeywordFromHeadline(h.headline, h.category);
+    if (!kw) continue;
+    const slug = kw.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    if (slugSet.has(slug) || isDuplicate(kw, slugSet)) continue;
+    results.push({
+      keyword: kw,
+      category: h.category,
+      intent: 'informational',
+      notes: `Source: ${h.source}.`,
+    });
+    slugSet.add(slug);
+    if (results.length >= 2) break;
+  }
+  return results;
+}
+
+// Extract a clean, searchable keyword from a news headline
+function extractKeywordFromHeadline(headline, lensType) {
+  // Clean up the headline
+  let kw = headline
+    .replace(/\|.*$/, '')        // remove "| Source" suffixes
+    .replace(/\[.*?\]/g, '')     // remove [brackets]
+    .replace(/[""'']/g, '')      // remove smart quotes
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  // For brand launches, try to extract the brand name + "skincare review"
+  if (lensType === 'brand-launch' || lensType === 'celeb-brand') {
+    // Look for proper nouns (capitalized words that aren't common words)
+    const commonWords = new Set(['the', 'a', 'an', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by',
+      'is', 'are', 'was', 'were', 'new', 'best', 'top', 'how', 'why', 'what', 'this', 'that',
+      'from', 'its', 'your', 'our', 'has', 'have', 'just', 'now', 'and', 'but', 'or', 'not']);
+    const words = kw.split(' ');
+    const brandWords = words.filter(w => w.length > 2 && /^[A-Z]/.test(w) && !commonWords.has(w.toLowerCase()));
+    if (brandWords.length >= 1 && brandWords.length <= 3) {
+      return `${brandWords.join(' ')} skincare brand review`;
+    }
+  }
+
+  // For product launches, try "product name review"
+  if (lensType === 'product-launch' || lensType === 'bestseller') {
+    if (kw.length > 15 && kw.length < 80) {
+      // Trim to first meaningful phrase
+      const trimmed = kw.split(/[:\-–—]/).filter(p => p.trim().length > 10)[0]?.trim();
+      if (trimmed && trimmed.length < 60) {
+        return `${trimmed} review`;
+      }
+    }
+  }
+
+  // For trends, use the headline more directly
+  if (lensType === 'trending-ingredient' || lensType === 'routine-trend') {
+    if (kw.length > 15 && kw.length < 70) {
+      return kw;
+    }
+  }
+
+  // For business/marketing, summarize
+  if (lensType === 'ecommerce' || lensType === 'marketing' || lensType === 'store-review') {
+    const trimmed = kw.split(/[:\-–—]/).filter(p => p.trim().length > 10)[0]?.trim();
+    if (trimmed && trimmed.length < 60) {
+      return trimmed;
+    }
+  }
+
+  // For research/science
+  if (lensType === 'new-research') {
+    if (kw.length > 15 && kw.length < 80) {
+      return kw;
+    }
+  }
+
+  // For industry news/controversy
+  if (lensType === 'industry-news') {
+    const trimmed = kw.split(/[:\-–—]/).filter(p => p.trim().length > 10)[0]?.trim();
+    if (trimmed) return trimmed;
+  }
+
+  // Default: if keyword is reasonable length, use it
+  if (kw.length > 15 && kw.length < 70) {
+    return kw;
+  }
+
+  return null;
+}
+
+// Check if a keyword is too similar to something already in the queue
+function isDuplicate(keyword, existingSlugs) {
+  const kwWords = new Set(keyword.toLowerCase().split(/\s+/).filter(w => w.length > 3));
+  for (const slug of existingSlugs) {
+    const slugWords = new Set(slug.split('-').filter(w => w.length > 3));
+    // If 60%+ of keyword words appear in an existing slug, skip it
+    let overlap = 0;
+    for (const w of kwWords) {
+      if (slugWords.has(w)) overlap++;
+    }
+    if (kwWords.size > 0 && overlap / kwWords.size > 0.6) return true;
+  }
+  return false;
+}
+
+// ─── Target selection (smart) ────────────────────────────────────────────────
+function selectTarget() {
+  if (slugArg) {
+    const found = queue.queue.find(k => k.slug === slugArg);
+    if (!found) { console.error(`Slug "${slugArg}" not found in queue`); process.exit(1); }
+    return found;
+  }
+
+  // Priority order:
+  // 1. Fresh discoveries (today or yesterday) — these are timely
+  const today = new Date().toISOString().split('T')[0];
+  const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+  const fresh = queue.queue.filter(k =>
+    k.source === 'discovery' &&
+    (k.discoveredAt === today || k.discoveredAt === yesterday) &&
+    !queue.published.includes(k.slug)
+  );
+  if (fresh.length > 0) {
+    console.log(`  Picking fresh discovery: "${fresh[0].keyword}"`);
+    return fresh[0];
+  }
+
+  // 2. High priority items, but prefer underrepresented categories
+  const categoryCounts = {};
+  for (const slug of queue.published) {
+    const item = queue.queue.find(k => k.slug === slug);
+    const cat = item?.category || 'unknown';
+    categoryCounts[cat] = (categoryCounts[cat] || 0) + 1;
+  }
+
+  const high = queue.queue.filter(k => k.priority === 'high' && !queue.published.includes(k.slug));
+  if (high.length > 0) {
+    // Sort by category scarcity (fewest published first)
+    high.sort((a, b) => (categoryCounts[a.category] || 0) - (categoryCounts[b.category] || 0));
+    return high[0];
+  }
+
+  // 3. Any remaining
+  const remaining = queue.queue.find(k => !queue.published.includes(k.slug));
+  if (!remaining) { console.log('Queue empty!'); process.exit(0); }
+  return remaining;
+}
+
 // ─── 1. Autocomplete → discover long-tail variants ──────────────────────────
 async function getAutocomplete(keyword) {
-  console.log('  → Serper autocomplete...');
+  console.log('  -> Serper autocomplete...');
   try {
     const data = await serper('autocomplete', keyword);
     return (data.suggestions || []).map(s => s.value || s).filter(Boolean).slice(0, 10);
@@ -91,7 +439,7 @@ async function getAutocomplete(keyword) {
 
 // ─── 2. SERP top results → structure analysis ────────────────────────────────
 async function getSerpStructure(keyword) {
-  console.log('  → Serper search (top results)...');
+  console.log('  -> Serper search (top results)...');
   try {
     const data = await serper('search', keyword);
     const organic = (data.organic || []).slice(0, 5);
@@ -109,7 +457,7 @@ async function getSerpStructure(keyword) {
 
 // ─── 3. People Also Ask → real user questions ────────────────────────────────
 async function getPeopleAlsoAsk(keyword) {
-  console.log('  → Serper people also ask...');
+  console.log('  -> Serper people also ask...');
   try {
     const data = await serper('search', keyword);
     return (data.peopleAlsoAsk || []).map(q => q.question).slice(0, 6);
@@ -131,7 +479,7 @@ async function getRelatedSearches(keyword) {
 
 // ─── 5. News → trending angle ────────────────────────────────────────────────
 async function getNewsAngle(keyword) {
-  console.log('  → Serper news...');
+  console.log('  -> Serper news...');
   try {
     const data = await serper('news', `${keyword} skincare 2026`);
     const items = (data.news || []).slice(0, 3);
@@ -146,7 +494,6 @@ async function fetchGoogleImage(keyword, category) {
   const key = process.env.SERPER_API_KEY;
   if (!key) return null;
 
-  // Build a specific query based on category
   const queries = {
     'reviews': `${keyword} product`,
     'versus': `${keyword} skincare product`,
@@ -158,7 +505,7 @@ async function fetchGoogleImage(keyword, category) {
   const query = queries[category] || `${keyword} skincare`;
 
   try {
-    console.log('  → Serper images (Google)...');
+    console.log('  -> Serper images (Google)...');
     const res = await fetch('https://google.serper.dev/images', {
       method: 'POST',
       headers: { 'X-API-KEY': key, 'Content-Type': 'application/json' },
@@ -167,7 +514,6 @@ async function fetchGoogleImage(keyword, category) {
     if (!res.ok) return null;
     const data = await res.json();
 
-    // Filter: skip tiny images, icons, and irrelevant results
     const good = (data.images || []).find(img =>
       img.imageUrl &&
       img.imageWidth >= 600 &&
@@ -253,11 +599,10 @@ async function downloadImage(url, slug) {
     if (!res.ok) return null;
 
     const buffer = Buffer.from(await res.arrayBuffer());
-    // Skip if too small (likely a broken/blocked image)
     if (buffer.length < 5000) return null;
 
     fs.writeFileSync(filepath, buffer);
-    console.log(`  ✓ Downloaded: public/images/blog/${filename} (${(buffer.length / 1024).toFixed(0)}KB)`);
+    console.log(`  + Downloaded: public/images/blog/${filename} (${(buffer.length / 1024).toFixed(0)}KB)`);
     return `/images/blog/${filename}`;
   } catch (e) {
     console.warn(`    Download failed: ${e.message}`);
@@ -267,10 +612,8 @@ async function downloadImage(url, slug) {
 
 // ─── 6. Hero image: Google → download local, Unsplash fallback ──────────────
 async function fetchHeroImage(keyword, category, slug) {
-  // Try Google Images first (best for specific products/brands)
   const googleImg = await fetchGoogleImage(keyword, category);
   if (googleImg) {
-    // Download to local to avoid hotlink blocking
     const localPath = await downloadImage(googleImg.url, slug);
     if (localPath) {
       return { url: localPath, alt: googleImg.alt };
@@ -278,15 +621,12 @@ async function fetchHeroImage(keyword, category, slug) {
     console.log('    Google image download failed, trying Unsplash...');
   }
 
-  // Fallback to Unsplash (reliable direct URLs, no download needed)
-  console.log('  → Falling back to Unsplash...');
+  console.log('  -> Falling back to Unsplash...');
   const unsplashImg = await fetchUnsplashImage(keyword, category);
-  // Also download Unsplash to local for consistency
   const localPath = await downloadImage(unsplashImg.url, slug);
   if (localPath) {
     return { url: localPath, alt: unsplashImg.alt };
   }
-  // Last resort: use Unsplash URL directly (always works)
   return unsplashImg;
 }
 
@@ -298,17 +638,17 @@ async function generatePost({ keyword, serpResults, paaQuestions, newsAngle, aut
 
   const voicePath = path.join(ROOT, 'voice-bank.md');
   const voiceContext = fs.existsSync(voicePath)
-    ? fs.readFileSync(voicePath, 'utf-8').slice(0, 1500)
+    ? fs.readFileSync(voicePath, 'utf-8')
     : '';
 
-  const internalLinks = existingSlugs.slice(0, 4).map(s => `/blog/${s}`).join('\n');
+  const internalLinks = existingSlugs.slice(0, 6).map(s => `/blog/${s}`).join('\n');
 
   const serpContext = serpResults.length > 0
-    ? `TOP GOOGLE RESULTS (cover and surpass these):\n${serpResults.slice(0, 3).map(r => `- ${r.title}`).join('\n')}`
+    ? `SERP:\n${serpResults.slice(0, 5).map(r => `- ${r.title}`).join('\n')}`
     : '';
 
   const paaContext = paaQuestions.length > 0
-    ? `PEOPLE ALSO ASK:\n${paaQuestions.slice(0, 4).map(q => `- ${q}`).join('\n')}`
+    ? `PAA:\n${paaQuestions.slice(0, 6).map(q => `- ${q}`).join('\n')}`
     : '';
 
   const newsContext = newsAngle
@@ -316,70 +656,47 @@ async function generatePost({ keyword, serpResults, paaQuestions, newsAngle, aut
     : '';
 
   const autocompleteContext = autocomplete.length > 0
-    ? `VARIANTS: ${autocomplete.slice(0, 3).join(', ')}`
+    ? `VARIANTS: ${autocomplete.slice(0, 5).join(', ')}`
     : '';
 
-  const systemPrompt = `You are a skincare content writer for Glow Intel — a science-first, opinionated skincare and beauty ecommerce blog.
+  const systemPrompt = `Skincare writer for Glow Intel. Science-first, opinionated, not generic AI.
 
-WRITER VOICE (this is critical — sound like this person, not a generic AI):
+VOICE:
 ${voiceContext}
 
-STYLE RULES (follow strictly):
-- Intro: 2-3 sentences MAX. State the point immediately. No "In today's world", no "Let's dive in", no "Are you wondering..."
-- Paragraphs: 3-4 sentences max
-- H2s: clear questions or direct statements the reader has in mind
-- H3s: use sparingly, only when genuinely needed
-- Length: 1500-2500 words. Don't pad to hit word count.
-- Specific product names + real prices when mentioning products
-- "I think" / "In my experience" / "Honestly" — be opinionated, not neutral
-- Include "the catch" — honest about limitations, tradeoffs, what doesn't work
-- NEVER: "game-changer", "revolutionary", "dive deep", "let's explore", "it's worth noting"
-- NEVER start sentences with: "Furthermore", "Moreover", "Additionally", "In conclusion"
-- NO excessive em-dashes
-- Internal links: include 2-3 naturally in the text using markdown [anchor text](/blog/slug)
-- External links: 1-2 links to PubMed, AAD, or authoritative dermatology sources
+RULES:
+Intro=2-3 sentences, state point immediately. Paragraphs<=4 sentences. H2s=reader questions. 1500-2500 words, no padding. Use real product names+prices. Be opinionated ("I think","honestly","the catch"). 2-3 internal links [text](/blog/slug). 1-2 external links (PubMed/AAD). No em-dash excess.
+BANNED: "game-changer","revolutionary","dive deep","let's explore","it's worth noting","In today's world". No "Furthermore/Moreover/Additionally/In conclusion" as openers.
 
-OUTPUT FORMAT — return exactly this structure (no extra text before or after):
-TITLE: <compelling editorial title for this post, 50-70 chars, includes keyword naturally>
-TAGS: <4-6 comma-separated lowercase tags like: niacinamide, retinol, skincare routine, oily skin>
+FORMAT (exact, no extra text):
+TITLE: <50-70 chars, includes keyword>
+TAGS: <4-6 comma-separated lowercase>
 ---
-<post body starting with the opening paragraph, no H1>`;
+<body, no H1>`;
 
 
-  const userPrompt = `Write a complete blog post for Glow Intel.
-
-TARGET KEYWORD: "${keyword}"
-CATEGORY: ${target.category}
-EDITORIAL NOTES: ${notes}
+  const userPrompt = `KEYWORD: "${keyword}" | CATEGORY: ${target.category} | NOTES: ${notes}
 
 ${serpContext}
-
 ${paaContext}
-
 ${newsContext}
-
 ${autocompleteContext}
 
-AVAILABLE INTERNAL LINKS (use 2-3 naturally):
+INTERNAL LINKS (use 2-3):
 ${internalLinks}
 
-Instructions:
-1. Study the SERP results — understand the angle they take and find what's MISSING or could be said better
-2. Use the PAA questions as inspiration for H2s (don't copy them verbatim, make them better)
-3. Write 1500-2500 words. Be specific, opinionated, and genuinely useful.
-4. Sound like a knowledgeable friend who knows this space deeply — not a content farm.`;
+Beat the SERP angles. Use PAA for H2 inspiration. 1500-2500 words. Specific, opinionated, useful. Sound like a knowledgeable friend, not a content farm.`;
 
-  console.log('  → Claude API writing post...');
+  console.log('  -> Claude API writing post...');
   const message = await client.messages.create({
     model: 'claude-sonnet-4-6',
-    max_tokens: 2000,
+    max_tokens: 2500,
     system: systemPrompt,
     messages: [{ role: 'user', content: userPrompt }],
   });
 
   const raw = message.content[0].text;
 
-  // Parse TITLE, TAGS, and body from structured output
   const titleMatch = raw.match(/^TITLE:\s*(.+)/m);
   const tagsMatch = raw.match(/^TAGS:\s*(.+)/m);
   const bodyMatch = raw.match(/^---\s*\n([\s\S]+)/m);
@@ -413,7 +730,6 @@ function scrub(text) {
     .replace(/It goes without saying/gi, '')
     .replace(/needless to say/gi, '')
     .replace(/As (an AI|a language model)[^.]*\./gi, '')
-    // Phase 2: subtle hedging patterns
     .replace(/is one of the most /gi, 'is a ')
     .replace(/are one of the most /gi, 'are ')
     .replace(/is designed to /gi, '')
@@ -434,18 +750,16 @@ function scrub(text) {
     .replace(/It's clear that /gi, '')
     .replace(/It appears that /gi, '')
     .replace(/It seems that /gi, '')
-    // Fix tilde-dollar causing markdown strikethrough
     .replace(/\(~\$/g, '(around $')
     .replace(/~\$/g, '$');
 }
 
-// ─── 9. Quality gate — auto-validate & fix before saving ─────────────────────
+// ─── 9. Quality gate ─────────────────────────────────────────────────────────
 function qualityGate(content, { keyword, category, title, tags, existingSlugs }) {
   const issues = [];
   const fixes = [];
   let fixed = content;
 
-  // --- SEO checks ---
   const kwLower = keyword.toLowerCase();
   const firstPara = content.split('\n').find(l => l.trim() && !l.startsWith('#') && !l.startsWith('---')) || '';
 
@@ -457,11 +771,9 @@ function qualityGate(content, { keyword, category, title, tags, existingSlugs })
     issues.push(`SEO: keyword not found in first paragraph`);
   }
 
-  // --- Internal links check (need 2-3) ---
   const internalLinkMatches = content.match(/\]\(\/blog\/[^)]+\)/g) || [];
   if (internalLinkMatches.length < 2) {
     issues.push(`SEO: only ${internalLinkMatches.length} internal links (need 2-3)`);
-    // Auto-inject internal links at end of relevant paragraphs
     const available = existingSlugs
       .filter(s => !content.includes(`/blog/${s}`))
       .slice(0, 3 - internalLinkMatches.length);
@@ -469,7 +781,6 @@ function qualityGate(content, { keyword, category, title, tags, existingSlugs })
     for (const slug of available) {
       const label = slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
       const paragraphs = fixed.split('\n\n');
-      // Find a middle paragraph that's actual text (not a heading)
       const midIdx = Math.floor(paragraphs.length / 2);
       for (let i = midIdx; i < paragraphs.length; i++) {
         if (paragraphs[i].trim() && !paragraphs[i].startsWith('#') && !paragraphs[i].includes(`/blog/`)) {
@@ -482,13 +793,11 @@ function qualityGate(content, { keyword, category, title, tags, existingSlugs })
     }
   }
 
-  // --- External links check (need 1-2) ---
   const externalLinkMatches = content.match(/\]\(https?:\/\/[^)]+\)/g) || [];
   if (externalLinkMatches.length < 1) {
     issues.push(`SEO: no external links (need 1-2 authoritative sources)`);
   }
 
-  // --- Word count check ---
   const wordCount = content.split(/\s+/).filter(Boolean).length;
   if (wordCount < 1200) {
     issues.push(`Content: only ${wordCount} words (target 1500-2500)`);
@@ -496,7 +805,6 @@ function qualityGate(content, { keyword, category, title, tags, existingSlugs })
     issues.push(`Content: ${wordCount} words (target 1500-2500, may be padded)`);
   }
 
-  // --- Residual slop check ---
   const slopPatterns = [
     /game.changer/i, /revolutionary/i, /groundbreaking/i, /dive deep/i,
     /let's explore/i, /it's worth noting/i, /in today's world/i,
@@ -508,27 +816,24 @@ function qualityGate(content, { keyword, category, title, tags, existingSlugs })
     issues.push(`Slop: ${slopFound.length} residual AI patterns found after scrub`);
   }
 
-  // --- H2 check ---
   const h2Count = (content.match(/^## /gm) || []).length;
   if (h2Count < 3) {
     issues.push(`Structure: only ${h2Count} H2 headings (recommend 4-6)`);
   }
 
-  // --- Meta description length ---
   const desc = extractDescription(content);
   if (desc.length < 120) {
     issues.push(`Meta: description too short (${desc.length} chars, need 150-160)`);
   }
 
-  // Log results
   if (issues.length === 0) {
-    console.log('  ✓ All quality checks passed');
+    console.log('  + All quality checks passed');
   } else {
-    console.log(`  ⚠ ${issues.length} issue(s) found:`);
+    console.log(`  ! ${issues.length} issue(s) found:`);
     issues.forEach(i => console.log(`    - ${i}`));
   }
   if (fixes.length > 0) {
-    console.log(`  🔧 ${fixes.length} auto-fix(es) applied:`);
+    console.log(`  ~ ${fixes.length} auto-fix(es) applied:`);
     fixes.forEach(f => console.log(`    - ${f}`));
   }
 
@@ -554,7 +859,7 @@ draft: false
 function extractDescription(content) {
   const lines = content.split('\n').filter(l => l.trim() && !l.startsWith('#') && !l.startsWith('---'));
   const first = lines[0] || '';
-  const clean = first.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'); // strip markdown links
+  const clean = first.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
   return (clean.length > 155 ? clean.slice(0, 152) + '...' : clean);
 }
 
@@ -581,15 +886,30 @@ function addNewKeywordsToQueue(relatedSearches) {
       added++;
     }
   }
-  if (added > 0) console.log(`  → Added ${added} new keywords to queue from related searches`);
+  if (added > 0) console.log(`  -> Added ${added} new keywords to queue from related searches`);
 }
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
 async function main() {
-  console.log('🚀 Glow Intel Post Generator\n');
+  console.log('Glow Intel Post Generator\n');
+
+  // Step 0: Run discovery brain (unless targeting a specific slug)
+  if (!slugArg) {
+    await runDiscovery();
+    console.log('');
+  }
+
+  // Select target
+  target = selectTarget();
+  console.log(`\nTarget: "${target.keyword}" [${target.category}]${target.source === 'discovery' ? ' (DISCOVERED)' : ''}\n`);
+
+  if (discoverOnly) {
+    console.log('--discover-only: stopping after discovery.\n');
+    return;
+  }
+
   console.log('Step 1: Research\n');
 
-  // Run all Serper calls in parallel (saves ~3 seconds)
   const [autocomplete, serpResults, paaQuestions, newsAngle, relatedSearches] = await Promise.all([
     getAutocomplete(target.keyword),
     getSerpStructure(target.keyword),
@@ -598,13 +918,13 @@ async function main() {
     getRelatedSearches(target.keyword),
   ]);
 
-  console.log(`\n  ✓ Top results: ${serpResults.length}`);
-  console.log(`  ✓ PAA questions: ${paaQuestions.length}`);
-  console.log(`  ✓ Autocomplete variants: ${autocomplete.length}`);
-  console.log(`  ✓ Related searches: ${relatedSearches.length}`);
+  console.log(`\n  + Top results: ${serpResults.length}`);
+  console.log(`  + PAA questions: ${paaQuestions.length}`);
+  console.log(`  + Autocomplete variants: ${autocomplete.length}`);
+  console.log(`  + Related searches: ${relatedSearches.length}`);
 
   if (researchOnly) {
-    console.log('\n─── RESEARCH OUTPUT ─────────────────────────\n');
+    console.log('\n--- RESEARCH OUTPUT ---\n');
     console.log('TOP RESULTS:\n', serpResults.map(r => `[${r.position}] ${r.title}`).join('\n'));
     console.log('\nPEOPLE ALSO ASK:\n', paaQuestions.join('\n'));
     console.log('\nAUTOCOMPLETE:\n', autocomplete.join('\n'));
@@ -650,36 +970,39 @@ async function main() {
   const fullPost     = `${frontmatter}\n\n${validatedContent}`;
 
   if (dryRun) {
-    console.log('\n─── DRY RUN (first 800 chars) ───────────────\n');
+    console.log('\n--- DRY RUN (first 800 chars) ---\n');
     console.log(fullPost.slice(0, 800));
     if (issues.length > 0) {
-      console.log('\n─── QUALITY ISSUES ──────────────────────────');
-      issues.forEach(i => console.log(`  ⚠ ${i}`));
+      console.log('\n--- QUALITY ISSUES ---');
+      issues.forEach(i => console.log(`  ! ${i}`));
     }
-    console.log('\n─── END DRY RUN ─────────────────────────────');
+    console.log('\n--- END DRY RUN ---');
     return;
   }
 
   // Write post
   const outputPath = path.join(ROOT, 'src', 'content', 'blog', `${target.slug}.md`);
   fs.writeFileSync(outputPath, fullPost);
-  console.log(`\n  ✓ Written: src/content/blog/${target.slug}.md`);
+  console.log(`\n  + Written: src/content/blog/${target.slug}.md`);
 
   // Update queue
   addNewKeywordsToQueue(relatedSearches);
   queue.published.push(target.slug);
+  // Track category for discovery brain's balance logic
+  if (!queue.publishedItems) queue.publishedItems = [];
+  queue.publishedItems.push({ slug: target.slug, category: target.category });
   queue.queue = queue.queue.filter(k => k.slug !== target.slug);
   queue.meta.lastUpdated = new Date().toISOString().split('T')[0];
   queue.meta.totalPublished = queue.published.length;
   queue.meta.totalQueued = queue.queue.length;
   fs.writeFileSync(queuePath, JSON.stringify(queue, null, 2));
-  console.log(`  ✓ Queue updated (${queue.queue.length} remaining)`);
+  console.log(`  + Queue updated (${queue.queue.length} remaining)`);
 
-  console.log(`\n✅ Done!\n`);
+  console.log(`\nDone!\n`);
   console.log(`Next step:`);
   console.log(`  git add src/content/blog/${target.slug}.md content-pipeline/keyword-queue.json`);
   console.log(`  git commit -m "post: ${target.keyword}"`);
   console.log(`  git push\n`);
 }
 
-main().catch(err => { console.error('\n❌ Error:', err.message); process.exit(1); });
+main().catch(err => { console.error('\nError:', err.message); process.exit(1); });

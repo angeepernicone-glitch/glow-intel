@@ -1,8 +1,9 @@
 {
   "meta": {
     "lastUpdated": "2026-03-11",
-    "totalQueued": 25,
-    "totalPublished": 7
+    "totalQueued": 77,
+    "totalPublished": 18,
+    "lastDiscovery": "2026-03-11"
   },
   "published": [
     "niacinamide-vs-vitamin-c-which-goes-first",
@@ -11,48 +12,169 @@
     "how-to-use-retinol-without-irritation",
     "skincare-routine-order-morning-night",
     "how-to-start-a-skincare-brand-2026",
-    "tome-skincare-dermata-spongilla-launch"
+    "tome-skincare-dermata-spongilla-launch",
+    "hyaluronic-acid-benefits-skin",
+    "skincare-routine-oily-skin",
+    "the-ordinary-retinol-review",
+    "azelaic-acid-benefits-uses",
+    "tretinoin-vs-retinol",
+    "best-sunscreen-oily-skin",
+    "how-to-fade-dark-spots-hyperpigmentation",
+    "skincare-routine-acne-prone-skin",
+    "best-vitamin-c-serum",
+    "cerave-moisturizing-cream-review",
+    "best-eyelash-growth-serums-that-actually-work"
   ],
   "queue": [
     {
-      "keyword": "hyaluronic acid benefits for skin",
-      "slug": "hyaluronic-acid-benefits-skin",
+      "keyword": "Gen Alpha beauty brands controversy backlash 2026",
+      "slug": "gen-alpha-beauty-brands-controversy-backlash-2026",
+      "category": "beauty-business",
+      "intent": "informational",
+      "priority": "high",
+      "notes": "Cultural flashpoint with real legs—connects youth marketing ethics, Sephora Kids discourse, and brand reputation risk in one story.",
+      "source": "discovery",
+      "discoveredAt": "2026-03-11"
+    },
+    {
+      "keyword": "celebrity brand ambassador deals beauty industry",
+      "slug": "celebrity-brand-ambassador-deals-beauty-industry",
+      "category": "beauty-business",
+      "intent": "informational",
+      "priority": "high",
+      "notes": "Vanity Fair angle on who actually gets paid vs. gifted is underreported—strong search intent from beauty consumers and aspiring influencers alike.",
+      "source": "discovery",
+      "discoveredAt": "2026-03-11"
+    },
+    {
+      "keyword": "hourglass cosmetics sephora DTC retail strategy",
+      "slug": "hourglass-cosmetics-sephora-dtc-retail-strategy",
+      "category": "beauty-business",
+      "intent": "informational",
+      "priority": "high",
+      "notes": "Retail channel pivots make for compelling case studies—brand abandons exclusivity for scale, timely for indie founders watching distribution moves.",
+      "source": "discovery",
+      "discoveredAt": "2026-03-11"
+    },
+    {
+      "keyword": "Korean beauty bloom skin trend 2026",
+      "slug": "korean-beauty-bloom-skin-trend-2026",
       "category": "ingredients",
       "intent": "informational",
       "priority": "high",
-      "notes": "Explain what HA actually does vs the marketing hype. MW differences."
+      "notes": "Glass skin is oversaturated — 'bloom skin' is an emerging term with early SEO opportunity and clear editorial hook on evolving K-beauty aesthetics.",
+      "source": "discovery",
+      "discoveredAt": "2026-03-11"
     },
     {
-      "keyword": "skincare routine for oily skin",
-      "slug": "skincare-routine-oily-skin",
-      "category": "routines",
+      "keyword": "cone snail venom anti-aging skincare benefits",
+      "slug": "cone-snail-venom-anti-aging-skincare-benefits",
+      "category": "ingredients",
       "intent": "informational",
       "priority": "high",
-      "notes": "Focus: don't skip moisturizer, right cleanser, niacinamide as the key active"
+      "notes": "Genuinely novel, weird, and search-worthy ingredient angle — zero competition in already-covered list and high intrigue factor for skincare enthusiasts.",
+      "source": "discovery",
+      "discoveredAt": "2026-03-11"
     },
     {
-      "keyword": "the ordinary retinol review",
-      "slug": "the-ordinary-retinol-review",
+      "keyword": "Rhode Beauty billion dollar brand strategy",
+      "slug": "rhode-beauty-billion-dollar-brand-strategy",
+      "category": "beauty-business",
+      "intent": "informational",
+      "priority": "high",
+      "notes": "Rare deep-dive into how a minimalist SKU count and hype-driven retail built a unicorn — strong search demand around Rhode's explosive growth.",
+      "source": "discovery",
+      "discoveredAt": "2026-03-11"
+    },
+    {
+      "keyword": "best new retinoid products 2026",
+      "slug": "best-new-retinoid-products-2026",
       "category": "reviews",
       "intent": "commercial",
       "priority": "high",
-      "notes": "Compare the different TO retinol variants. Honest take on the whole range."
+      "notes": "Retinoid roundup targets purchase-intent readers and fills a product-review gap since existing retinol coverage focuses on usage guides, not product picks.",
+      "source": "discovery",
+      "discoveredAt": "2026-03-11"
     },
     {
-      "keyword": "azelaic acid benefits skin",
-      "slug": "azelaic-acid-benefits-uses",
+      "keyword": "do collagen supplements actually improve skin",
+      "slug": "do-collagen-supplements-actually-improve-skin",
       "category": "ingredients",
       "intent": "informational",
       "priority": "high",
-      "notes": "Underrated ingredient. Good for rosacea, PIH, acne. Low irritation."
+      "notes": "Dermatologist-backed myth-busting angle has strong search demand and clear opinion hook that separates it from generic collagen content.",
+      "source": "discovery",
+      "discoveredAt": "2026-03-11"
     },
     {
-      "keyword": "tretinoin vs retinol difference",
-      "slug": "tretinoin-vs-retinol",
-      "category": "versus",
+      "keyword": "melanoma skin cancer rising 2026 prevention",
+      "slug": "melanoma-skin-cancer-rising-2026-prevention",
+      "category": "beginner-guides",
       "intent": "informational",
       "priority": "high",
-      "notes": "The real comparison. Why tret wins. How to get it. Adjustment period."
+      "notes": "Urgent public-health hook ties sun protection advice to alarming new case projections — strong search intent spike potential.",
+      "source": "discovery",
+      "discoveredAt": "2026-03-11"
+    },
+    {
+      "keyword": "skincare trends 2026 back to basics",
+      "slug": "skincare-trends-2026-back-to-basics",
+      "category": "routines",
+      "intent": "informational",
+      "priority": "high",
+      "notes": "Counter-trend angle: why stripping back overcomplicated routines is the dermatologist-backed move for 2026.",
+      "source": "discovery",
+      "discoveredAt": "2026-03-11"
+    },
+    {
+      "keyword": "vegan Korean skincare brand Sephora 2026",
+      "slug": "vegan-korean-skincare-brand-sephora-2026",
+      "category": "beauty-business",
+      "intent": "commercial",
+      "priority": "high",
+      "notes": "Unique intersection of K-beauty, vegan beauty, and major retail expansion — timely story with clear commercial and trend-discovery appeal.",
+      "source": "discovery",
+      "discoveredAt": "2026-03-11"
+    },
+    {
+      "keyword": "dermatologist proven skincare ingredients that actually work",
+      "slug": "dermatologist-proven-skincare-ingredients-that-actually-work",
+      "category": "ingredients",
+      "intent": "informational",
+      "priority": "high",
+      "notes": "Distills research into a tight, authoritative list post — complements existing content without duplicating specific ingredient deep-dives already covered.",
+      "source": "discovery",
+      "discoveredAt": "2026-03-11"
+    },
+    {
+      "keyword": "collagen supplements skin benefits dermatologist truth",
+      "slug": "collagen-supplements-skin-benefits-dermatologist-truth",
+      "category": "ingredients",
+      "intent": "informational",
+      "priority": "high",
+      "notes": "Contrarian dermatologist-backed angle debunking a hugely popular supplement category — high search volume, strong shareability.",
+      "source": "discovery",
+      "discoveredAt": "2026-03-11"
+    },
+    {
+      "keyword": "March skincare brand review",
+      "slug": "march-skincare-brand-review",
+      "category": "beauty-business",
+      "intent": "informational",
+      "priority": "high",
+      "notes": "Cover the new brand: who they are, what they sell, honest first impression. Source: Cosmetics Business. Headline: \"9 new beauty launches for March 2026\"",
+      "source": "discovery",
+      "discoveredAt": "2026-03-11"
+    },
+    {
+      "keyword": "Journal Digest: March 11, 2026",
+      "slug": "journal-digest-march-11-2026",
+      "category": "ingredients",
+      "intent": "informational",
+      "priority": "high",
+      "notes": "Explain the research in plain language: what it means for your routine. Source: Dermatology Times. Headline: \"Journal Digest: March 11, 2026\"",
+      "source": "discovery",
+      "discoveredAt": "2026-03-11"
     },
     {
       "keyword": "skincare routine for dry skin",
@@ -63,14 +185,6 @@
       "notes": "Ceramide-heavy products, humectants + occlusives, gentle actives"
     },
     {
-      "keyword": "best sunscreen for oily skin",
-      "slug": "best-sunscreen-oily-skin",
-      "category": "reviews",
-      "intent": "commercial",
-      "priority": "high",
-      "notes": "Euro SPFs, Altruist, La Roche-Posay Invisible. Matte finish options."
-    },
-    {
       "keyword": "AHA vs BHA which is better",
       "slug": "aha-vs-bha-difference",
       "category": "versus",
@@ -79,36 +193,12 @@
       "notes": "AHA for texture/tone, BHA for acne/pores. When to use each."
     },
     {
-      "keyword": "how to get rid of dark spots fast",
-      "slug": "how-to-fade-dark-spots-hyperpigmentation",
-      "category": "routines",
-      "intent": "informational",
-      "priority": "high",
-      "notes": "Realistic timeline. Niacinamide + azelaic + SPF combo. No miracle claims."
-    },
-    {
-      "keyword": "skincare routine for acne prone skin",
-      "slug": "skincare-routine-acne-prone-skin",
-      "category": "routines",
-      "intent": "informational",
-      "priority": "high",
-      "notes": "BHA + niacinamide + non-comedogenic moisturizer. No more than 5 products."
-    },
-    {
       "keyword": "peptides in skincare do they work",
       "slug": "peptides-skincare-do-they-work",
       "category": "ingredients",
       "intent": "informational",
       "priority": "medium",
       "notes": "Honest take: some evidence for some peptides. Matrixyl, argireline. Not magic."
-    },
-    {
-      "keyword": "vitamin C serum best one to buy",
-      "slug": "best-vitamin-c-serum",
-      "category": "reviews",
-      "intent": "commercial",
-      "priority": "high",
-      "notes": "Stability issue. L-ascorbic acid vs derivatives. Timeless vs SkinCeuticals."
     },
     {
       "keyword": "how to layer skincare actives",
@@ -149,14 +239,6 @@
       "intent": "informational",
       "priority": "medium",
       "notes": "Micro vs macro. Gifting vs paid. TikTok vs IG vs YouTube."
-    },
-    {
-      "keyword": "cerave moisturizing cream review",
-      "slug": "cerave-moisturizing-cream-review",
-      "category": "reviews",
-      "intent": "commercial",
-      "priority": "high",
-      "notes": "Honest review. Who it works for, who it doesn't. Pilling issues."
     },
     {
       "keyword": "skin barrier damaged symptoms fix",
@@ -213,6 +295,388 @@
       "intent": "informational",
       "priority": "medium",
       "notes": "MOQ reality. Finding manufacturers. Packaging. Regulatory basics."
+    },
+    {
+      "keyword": "Hyaluronic acid benefits for skin whitening",
+      "slug": "hyaluronic-acid-benefits-for-skin-whitening",
+      "category": "ingredients",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: hyaluronic acid benefits for skin"
+    },
+    {
+      "keyword": "Hyaluronic acid benefits for skin wrinkles",
+      "slug": "hyaluronic-acid-benefits-for-skin-wrinkles",
+      "category": "ingredients",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: hyaluronic acid benefits for skin"
+    },
+    {
+      "keyword": "Hyaluronic acid benefits for skin tightening",
+      "slug": "hyaluronic-acid-benefits-for-skin-tightening",
+      "category": "ingredients",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: hyaluronic acid benefits for skin"
+    },
+    {
+      "keyword": "Hyaluronic acid benefits for skin eczema",
+      "slug": "hyaluronic-acid-benefits-for-skin-eczema",
+      "category": "ingredients",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: hyaluronic acid benefits for skin"
+    },
+    {
+      "keyword": "Hyaluronic Acid Serum",
+      "slug": "hyaluronic-acid-serum",
+      "category": "ingredients",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: hyaluronic acid benefits for skin"
+    },
+    {
+      "keyword": "Hyaluronic acid serum benefits",
+      "slug": "hyaluronic-acid-serum-benefits",
+      "category": "ingredients",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: hyaluronic acid benefits for skin"
+    },
+    {
+      "keyword": "The Ordinary Granactive...",
+      "slug": "the-ordinary-granactive",
+      "category": "reviews",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: the ordinary retinol review"
+    },
+    {
+      "keyword": "The ordinary retinol review reddit",
+      "slug": "the-ordinary-retinol-review-reddit",
+      "category": "reviews",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: the ordinary retinol review"
+    },
+    {
+      "keyword": "The Ordinary retinol before and after",
+      "slug": "the-ordinary-retinol-before-and-after",
+      "category": "reviews",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: the ordinary retinol review"
+    },
+    {
+      "keyword": "The ordinary retinol review dermatologist",
+      "slug": "the-ordinary-retinol-review-dermatologist",
+      "category": "reviews",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: the ordinary retinol review"
+    },
+    {
+      "keyword": "The ordinary retinol review wrinkles",
+      "slug": "the-ordinary-retinol-review-wrinkles",
+      "category": "reviews",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: the ordinary retinol review"
+    },
+    {
+      "keyword": "The ordinary retinol review for acne",
+      "slug": "the-ordinary-retinol-review-for-acne",
+      "category": "reviews",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: the ordinary retinol review"
+    },
+    {
+      "keyword": "Tretinoin vs retinol for wrinkles",
+      "slug": "tretinoin-vs-retinol-for-wrinkles",
+      "category": "versus",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: tretinoin vs retinol difference"
+    },
+    {
+      "keyword": "Tretinoin vs retinol for hyperpigmentation",
+      "slug": "tretinoin-vs-retinol-for-hyperpigmentation",
+      "category": "versus",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: tretinoin vs retinol difference"
+    },
+    {
+      "keyword": "Tretinoin 0.025 equivalent retinol",
+      "slug": "tretinoin-0-025-equivalent-retinol",
+      "category": "versus",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: tretinoin vs retinol difference"
+    },
+    {
+      "keyword": "Tretinoin vs retinol vs retinoid",
+      "slug": "tretinoin-vs-retinol-vs-retinoid",
+      "category": "versus",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: tretinoin vs retinol difference"
+    },
+    {
+      "keyword": "Tretinoin vs Retin-A",
+      "slug": "tretinoin-vs-retin-a",
+      "category": "versus",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: tretinoin vs retinol difference"
+    },
+    {
+      "keyword": "Tretinoin vs Adapalene",
+      "slug": "tretinoin-vs-adapalene",
+      "category": "versus",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: tretinoin vs retinol difference"
+    },
+    {
+      "keyword": "Missha All Around Saf...",
+      "slug": "missha-all-around-saf",
+      "category": "reviews",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: best sunscreen for oily skin"
+    },
+    {
+      "keyword": "Best sunscreen for oily skin reddit",
+      "slug": "best-sunscreen-for-oily-skin-reddit",
+      "category": "reviews",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: best sunscreen for oily skin"
+    },
+    {
+      "keyword": "Best sunscreen for oily skin drugstore",
+      "slug": "best-sunscreen-for-oily-skin-drugstore",
+      "category": "reviews",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: best sunscreen for oily skin"
+    },
+    {
+      "keyword": "Best sunscreen for oily skin dermatologist recommended",
+      "slug": "best-sunscreen-for-oily-skin-dermatologist-recommended",
+      "category": "reviews",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: best sunscreen for oily skin"
+    },
+    {
+      "keyword": "Best sunscreen for oily skin SPF 50",
+      "slug": "best-sunscreen-for-oily-skin-spf-50",
+      "category": "reviews",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: best sunscreen for oily skin"
+    },
+    {
+      "keyword": "Best sunscreen for oily skin korean",
+      "slug": "best-sunscreen-for-oily-skin-korean",
+      "category": "reviews",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: best sunscreen for oily skin"
+    },
+    {
+      "keyword": "Best skincare routine for acne prone skin",
+      "slug": "best-skincare-routine-for-acne-prone-skin",
+      "category": "routines",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: skincare routine for acne prone skin"
+    },
+    {
+      "keyword": "Dermatologist-recommended skin care routine for acne-prone skin",
+      "slug": "dermatologist-recommended-skin-care-routine-for-acne-prone-skin",
+      "category": "routines",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: skincare routine for acne prone skin"
+    },
+    {
+      "keyword": "Skincare routine for acne prone skin teenager",
+      "slug": "skincare-routine-for-acne-prone-skin-teenager",
+      "category": "routines",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: skincare routine for acne prone skin"
+    },
+    {
+      "keyword": "Skin care routine for acne-prone sensitive skin",
+      "slug": "skin-care-routine-for-acne-prone-sensitive-skin",
+      "category": "routines",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: skincare routine for acne prone skin"
+    },
+    {
+      "keyword": "Skincare routine for acne-prone skin reddit",
+      "slug": "skincare-routine-for-acne-prone-skin-reddit",
+      "category": "routines",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: skincare routine for acne prone skin"
+    },
+    {
+      "keyword": "Skincare routine for acne prone skin men",
+      "slug": "skincare-routine-for-acne-prone-skin-men",
+      "category": "routines",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: skincare routine for acne prone skin"
+    },
+    {
+      "keyword": "Best Vitamin C serum for glowing skin",
+      "slug": "best-vitamin-c-serum-for-glowing-skin",
+      "category": "reviews",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: vitamin C serum best one to buy"
+    },
+    {
+      "keyword": "Best vitamin C serum recommended by dermatologist",
+      "slug": "best-vitamin-c-serum-recommended-by-dermatologist",
+      "category": "reviews",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: vitamin C serum best one to buy"
+    },
+    {
+      "keyword": "Timeless Vitamin C Serum",
+      "slug": "timeless-vitamin-c-serum",
+      "category": "reviews",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: vitamin C serum best one to buy"
+    },
+    {
+      "keyword": "Best affordable Vitamin C serum recommended by dermatologist",
+      "slug": "best-affordable-vitamin-c-serum-recommended-by-dermatologist",
+      "category": "reviews",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: vitamin C serum best one to buy"
+    },
+    {
+      "keyword": "Best Vitamin C serum for hyperpigmentation",
+      "slug": "best-vitamin-c-serum-for-hyperpigmentation",
+      "category": "reviews",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: vitamin C serum best one to buy"
+    },
+    {
+      "keyword": "Best Korean Vitamin C serum",
+      "slug": "best-korean-vitamin-c-serum",
+      "category": "reviews",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: vitamin C serum best one to buy"
+    },
+    {
+      "keyword": "CeraVe Facial Mois...",
+      "slug": "cerave-facial-mois",
+      "category": "reviews",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: cerave moisturizing cream review"
+    },
+    {
+      "keyword": "Cerave moisturizing cream review reddit",
+      "slug": "cerave-moisturizing-cream-review-reddit",
+      "category": "reviews",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: cerave moisturizing cream review"
+    },
+    {
+      "keyword": "Cerave moisturizing cream review before and after",
+      "slug": "cerave-moisturizing-cream-review-before-and-after",
+      "category": "reviews",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: cerave moisturizing cream review"
+    },
+    {
+      "keyword": "Cerave moisturizing cream review dermatologist",
+      "slug": "cerave-moisturizing-cream-review-dermatologist",
+      "category": "reviews",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: cerave moisturizing cream review"
+    },
+    {
+      "keyword": "CeraVe Moisturizing Cream reviews for face",
+      "slug": "cerave-moisturizing-cream-reviews-for-face",
+      "category": "reviews",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: cerave moisturizing cream review"
+    },
+    {
+      "keyword": "CeraVe Moisturizing Lotion",
+      "slug": "cerave-moisturizing-lotion",
+      "category": "reviews",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: cerave moisturizing cream review"
+    },
+    {
+      "keyword": "Best eyelash growth serums that actually work reddit",
+      "slug": "best-eyelash-growth-serums-that-actually-work-reddit",
+      "category": "reviews",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: best eyelash growth serums that actually work"
+    },
+    {
+      "keyword": "Best eyelash growth serum recommended by dermatologist",
+      "slug": "best-eyelash-growth-serum-recommended-by-dermatologist",
+      "category": "reviews",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: best eyelash growth serums that actually work"
+    },
+    {
+      "keyword": "Best eyelash growth serum without prostaglandin",
+      "slug": "best-eyelash-growth-serum-without-prostaglandin",
+      "category": "reviews",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: best eyelash growth serums that actually work"
+    },
+    {
+      "keyword": "Latisse lash serum",
+      "slug": "latisse-lash-serum",
+      "category": "reviews",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: best eyelash growth serums that actually work"
+    },
+    {
+      "keyword": "Grande Lash Serum",
+      "slug": "grande-lash-serum",
+      "category": "reviews",
+      "intent": "informational",
+      "priority": "medium",
+      "notes": "Related to: best eyelash growth serums that actually work"
+    }
+  ],
+  "publishedItems": [
+    {
+      "slug": "best-eyelash-growth-serums-that-actually-work",
+      "category": "reviews"
     }
   ]
 }
