@@ -120,6 +120,7 @@ const heroReadTime = hero ? getReadingTime(hero.body || '') : 0;
         <a
           href={`/categories/${cat.slug}`}
           class="no-underline flex flex-col items-center gap-2 py-5 px-3 border border-[var(--border)] rounded-lg text-center hover:border-[var(--accent)] hover:bg-[var(--accent-light)] transition-all duration-200 group"
+          style="background: white;"
         >
           <span class="text-sm font-medium tracking-wide uppercase group-hover:text-[var(--accent)] transition-colors" style="color: var(--text-muted); font-family: var(--sans); font-size: 0.6875rem; letter-spacing: 0.1em;">
             {cat.label}
@@ -156,18 +157,15 @@ const heroReadTime = hero ? getReadingTime(hero.body || '') : 0;
     </section>
   )}
 
-  <!-- ─── NEWSLETTER / ABOUT STRIP ─────────────────────── -->
-  <section class="border-t border-[var(--border)] mt-4">
+  <!-- ─── CLOSING STRIP ──────────────────────────────── -->
+  <section class="border-t border-[var(--border)] mt-4" style="background: white;">
     <div class="max-w-7xl mx-auto px-5 sm:px-8 py-16">
       <div class="max-w-xl mx-auto text-center reveal">
         <div class="rule-accent mx-auto mb-6"></div>
         <p style="font-family: var(--serif); font-size: clamp(1.25rem, 2.5vw, 1.625rem); font-weight: 400; line-height: 1.5; color: var(--text);">
           Honest skincare intel. No brand deals, no sponsored reviews, no filler. Just what the science says and what actually works.
         </p>
-        <div class="flex items-center justify-center gap-4 mt-8">
-          <a href="/blog" class="cta-pill filled">Browse all posts</a>
-          <a href="/about" class="cta-pill">About us</a>
-        </div>
+        <a href="/blog" class="cta-pill filled mt-8 inline-flex">Browse all posts</a>
       </div>
     </div>
   </section>

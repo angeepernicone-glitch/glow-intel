@@ -2,27 +2,26 @@
 const year = new Date().getFullYear();
 ---
 
-<footer style="border-top: 1px solid var(--border); background: var(--bg);" class="mt-20">
-  <!-- Top strip -->
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-12">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<footer style="border-top: 1px solid var(--border); background: white;" class="mt-20">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-14">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
 
       <!-- Brand -->
       <div class="col-span-2 md:col-span-1">
-        <a href="/" class="no-underline block mb-3">
-          <span style="font-family: var(--serif); font-size: 1.25rem; font-weight: 900; color: var(--text);">
+        <a href="/" class="no-underline block mb-4">
+          <span style="font-family: var(--serif); font-size: 1.375rem; font-weight: 900; color: var(--text);">
             GLOW<span style="color: var(--accent);">INTEL</span>
           </span>
         </a>
-        <p class="text-xs leading-relaxed" style="color: var(--text-muted); max-width: 22ch">
-          Honest skincare intel. No brand deals. No filler.
+        <p class="text-sm leading-relaxed" style="color: var(--text-muted); max-width: 26ch;">
+          Honest skincare intel. No brand deals. No filler. Just science.
         </p>
       </div>
 
       <!-- Topics -->
       <div>
-        <p class="eyebrow mb-4">Topics</p>
-        <ul class="space-y-2">
+        <p class="text-xs font-semibold uppercase tracking-wider mb-5" style="color: var(--text);">Topics</p>
+        <ul class="space-y-3">
           {[
             ['Ingredients', '/categories/ingredients'],
             ['Routines', '/categories/routines'],
@@ -30,7 +29,7 @@ const year = new Date().getFullYear();
             ['Reviews', '/categories/reviews'],
           ].map(([label, href]) => (
             <li>
-              <a href={href} class="text-xs no-underline hover:text-[var(--accent)] transition-colors" style="color: var(--text-muted)">{label}</a>
+              <a href={href} class="text-sm no-underline hover:text-[var(--accent)] transition-colors" style="color: var(--text-muted);">{label}</a>
             </li>
           ))}
         </ul>
@@ -38,16 +37,15 @@ const year = new Date().getFullYear();
 
       <!-- More -->
       <div>
-        <p class="eyebrow mb-4">More</p>
-        <ul class="space-y-2">
+        <p class="text-xs font-semibold uppercase tracking-wider mb-5" style="color: var(--text);">More</p>
+        <ul class="space-y-3">
           {[
             ['Beauty Business', '/categories/beauty-business'],
             ['Beginner Guides', '/categories/beginner-guides'],
             ['All Posts', '/blog'],
-            ['About', '/about'],
           ].map(([label, href]) => (
             <li>
-              <a href={href} class="text-xs no-underline hover:text-[var(--accent)] transition-colors" style="color: var(--text-muted)">{label}</a>
+              <a href={href} class="text-sm no-underline hover:text-[var(--accent)] transition-colors" style="color: var(--text-muted);">{label}</a>
             </li>
           ))}
         </ul>
@@ -55,14 +53,14 @@ const year = new Date().getFullYear();
 
       <!-- Meta -->
       <div>
-        <p class="eyebrow mb-4">Meta</p>
-        <ul class="space-y-2">
+        <p class="text-xs font-semibold uppercase tracking-wider mb-5" style="color: var(--text);">Meta</p>
+        <ul class="space-y-3">
           {[
             ['RSS Feed', '/rss.xml'],
             ['Sitemap', '/sitemap-index.xml'],
           ].map(([label, href]) => (
             <li>
-              <a href={href} class="text-xs no-underline hover:text-[var(--accent)] transition-colors" style="color: var(--text-muted)">{label}</a>
+              <a href={href} class="text-sm no-underline hover:text-[var(--accent)] transition-colors" style="color: var(--text-muted);">{label}</a>
             </li>
           ))}
         </ul>
@@ -71,10 +69,10 @@ const year = new Date().getFullYear();
   </div>
 
   <!-- Bottom bar -->
-  <div style="border-top: 1px solid var(--border-light);">
+  <div style="border-top: 1px solid var(--border); background: var(--bg-alt);">
     <div class="max-w-7xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">
-      <p class="eyebrow">&copy; {year} Glow Intel</p>
-      <p class="eyebrow">Science-first skincare</p>
+      <p class="text-xs" style="color: var(--text-muted);">&copy; {year} Glow Intel</p>
+      <p class="text-xs" style="color: var(--text-muted);">Science-first skincare</p>
     </div>
   </div>
 </footer>
