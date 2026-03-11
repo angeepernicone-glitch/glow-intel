@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Page Not Found — Glow Intel" description="The page you're looking for doesn't exist.">
+  <section class="max-w-2xl mx-auto px-5 sm:px-8 py-24 text-center">
+    <div class="rule-accent mx-auto mb-8"></div>
+    <h1 style="font-family: var(--serif); font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; line-height: 1.1; color: var(--text);" class="mb-4">
+      404
+    </h1>
+    <p class="text-lg mb-8" style="color: var(--text-muted);">
+      This page doesn't exist. Maybe the URL changed, or maybe it never existed.
+    </p>
+    <div class="flex items-center justify-center gap-4">
+      <a href="/" class="cta-pill filled">Go home</a>
+      <a href="/blog" class="cta-pill">Browse posts</a>
+    </div>
+  </section>
+</BaseLayout>

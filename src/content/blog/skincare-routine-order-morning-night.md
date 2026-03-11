@@ -1,6 +1,6 @@
 ---
 title: "Skincare Routine Order: The Right Sequence (And Why Most Rules Are Overthought)"
-description: "The order you apply skincare products matters — but less than most guides make it seem. Here's the actual rule, what to do in the morning vs night, and the common mistakes that genuinely affect results."
+description: "Skincare routine order simplified: thinnest to thickest. The right morning and night sequence, what timing matters, and the layering mistakes that hurt results."
 pubDate: 2026-03-10
 category: "routines"
 tags: ["skincare routine order", "layering", "morning routine", "night routine", "skincare basics"]
@@ -45,7 +45,7 @@ That's the rule. Everything else follows from it.
 
 **Vitamin C needs a low pH environment.** If you're using an L-ascorbic acid vitamin C serum (the most effective form), it works best at a low pH (around 3-3.5). Applying it right after cleansing, when your skin's pH is still slightly more acidic, gives it the best environment. Don't layer it directly with niacinamide — use one in the morning, one at night, or space them by a few minutes.
 
-**Retinol should go on dry skin** for maximum absorption. Wait a few minutes after cleansing before applying it. If you're sensitive and buffering, apply moisturizer first, then retinol — this slows absorption and reduces irritation.
+**[Retinol](/blog/how-to-use-retinol-without-irritation) should go on dry skin** for maximum absorption. Wait a few minutes after cleansing before applying it. If you're sensitive and buffering, apply moisturizer first, then retinol — this slows absorption and reduces irritation.
 
 **AHAs and BHAs need time to work.** After applying a chemical exfoliant, wait a few minutes before applying the next product. Buffering them immediately with moisturizer reduces their effectiveness.
 
@@ -72,7 +72,7 @@ Some products are morning-specific, some are night-specific, some work either ti
 
 **Either time:** Niacinamide, hyaluronic acid, peptides, moisturizer
 
-**Don't use on the same night:** Retinol + AHAs/BHAs (too much at once for most people), retinol + benzoyl peroxide (they can interact and deactivate each other), vitamin C + niacinamide (use at different times if you want to be careful, though the actual interaction is less of a problem than commonly believed)
+**Don't use on the same night:** Retinol + AHAs/BHAs (too much at once for most people), retinol + benzoyl peroxide (they can interact and deactivate each other), [vitamin C + niacinamide](/blog/niacinamide-vs-vitamin-c-which-goes-first) (use at different times if you want to be careful, though the actual interaction is less of a problem than commonly believed)
 
 ## The routine most people actually need
 
@@ -88,4 +88,4 @@ That's it for most people. The elaborate 8-step routines exist for specific conc
 
 Applying too many active ingredients at once and not being able to identify what's causing irritation or improvement. If your morning routine has vitamin C, niacinamide, AHA, and retinol all stacked on top of each other, you don't have a skincare routine — you have a guessing game.
 
-One to two actives at a time, introduced slowly, gives you enough signal to know what's working. That's more valuable than the "optimal" theoretical layering order.
+One to two actives at a time, introduced slowly, gives you enough signal to know what's working. That's more valuable than the "optimal" theoretical layering order. If you're still building your routine from scratch, start with the [beginner skincare guide](/blog/skincare-routine-for-beginners).

@@ -1,6 +1,6 @@
 ---
 title: "How to Use Retinol Without Wrecking Your Skin"
-description: "Retinol is one of the most researched ingredients in skincare. It's also the one most people quit too early. Here's how to actually introduce it without the peeling, redness, and purging that makes beginners give up."
+description: "Retinol works, but most people quit too early from peeling and redness. Here's how to introduce retinol without irritation — the right way to start and stay."
 pubDate: 2026-03-10
 category: "ingredients"
 tags: ["retinol", "retinoids", "anti-aging", "acne", "active ingredients", "tretinoin"]
@@ -55,13 +55,13 @@ If you're particularly sensitive, apply your moisturizer first, let it absorb fo
 
 ### Don't layer with irritating actives
 
-While introducing retinol, stop using AHAs, BHAs, vitamin C, and benzoyl peroxide on the same nights. Your skin's tolerance has a limit. Too many actives at once compounds irritation and makes it impossible to know what's causing problems.
+While introducing retinol, stop using AHAs, BHAs, [vitamin C](/blog/niacinamide-vs-vitamin-c-which-goes-first), and benzoyl peroxide on the same nights. Your skin's tolerance has a limit. Too many actives at once compounds irritation and makes it impossible to know what's causing problems.
 
 Once your skin is adapted to retinol (typically 2-3 months in), you can start reintroducing other actives on alternating days.
 
 ### Moisturize more than usual
 
-During the adjustment period, use a heavier moisturizer than you normally would. Your skin barrier is temporarily more permeable than usual. CeraVe Moisturizing Cream applied generously after retinol helps significantly.
+During the adjustment period, use a heavier moisturizer than you normally would. Your skin barrier is temporarily more permeable than usual. [CeraVe Moisturizing Cream](/blog/cerave-vs-the-ordinary) applied generously after retinol helps significantly.
 
 ## The purging question
 
@@ -91,4 +91,4 @@ OTC retinol works — but tretinoin works faster and more effectively at lower c
 
 In the US, services like Curology or Apostrophe can get you a prescription without an in-person derm visit for around $20-30/month. In many other countries, tretinoin is available over the counter at pharmacies at low cost.
 
-Start with OTC retinol if the idea of prescription skincare feels like too much. But if you've been using retinol for 6+ months and want more — that's where to look next.
+Start with OTC retinol if the idea of prescription skincare feels like too much. But if you've been using retinol for 6+ months and want more — that's where to look next. And if you're new to skincare entirely, get the [basics down first](/blog/skincare-routine-for-beginners) before jumping into retinoids.

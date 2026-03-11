@@ -141,8 +141,8 @@ async function getNewsAngle(keyword) {
   }
 }
 
-// ─── 6. Unsplash image ───────────────────────────────────────────────────────
-async function fetchUnsplashImage(query) {
+// ─── 6. Unsplash image (category-aware, relevance-filtered) ─────────────────
+async function fetchUnsplashImage(keyword, category) {
   const key = process.env.UNSPLASH_ACCESS_KEY;
   if (!key) {
     return {
@@ -150,24 +150,44 @@ async function fetchUnsplashImage(query) {
       alt: 'Skincare products on a clean surface',
     };
   }
-  try {
-    const res = await fetch(
-      `https://api.unsplash.com/search/photos?query=${encodeURIComponent(query)}&per_page=5&orientation=landscape`,
-      { headers: { Authorization: `Client-ID ${key}` } }
-    );
-    const data = await res.json();
-    const photo = data.results?.[0];
-    if (!photo) throw new Error('No photo found');
-    return {
-      url: `${photo.urls.raw}&w=1200&q=80&fm=jpg`,
-      alt: photo.alt_description || query,
-    };
-  } catch {
-    return {
-      url: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=1200&q=80',
-      alt: query,
-    };
+
+  const categoryQueries = {
+    'ingredients': `${keyword} skincare ingredient serum`,
+    'routines': `skincare routine products bathroom`,
+    'reviews': `${keyword} product beauty`,
+    'versus': `skincare products comparison`,
+    'beauty-business': `beauty brand ecommerce store`,
+    'beginner-guides': `simple skincare routine clean`,
+  };
+  const primaryQuery = categoryQueries[category] || `${keyword} skincare beauty`;
+  const queries = [primaryQuery, `${keyword} skincare`, 'skincare products flat lay'];
+
+  for (const q of queries) {
+    try {
+      const res = await fetch(
+        `https://api.unsplash.com/search/photos?query=${encodeURIComponent(q)}&per_page=8&orientation=landscape`,
+        { headers: { Authorization: `Client-ID ${key}` } }
+      );
+      const data = await res.json();
+      const photo = data.results?.find(p =>
+        p.alt_description && /skin|cream|serum|beauty|face|product|bottle|routine|glow/i.test(p.alt_description)
+      ) || data.results?.[0];
+
+      if (photo) {
+        return {
+          url: `${photo.urls.raw}&w=1200&q=80&fm=jpg`,
+          alt: photo.alt_description || keyword,
+        };
+      }
+    } catch {
+      continue;
+    }
   }
+
+  return {
+    url: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=1200&q=80',
+    alt: keyword,
+  };
 }
 
 // ─── 7. Generate post with Claude ────────────────────────────────────────────
@@ -295,7 +315,28 @@ function scrub(text) {
     .replace(/At the end of the day,? ?/gi, 'Ultimately, ')
     .replace(/It goes without saying/gi, '')
     .replace(/needless to say/gi, '')
-    .replace(/As (an AI|a language model)[^.]*\./gi, '');
+    .replace(/As (an AI|a language model)[^.]*\./gi, '')
+    // Phase 2: subtle hedging patterns
+    .replace(/is one of the most /gi, 'is a ')
+    .replace(/are one of the most /gi, 'are ')
+    .replace(/is designed to /gi, '')
+    .replace(/helps significantly/gi, 'makes a real difference')
+    .replace(/,? typically/gi, '')
+    .replace(/typically,? /gi, '')
+    .replace(/for the most part,? ?/gi, '')
+    .replace(/with solid (research|evidence)[^.]*\./gi, '.')
+    .replace(/has solid (research|evidence)[^.]*\./gi, '.')
+    .replace(/are generally /gi, 'are ')
+    .replace(/is generally /gi, 'is ')
+    .replace(/Some people find that /gi, '')
+    .replace(/can help /gi, 'helps ')
+    .replace(/can improve /gi, 'improves ')
+    .replace(/may want to /gi, 'should ')
+    .replace(/might want to /gi, 'should ')
+    .replace(/tends to be /gi, 'is ')
+    .replace(/It's clear that /gi, '')
+    .replace(/It appears that /gi, '')
+    .replace(/It seems that /gi, '');
 }
 
 // ─── Build frontmatter ───────────────────────────────────────────────────────
@@ -377,7 +418,7 @@ async function main() {
   }
 
   console.log('\nStep 2: Image\n');
-  const image = await fetchUnsplashImage(target.keyword + ' skincare');
+  const image = await fetchUnsplashImage(target.keyword, target.category);
   console.log(`  ✓ Image: ${image.url.slice(0, 60)}...`);
 
   console.log('\nStep 3: Writing\n');

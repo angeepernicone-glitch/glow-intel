@@ -1,6 +1,6 @@
 ---
 title: "Niacinamide vs Vitamin C: Which Goes First (And Does It Even Matter?)"
-description: "The niacinamide and vitamin C debate has been going on for years. Here's what the research actually says, why most people overcomplicate it, and how to use both without ruining either."
+description: "Niacinamide vs vitamin C — can you use both together? The science on layering these ingredients, the right order, and why the cancellation myth is wrong."
 pubDate: 2026-03-10
 category: "versus"
 tags: ["niacinamide", "vitamin C", "layering", "active ingredients", "skincare routine"]
@@ -31,7 +31,7 @@ Niacinamide (vitamin B3) is one of the most well-rounded ingredients in skincare
 
 It is also extremely well-tolerated. Unlike retinol or vitamin C, most skin types handle niacinamide well from day one, with no purging or adjustment period.
 
-Good options at different price points: [The Ordinary Niacinamide 10% + Zinc 1%](https://theordinary.com) (~$7) is the benchmark. Paula's Choice 10% Niacinamide Booster (~$54) is excellent for oily or acne-prone skin.
+Good options at different price points: [The Ordinary Niacinamide 10% + Zinc 1%](https://theordinary.com) (~$7) is the benchmark. (For a full breakdown of when to pick CeraVe vs The Ordinary products, see [this comparison](/blog/cerave-vs-the-ordinary).) Paula's Choice 10% Niacinamide Booster (~$54) is excellent for oily or acne-prone skin.
 
 ## What vitamin C actually does
 
@@ -47,7 +47,7 @@ This is where many people waste money — buying a vitamin C serum in a clear dr
 
 ## So, which goes first?
 
-The standard rule for layering is to go from thinnest to thickest consistency. In practice this usually means:
+The standard rule for layering is to go from [thinnest to thickest consistency](/blog/skincare-routine-order-morning-night). In practice this usually means:
 
 1. Cleanser
 2. Toner (if you use one)
@@ -74,4 +74,4 @@ The Ordinary's vitamin C line can be confusing because they offer many different
 
 You can use niacinamide and vitamin C together. The cancellation myth is based on outdated science and conditions that do not apply to normal skincare use. Apply thinner textures first, let them absorb briefly before layering, and prioritize using a well-formulated vitamin C over stressing about the order.
 
-If you take away one thing: the quality of your vitamin C product matters far more than when you apply it relative to niacinamide.
+If you take away one thing: the quality of your vitamin C product matters far more than when you apply it relative to niacinamide. If you're just getting started with actives, check out the [beginner skincare routine guide](/blog/skincare-routine-for-beginners) for the full framework.

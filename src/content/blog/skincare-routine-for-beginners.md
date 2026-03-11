@@ -1,6 +1,6 @@
 ---
 title: "Skincare Routine for Beginners: The Only 4 Steps You Actually Need"
-description: "Starting a skincare routine doesn't require 10 products. Here's the honest 4-step framework that works for almost every skin type — and why keeping it simple gives you better results."
+description: "A beginner skincare routine only needs 4 products. Here's the exact framework, product picks with prices, and why starting simple gives better results faster."
 pubDate: 2026-03-10
 category: "beginner-guides"
 tags: ["skincare routine", "beginners", "basics", "cleansing", "moisturizer", "SPF"]
@@ -54,8 +54,8 @@ The best sunscreen is the one you'll actually use every day. Don't buy a heavy, 
 After two weeks of consistent cleansing, moisturizing, and SPF, your skin will have adjusted to the routine. This is when you can add one active ingredient to address a specific concern.
 
 The options depend on what you're trying to do:
-- **Dark spots / uneven tone:** niacinamide (low risk, high reward — The Ordinary Niacinamide 10% + Zinc 1%, ~$7)
-- **Texture / anti-aging:** retinol (start low, go slow — 0.025% to 0.05% to start)
+- **Dark spots / uneven tone:** [niacinamide](/blog/niacinamide-vs-vitamin-c-which-goes-first) (low risk, high reward — The Ordinary Niacinamide 10% + Zinc 1%, ~$7)
+- **Texture / anti-aging:** [retinol](/blog/how-to-use-retinol-without-irritation) (start low, go slow — 0.025% to 0.05% to start)
 - **Acne:** benzoyl peroxide for active breakouts, niacinamide or salicylic acid for prevention
 - **Dryness / plumpness:** hyaluronic acid serum under your moisturizer
 
@@ -66,7 +66,7 @@ One active at a time. Introduce it two to three nights per week first, then dail
 Morning: cleanser → moisturizer → SPF (nothing goes on top of SPF)
 Evening: cleanser → active (if using) → moisturizer
 
-That's it. Toner, essence, face oil, eye cream — none of these are necessary for a functional routine. Add them later if you want. For now, they're noise.
+For a deeper breakdown on product layering, see the full [skincare routine order guide](/blog/skincare-routine-order-morning-night). Toner, essence, face oil, eye cream — none of these are necessary for a functional routine. Add them later if you want. For now, they're noise.
 
 ## The mistake almost everyone makes
 

@@ -1,6 +1,6 @@
 ---
 title: "CeraVe vs The Ordinary: Two Different Things, Not Competitors"
-description: "People compare CeraVe and The Ordinary like they're rivals. They're not — they solve different problems. Here's what each brand actually does well and how to use both."
+description: "CeraVe vs The Ordinary isn't the right comparison. One handles barrier care, the other handles actives. Here's what each brand does best and how to use both."
 pubDate: 2026-03-10
 category: "versus"
 tags: ["CeraVe", "The Ordinary", "skincare brands", "budget skincare", "comparison"]
@@ -29,7 +29,7 @@ The Ordinary is an actives brand. They sell single-ingredient or minimal-ingredi
 
 Their range covers: niacinamide, retinol, AHAs, BHAs, vitamin C derivatives, peptides, hyaluronic acid, azelaic acid, and more. If you want to target a specific skin concern with a specific ingredient at a concentration that actually does something, The Ordinary is where you look.
 
-What they do well: serums with functional actives at honest concentrations. Their Niacinamide 10% + Zinc 1% (~$7) is hard to beat. Their AHA 30% + BHA 2% Peeling Solution gets results. Their retinol range is straightforward and affordable.
+What they do well: serums with functional actives at honest concentrations. Their Niacinamide 10% + Zinc 1% (~$7) is hard to beat. Their AHA 30% + BHA 2% Peeling Solution gets results. Their [retinol range](/blog/how-to-use-retinol-without-irritation) is straightforward and affordable.
 
 What they're not great at: complete moisturizers and cleansers. Their Natural Moisturizing Factors + HA is decent but not as well-formulated as CeraVe for barrier repair. Their cleansers are fine but not exceptional.
 
@@ -50,7 +50,7 @@ This is actually what most people do, and it's the right call.
 
 A functional setup for most skin types:
 - **Cleanser:** CeraVe Hydrating or Foaming Cleanser
-- **Active serum (AM or PM):** The Ordinary (niacinamide, vitamin C, etc.)
+- **Active serum (AM or PM):** The Ordinary ([niacinamide, vitamin C](/blog/niacinamide-vs-vitamin-c-which-goes-first), etc.)
 - **Moisturizer:** CeraVe Moisturizing Cream or PM Lotion
 - **SPF:** Something else entirely (neither brand leads here)
 
@@ -58,7 +58,7 @@ CeraVe handles the foundation — barrier protection, cleansing, hydration. The 
 
 ## Which one should you buy first?
 
-If you're starting from scratch with no routine: CeraVe first. Establish your cleanser and moisturizer, get your skin stable, use SPF. Do that for two to three weeks.
+If you're starting from scratch with no routine: CeraVe first. Establish your cleanser and moisturizer, get your skin stable, use SPF. Do that for two to three weeks. (Need help with that? Here's a [complete beginner skincare routine](/blog/skincare-routine-for-beginners).)
 
 Then add The Ordinary niacinamide or whatever active makes sense for your skin concerns. That's the smarter order — you don't want to introduce an active into an already-reactive routine.
 
