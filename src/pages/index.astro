@@ -10,44 +10,36 @@ const hero = sorted[0];
 const featured = sorted.slice(1, 4);
 const recent = sorted.slice(4, 10);
 
+// Calculate reading time (words / 200 = minutes)
+function getReadingTime(body: string): number {
+  const words = body.split(/\s+/).length;
+  return Math.max(1, Math.round(words / 200));
+}
+
 const categories = [
-  { slug: 'ingredients', label: 'Ingredients' },
-  { slug: 'routines', label: 'Routines' },
-  { slug: 'versus', label: 'Versus' },
-  { slug: 'reviews', label: 'Reviews' },
-  { slug: 'beauty-business', label: 'Business' },
-  { slug: 'beginner-guides', label: 'Start Here' },
+  { slug: 'ingredients', label: 'Ingredients', icon: '&#9878;' },
+  { slug: 'routines', label: 'Routines', icon: '&#9681;' },
+  { slug: 'versus', label: 'Versus', icon: '&#9878;' },
+  { slug: 'reviews', label: 'Reviews', icon: '&#9733;' },
+  { slug: 'beauty-business', label: 'Business', icon: '&#9830;' },
+  { slug: 'beginner-guides', label: 'Start Here', icon: '&#10148;' },
 ];
+
+const heroReadTime = hero ? getReadingTime(hero.body || '') : 0;
 ---
 
 <BaseLayout
-  title="Glow Intel"
+  title="Glow Intel — Honest Skincare Intel"
   description="Honest skincare intel without the marketing speak. Ingredient deep dives, product reviews, and beauty business insights."
 >
-  <!-- ─── MASTHEAD ──────────────────────────────────────── -->
-  <section class="border-b border-[var(--border)] py-3">
-    <div class="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between">
-      <div class="flex gap-4">
-        {categories.slice(0, 4).map(cat => (
-          <a href={`/categories/${cat.slug}`} class="eyebrow no-underline hover:text-[var(--accent)] transition-colors hidden sm:block">
-            {cat.label}
-          </a>
-        ))}
-      </div>
-      <span class="eyebrow" style="color: var(--border)">
-        {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}
-      </span>
-    </div>
-  </section>
-
   <!-- ─── HERO POST ────────────────────────────────────── -->
   {hero && (
-    <section class="max-w-7xl mx-auto px-5 sm:px-8 pt-12 pb-10">
+    <section class="max-w-7xl mx-auto px-5 sm:px-8 pt-10 pb-10">
       <a href={`/blog/${hero.id}`} class="no-underline group block">
         <div class="grid lg:grid-cols-2 gap-8 lg:gap-14 items-center">
 
           <!-- Image -->
-          <div class="aspect-[16/10] rounded-sm overflow-hidden img-zoom reveal" style="background: var(--bg-alt)">
+          <div class="aspect-[16/10] rounded-lg overflow-hidden img-zoom reveal" style="background: var(--bg-alt)">
             {hero.data.heroImage ? (
               <img
                 src={hero.data.heroImage}
@@ -57,14 +49,17 @@ const categories = [
               />
             ) : (
               <div class="w-full h-full flex items-center justify-center">
-                <span class="text-6xl" style="color: var(--border)">✦</span>
+                <span class="text-6xl" style="color: var(--border)">&#10022;</span>
               </div>
             )}
           </div>
 
           <!-- Text -->
           <div class="reveal reveal-delay-2">
-            <div class="rule-accent mb-5"></div>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="badge trending">Latest</span>
+              <span class="badge">{heroReadTime} min read</span>
+            </div>
             <span class="eyebrow accent block mb-3">
               {hero.data.category.replace(/-/g, ' ')}
             </span>
@@ -74,8 +69,8 @@ const categories = [
             <p class="text-base leading-relaxed mb-6" style="color: var(--text-muted); max-width: 46ch">
               {hero.data.description}
             </p>
-            <span class="eyebrow accent group-hover:tracking-widest transition-all duration-300">
-              Read the story →
+            <span class="cta-pill filled">
+              Read the full story &rarr;
             </span>
           </div>
         </div>
@@ -83,19 +78,19 @@ const categories = [
     </section>
   )}
 
-  <div class="rule max-w-7xl mx-auto px-5 sm:px-8"></div>
+  <div class="rule max-w-7xl mx-auto"></div>
 
   <!-- ─── FEATURED GRID (3 cards) ─────────────────────── -->
   {featured.length > 0 && (
     <section class="max-w-7xl mx-auto px-5 sm:px-8 py-12">
-      <div class="flex items-baseline gap-4 mb-8 reveal">
-        <h2 class="eyebrow accent">Latest</h2>
+      <div class="flex items-center gap-4 mb-8 reveal">
+        <h2 class="eyebrow accent" style="white-space: nowrap;">Editor's Picks</h2>
         <div class="flex-1 h-px" style="background: var(--border)"></div>
-        <a href="/blog" class="eyebrow no-underline hover:text-[var(--accent)] transition-colors">View all</a>
+        <a href="/blog" class="cta-pill" style="flex-shrink: 0;">View all</a>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-        {featured.map((post, i) => (
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-8">
+        {featured.map((post) => (
           <PostCard
             title={post.data.title}
             description={post.data.description}
@@ -105,42 +100,45 @@ const categories = [
             heroImage={post.data.heroImage}
             heroImageAlt={post.data.heroImageAlt}
             variant="default"
+            readingTime={getReadingTime(post.body || '')}
           />
         ))}
       </div>
     </section>
   )}
 
-  <div class="rule max-w-7xl mx-auto px-5 sm:px-8"></div>
+  <div class="rule max-w-7xl mx-auto"></div>
 
   <!-- ─── CATEGORIES STRIP ─────────────────────────────── -->
   <section class="max-w-7xl mx-auto px-5 sm:px-8 py-10">
     <div class="flex items-baseline gap-4 mb-6 reveal">
-      <h2 class="eyebrow">Browse by topic</h2>
+      <h2 class="eyebrow">Explore Topics</h2>
       <div class="flex-1 h-px" style="background: var(--border)"></div>
     </div>
-    <div class="flex flex-wrap gap-3 reveal reveal-delay-1">
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 reveal reveal-delay-1">
       {categories.map(cat => (
         <a
           href={`/categories/${cat.slug}`}
-          class="no-underline px-4 py-2 border border-[var(--border)] rounded-full text-xs font-medium tracking-wide uppercase hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all duration-200"
-          style="color: var(--text-muted)"
+          class="no-underline flex flex-col items-center gap-2 py-5 px-3 border border-[var(--border)] rounded-lg text-center hover:border-[var(--accent)] hover:bg-[var(--accent-light)] transition-all duration-200 group"
         >
-          {cat.label}
+          <span class="text-sm font-medium tracking-wide uppercase group-hover:text-[var(--accent)] transition-colors" style="color: var(--text-muted); font-family: var(--sans); font-size: 0.6875rem; letter-spacing: 0.1em;">
+            {cat.label}
+          </span>
         </a>
       ))}
     </div>
   </section>
 
-  <!-- ─── MORE POSTS (horizontal list) ────────────────── -->
+  <!-- ─── MORE POSTS (numbered list) ─────────────────── -->
   {recent.length > 0 && (
     <section class="max-w-7xl mx-auto px-5 sm:px-8 py-10 border-t border-[var(--border)]">
-      <div class="flex items-baseline gap-4 mb-6 reveal">
-        <h2 class="eyebrow">More reads</h2>
+      <div class="flex items-center gap-4 mb-6 reveal">
+        <h2 class="eyebrow">Keep Reading</h2>
         <div class="flex-1 h-px" style="background: var(--border)"></div>
+        <a href="/blog" class="cta-pill" style="flex-shrink: 0;">All posts</a>
       </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-1">
-        {recent.map(post => (
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-0">
+        {recent.map((post, i) => (
           <PostCard
             title={post.data.title}
             description={post.data.description}
@@ -150,22 +148,27 @@ const categories = [
             heroImage={post.data.heroImage}
             heroImageAlt={post.data.heroImageAlt}
             variant="horizontal"
+            readingTime={getReadingTime(post.body || '')}
+            index={i + 1}
           />
         ))}
       </div>
     </section>
   )}
 
-  <!-- ─── ABOUT STRIP ──────────────────────────────────── -->
+  <!-- ─── NEWSLETTER / ABOUT STRIP ─────────────────────── -->
   <section class="border-t border-[var(--border)] mt-4">
-    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-16 text-center reveal">
-      <div class="rule-accent mx-auto mb-6"></div>
-      <p style="font-family: var(--serif); font-size: clamp(1.25rem, 2.5vw, 1.625rem); font-weight: 400; line-height: 1.5; max-width: 52ch; margin: 0 auto; color: var(--text);">
-        Honest skincare intel — no brand deals, no sponsored reviews, no filler. Just what the science says and what actually works.
-      </p>
-      <a href="/about" class="eyebrow accent no-underline mt-6 inline-block hover:tracking-widest transition-all duration-300">
-        About this blog →
-      </a>
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-16">
+      <div class="max-w-xl mx-auto text-center reveal">
+        <div class="rule-accent mx-auto mb-6"></div>
+        <p style="font-family: var(--serif); font-size: clamp(1.25rem, 2.5vw, 1.625rem); font-weight: 400; line-height: 1.5; color: var(--text);">
+          Honest skincare intel. No brand deals, no sponsored reviews, no filler. Just what the science says and what actually works.
+        </p>
+        <div class="flex items-center justify-center gap-4 mt-8">
+          <a href="/blog" class="cta-pill filled">Browse all posts</a>
+          <a href="/about" class="cta-pill">About us</a>
+        </div>
+      </div>
     </div>
   </section>
 </BaseLayout>
