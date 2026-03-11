@@ -4,8 +4,8 @@ description: "Retinol works, but most people quit too early from peeling and red
 pubDate: 2026-03-10
 category: "ingredients"
 tags: ["retinol", "retinoids", "anti-aging", "acne", "active ingredients", "tretinoin"]
-heroImage: "https://images.unsplash.com/photo-1571781926291-26a7a17c1a2a?w=1200&q=80"
-heroImageAlt: "Retinol serum dropper bottle on white surface"
+heroImage: "https://images.unsplash.com/photo-1741896135512-084b251887f7?w=1200&q=80&fm=jpg"
+heroImageAlt: "Skincare serum bottle and dropper on a pink surface"
 draft: false
 ---
 
