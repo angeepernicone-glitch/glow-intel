@@ -1040,11 +1040,43 @@ async function main() {
   fs.writeFileSync(queuePath, JSON.stringify(queue, null, 2));
   console.log(`  + Queue updated (${queue.queue.length} remaining)`);
 
+  // Update editorial picks (weekly highlight + monthly best)
+  updateEditorialPicks(target.slug, target.category);
+
   console.log(`\nDone!\n`);
   console.log(`Next step:`);
-  console.log(`  git add src/content/blog/${target.slug}.md content-pipeline/keyword-queue.json`);
+  console.log(`  git add src/content/blog/${target.slug}.md content-pipeline/keyword-queue.json content-pipeline/editorial-picks.json`);
   console.log(`  git commit -m "post: ${target.keyword}"`);
   console.log(`  git push\n`);
+}
+
+// ─── Editorial Picks Auto-Manager ─────────────────────────────────────────────
+function updateEditorialPicks(newSlug, newCategory) {
+  const picksPath = path.join(__dirname, 'editorial-picks.json');
+  let picks = { weeklyHighlight: null, monthlyBest: [], lastUpdated: null };
+  try { picks = JSON.parse(fs.readFileSync(picksPath, 'utf-8')); } catch {}
+
+  const now = new Date();
+  const lastUpdated = picks.lastUpdated ? new Date(picks.lastUpdated) : null;
+  const daysSinceUpdate = lastUpdated ? (now - lastUpdated) / (1000 * 60 * 60 * 24) : 999;
+
+  // Rotate weekly highlight every ~7 days or if empty
+  if (!picks.weeklyHighlight || daysSinceUpdate >= 7) {
+    picks.weeklyHighlight = newSlug;
+    console.log(`  + Weekly highlight updated: ${newSlug}`);
+  }
+
+  // Track monthly best (up to 4, rotate after 30 days)
+  if (!picks.monthlyBest) picks.monthlyBest = [];
+  if (daysSinceUpdate >= 30) {
+    picks.monthlyBest = [newSlug];
+    console.log(`  + Monthly best reset for new month`);
+  } else if (picks.monthlyBest.length < 4) {
+    picks.monthlyBest.push(newSlug);
+  }
+
+  picks.lastUpdated = now.toISOString().split('T')[0];
+  fs.writeFileSync(picksPath, JSON.stringify(picks, null, 2));
 }
 
 main().catch(err => { console.error('\nError:', err.message); process.exit(1); });

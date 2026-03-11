@@ -58,6 +58,24 @@
   .font-serif  { font-family: var(--serif); }
   .font-sans   { font-family: var(--sans); }
 
+  /* ─── Nav links ───────────────────────────────────── */
+  .nav-link {
+    font-family: var(--sans);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+  .nav-link:hover {
+    color: var(--accent);
+    background: var(--accent-light);
+  }
+  .nav-link.active {
+    color: var(--accent);
+    background: var(--accent-light);
+  }
+
   /* ─── Eyebrow label ───────────────────────────────── */
   .eyebrow {
     font-family: var(--sans);
@@ -68,6 +86,17 @@
     color: var(--text-muted);
   }
   .eyebrow.accent { color: var(--accent); }
+
+  /* ─── Section title ─────────────────────────────────── */
+  .section-title {
+    font-family: var(--sans);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text);
+    white-space: nowrap;
+  }
 
   /* ─── Thin rule ───────────────────────────────────── */
   .rule {

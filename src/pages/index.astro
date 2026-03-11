@@ -2,6 +2,8 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PostCard from '../components/PostCard.astro';
+import fs from 'node:fs';
+import path from 'node:path';
 
 const allPosts = await getCollection('blog', ({ data }) => !data.draft);
 const sorted = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
@@ -10,49 +12,88 @@ const hero = sorted[0];
 const featured = sorted.slice(1, 4);
 const recent = sorted.slice(4, 10);
 
-// Calculate reading time (words / 200 = minutes)
+// Time-based sections
+const now = new Date();
+const oneWeekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+const oneMonthAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+
+const thisWeek = sorted.filter(p => p.data.pubDate >= oneWeekAgo);
+const thisMonth = sorted.filter(p => p.data.pubDate >= oneMonthAgo && p.data.pubDate < oneWeekAgo);
+
+// Editorial picks (auto-managed by pipeline)
+let editorialPicks = { weeklyHighlight: null as string | null, monthlyBest: [] as string[] };
+try {
+  const picksPath = path.resolve('content-pipeline/editorial-picks.json');
+  if (fs.existsSync(picksPath)) {
+    editorialPicks = JSON.parse(fs.readFileSync(picksPath, 'utf-8'));
+  }
+} catch {}
+
+// Find weekly highlight post (from editorial picks or fallback to 2nd most recent)
+const weeklyHighlightSlug = editorialPicks.weeklyHighlight;
+const weeklyHighlight = weeklyHighlightSlug
+  ? sorted.find(p => p.id === weeklyHighlightSlug)
+  : sorted[1];
+
+// Group posts by category
+const byCategory: Record<string, typeof sorted> = {};
+sorted.forEach(post => {
+  const cat = post.data.category;
+  if (!byCategory[cat]) byCategory[cat] = [];
+  byCategory[cat].push(post);
+});
+
+// Sidebar: latest from each category
+const sidebarPosts = Object.entries(byCategory)
+  .map(([cat, posts]) => posts[0])
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 5);
+
+const categoryMeta: Record<string, { label: string; description: string }> = {
+  'ingredients': { label: 'Ingredients', description: 'Deep dives into what actually works' },
+  'routines': { label: 'Routines', description: 'AM/PM routines, skin types, seasonal' },
+  'versus': { label: 'Versus', description: 'Head-to-head product comparisons' },
+  'reviews': { label: 'Reviews', description: 'Honest reviews with real prices' },
+  'beauty-business': { label: 'Beauty Business', description: 'Ecommerce, DTC, brand strategy' },
+  'beginner-guides': { label: 'Start Here', description: 'New to skincare? Begin here' },
+};
+
 function getReadingTime(body: string): number {
   const words = body.split(/\s+/).length;
   return Math.max(1, Math.round(words / 200));
 }
 
-const categories = [
-  { slug: 'ingredients', label: 'Ingredients', icon: '&#9878;' },
-  { slug: 'routines', label: 'Routines', icon: '&#9681;' },
-  { slug: 'versus', label: 'Versus', icon: '&#9878;' },
-  { slug: 'reviews', label: 'Reviews', icon: '&#9733;' },
-  { slug: 'beauty-business', label: 'Business', icon: '&#9830;' },
-  { slug: 'beginner-guides', label: 'Start Here', icon: '&#10148;' },
-];
-
 const heroReadTime = hero ? getReadingTime(hero.body || '') : 0;
+
+const categorySections = ['ingredients', 'beauty-business', 'routines']
+  .filter(cat => byCategory[cat]?.length > 0)
+  .map(cat => ({
+    slug: cat,
+    ...categoryMeta[cat],
+    posts: byCategory[cat].slice(0, 3),
+  }));
 ---
 
 <BaseLayout
-  title="Glow Intel — Honest Skincare Intel"
-  description="Honest skincare intel without the marketing speak. Ingredient deep dives, product reviews, and beauty business insights."
+  title="Glow Intel — Skincare Science, Beauty Business & More"
+  description="Your daily source for skincare science, product reviews, beauty business intel, and supplement insights. No filler, just what works."
 >
-  <!-- Organization schema for homepage -->
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Glow Intel",
     "url": Astro.site?.href || "https://glowintel.com",
-    "description": "Honest skincare intel without the marketing speak. Ingredient deep dives, product reviews, and beauty business insights.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Glow Intel"
-    }
+    "description": "Your daily source for skincare science, product reviews, beauty business intel, and supplement insights.",
+    "publisher": { "@type": "Organization", "name": "Glow Intel" }
   })} />
 
-  <!-- ─── HERO POST ────────────────────────────────────── -->
+  <!-- ═══ HERO — bigger, more breathing room ═══ -->
   {hero && (
-    <section class="max-w-7xl mx-auto px-5 sm:px-8 pt-10 pb-10">
+    <section class="max-w-7xl mx-auto px-5 sm:px-8 pt-10 pb-14">
       <a href={`/blog/${hero.id}`} class="no-underline group block">
-        <div class="grid lg:grid-cols-2 gap-8 lg:gap-14 items-center">
+        <div class="grid lg:grid-cols-[1.2fr_1fr] gap-8 lg:gap-16 items-center">
 
-          <!-- Image -->
-          <div class="aspect-[16/10] rounded-lg overflow-hidden img-zoom reveal" style="background: var(--bg-alt)">
+          <div class="aspect-[16/9] rounded-xl overflow-hidden img-zoom reveal" style="background: var(--bg-alt);">
             {hero.data.heroImage ? (
               <img
                 src={hero.data.heroImage}
@@ -67,22 +108,21 @@ const heroReadTime = hero ? getReadingTime(hero.body || '') : 0;
             )}
           </div>
 
-          <!-- Text -->
           <div class="reveal reveal-delay-2">
-            <div class="flex items-center gap-3 mb-3">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="badge trending" style="font-size: 0.6875rem; padding: 0.25rem 0.75rem;">Featured</span>
               <span class="eyebrow accent">
                 {hero.data.category.replace(/-/g, ' ')}
               </span>
-              <span class="badge trending">Latest</span>
-              <span class="badge">{heroReadTime} min read</span>
+              <span class="eyebrow">{heroReadTime} min read</span>
             </div>
-            <h1 style="font-family: var(--serif); font-weight: 900; font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.1; letter-spacing: -0.01em; color: var(--text);" class="group-hover:text-[var(--accent)] transition-colors duration-300 mb-5">
+            <h1 style="font-family: var(--serif); font-weight: 900; font-size: clamp(2.25rem, 4.5vw, 3.5rem); line-height: 1.08; letter-spacing: -0.015em; color: var(--text);" class="group-hover:text-[var(--accent)] transition-colors duration-300 mb-6">
               {hero.data.title}
             </h1>
-            <p class="text-base leading-relaxed mb-6" style="color: var(--text-muted); max-width: 46ch">
+            <p class="text-lg leading-relaxed mb-8" style="color: var(--text-muted); max-width: 48ch">
               {hero.data.description}
             </p>
-            <span class="cta-pill filled">
+            <span class="cta-pill filled" style="padding: 0.625rem 1.5rem; font-size: 0.8125rem;">
               Read the full story &rarr;
             </span>
           </div>
@@ -93,96 +133,335 @@ const heroReadTime = hero ? getReadingTime(hero.body || '') : 0;
 
   <div class="rule max-w-7xl mx-auto"></div>
 
-  <!-- ─── FEATURED GRID (3 cards) ─────────────────────── -->
-  {featured.length > 0 && (
-    <section class="max-w-7xl mx-auto px-5 sm:px-8 py-12">
-      <div class="flex items-center gap-4 mb-8 reveal">
-        <h2 class="eyebrow accent" style="white-space: nowrap;">Editor's Picks</h2>
-        <div class="flex-1 h-px" style="background: var(--border)"></div>
-        <a href="/blog" class="cta-pill" style="flex-shrink: 0;">View all</a>
+  <!-- ═══ MAIN CONTENT + SIDEBAR ═══ -->
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-12">
+    <div class="grid lg:grid-cols-[1fr_300px] gap-12">
+
+      <!-- LEFT: Main content -->
+      <div>
+        <!-- Editor's Picks -->
+        {featured.length > 0 && (
+          <div>
+            <div class="flex items-center gap-4 mb-8 reveal">
+              <h2 class="section-title">Editor's Picks</h2>
+              <div class="flex-1 h-px" style="background: var(--border)"></div>
+              <a href="/blog" class="cta-pill" style="flex-shrink: 0;">View all</a>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {featured.map((post) => (
+                <PostCard
+                  title={post.data.title}
+                  description={post.data.description}
+                  slug={post.id}
+                  pubDate={post.data.pubDate}
+                  category={post.data.category}
+                  heroImage={post.data.heroImage}
+                  heroImageAlt={post.data.heroImageAlt}
+                  variant="default"
+                  readingTime={getReadingTime(post.body || '')}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+
+        <!-- This Week -->
+        {thisWeek.length > 1 && (
+          <div class="mt-14">
+            <div class="flex items-center gap-4 mb-6 reveal">
+              <h2 class="section-title">This Week</h2>
+              <span class="badge trending">New</span>
+              <div class="flex-1 h-px" style="background: var(--border)"></div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-6">
+              {thisWeek.slice(0, 4).map((post) => (
+                <PostCard
+                  title={post.data.title}
+                  description={post.data.description}
+                  slug={post.id}
+                  pubDate={post.data.pubDate}
+                  category={post.data.category}
+                  heroImage={post.data.heroImage}
+                  heroImageAlt={post.data.heroImageAlt}
+                  variant="default"
+                  readingTime={getReadingTime(post.body || '')}
+                />
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-8">
-        {featured.map((post) => (
-          <PostCard
-            title={post.data.title}
-            description={post.data.description}
-            slug={post.id}
-            pubDate={post.data.pubDate}
-            category={post.data.category}
-            heroImage={post.data.heroImage}
-            heroImageAlt={post.data.heroImageAlt}
-            variant="default"
-            readingTime={getReadingTime(post.body || '')}
-          />
-        ))}
+      <!-- RIGHT: Sidebar -->
+      <aside class="hidden lg:block">
+        <div class="sticky top-36">
+          <div class="mb-8">
+            <h3 class="section-title mb-5">What's New</h3>
+            <div class="space-y-0">
+              {sidebarPosts.map((post, i) => (
+                <a href={`/blog/${post.id}`} class="no-underline group flex gap-3 items-start py-3 border-b border-[var(--border-light)]">
+                  <span style="font-family: var(--serif); font-weight: 700; font-size: 1.25rem; color: var(--accent); line-height: 1; min-width: 1.5rem;" class="mt-0.5">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <div>
+                    <span class="eyebrow accent block mb-1">{categoryMeta[post.data.category]?.label || post.data.category}</span>
+                    <h4 style="font-family: var(--serif); font-weight: 600; font-size: 0.875rem; line-height: 1.35; color: var(--text);" class="group-hover:text-[var(--accent)] transition-colors">
+                      {post.data.title}
+                    </h4>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div class="mb-8">
+            <h3 class="section-title mb-4">Topics</h3>
+            <div class="flex flex-wrap gap-2">
+              {Object.entries(categoryMeta).map(([slug, meta]) => (
+                <a
+                  href={`/categories/${slug}`}
+                  class="no-underline text-xs font-medium px-3 py-1.5 rounded-md border border-[var(--border)] hover:border-[var(--accent)] hover:bg-[var(--accent-light)] hover:text-[var(--accent)] transition-all"
+                  style="color: var(--text-muted); font-family: var(--sans);"
+                >
+                  {meta.label}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div class="p-5 rounded-lg" style="background: var(--bg-alt); border: 1px solid var(--border-light);">
+            <h3 class="section-title mb-3">About Glow Intel</h3>
+            <p style="font-size: 0.8125rem; line-height: 1.65; color: var(--text-muted); font-family: var(--sans);">
+              Skincare science, product reviews, beauty ecommerce intel, and supplement insights. Written for people who want to know what actually works — whether you're building a routine or building a brand.
+            </p>
+            <a href="/blog" class="cta-pill mt-4 inline-flex" style="font-size: 0.6875rem;">Browse all posts</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- ═══ WEEKLY HIGHLIGHT — Clarín editorial style ═══ -->
+  {weeklyHighlight && (() => {
+    const secondaryPosts = sorted.filter(p => p.id !== hero?.id && p.id !== weeklyHighlight.id).slice(0, 2);
+    return (
+      <section style="background: white; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8 py-12">
+
+          <!-- Main feature -->
+          <a href={`/blog/${weeklyHighlight.id}`} class="no-underline group block mb-8">
+            <div class="overflow-hidden rounded-lg img-zoom" style="max-height: 420px;">
+              {weeklyHighlight.data.heroImage ? (
+                <img
+                  src={weeklyHighlight.data.heroImage}
+                  alt={weeklyHighlight.data.heroImageAlt || weeklyHighlight.data.title}
+                  class="w-full h-full object-cover"
+                  style="max-height: 420px;"
+                  loading="lazy"
+                />
+              ) : (
+                <div class="w-full flex items-center justify-center" style="height: 420px; background: var(--bg-alt);">
+                  <span class="text-5xl" style="color: var(--border);">&#10022;</span>
+                </div>
+              )}
+            </div>
+            <div class="mt-5">
+              <span style="font-family: var(--sans); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">
+                {weeklyHighlight.data.category.replace(/-/g, ' ')}
+              </span>
+              <h2 style="font-family: var(--serif); font-weight: 900; font-size: clamp(1.75rem, 4vw, 2.75rem); line-height: 1.1; color: var(--text);" class="group-hover:text-[var(--accent)] transition-colors duration-200 mt-2 mb-3">
+                {weeklyHighlight.data.title}
+              </h2>
+              <p style="font-family: var(--sans); font-size: 1rem; line-height: 1.65; color: var(--text-muted); max-width: 72ch;">
+                {weeklyHighlight.data.description}
+              </p>
+              <p style="font-family: var(--sans); font-size: 0.75rem; color: var(--text-muted); margin-top: 0.75rem;">
+                Glow Intel &middot; {getReadingTime(weeklyHighlight.body || '')} min read
+              </p>
+            </div>
+          </a>
+
+          <!-- Two secondary cards below -->
+          {secondaryPosts.length > 0 && (
+            <div class="grid sm:grid-cols-2 gap-6 pt-6" style="border-top: 1px solid var(--border-light);">
+              {secondaryPosts.map((post) => (
+                <a href={`/blog/${post.id}`} class="no-underline group block">
+                  <div class="overflow-hidden rounded-lg img-zoom" style="max-height: 220px;">
+                    {post.data.heroImage ? (
+                      <img
+                        src={post.data.heroImage}
+                        alt={post.data.heroImageAlt || post.data.title}
+                        class="w-full object-cover"
+                        style="max-height: 220px;"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div class="w-full flex items-center justify-center" style="height: 220px; background: var(--bg-alt);">
+                        <span class="text-3xl" style="color: var(--border);">&#10022;</span>
+                      </div>
+                    )}
+                  </div>
+                  <div class="mt-3">
+                    <span style="font-family: var(--sans); font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent);">
+                      {post.data.category.replace(/-/g, ' ')}
+                    </span>
+                    <h3 style="font-family: var(--serif); font-weight: 800; font-size: 1.125rem; line-height: 1.25; color: var(--text);" class="group-hover:text-[var(--accent)] transition-colors duration-200 mt-1 mb-1.5">
+                      {post.data.title}
+                    </h3>
+                    <p style="font-family: var(--sans); font-size: 0.8125rem; color: var(--text-muted); line-height: 1.5;" class="line-clamp-2">
+                      {post.data.description}
+                    </p>
+                  </div>
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+    );
+  })()}
+
+  <!-- ═══ CATEGORY SECTIONS ═══ -->
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-14">
+    {categorySections.map((section) => (
+      <div class="mb-14 last:mb-0">
+        <div class="flex items-center gap-4 mb-6 reveal">
+          <h2 class="section-title">{section.label}</h2>
+          <span class="text-sm" style="color: var(--text-muted); font-family: var(--sans);">{section.description}</span>
+          <div class="flex-1 h-px" style="background: var(--border)"></div>
+          <a href={`/categories/${section.slug}`} class="cta-pill" style="flex-shrink: 0;">More</a>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {section.posts.map((post) => (
+            <PostCard
+              title={post.data.title}
+              description={post.data.description}
+              slug={post.id}
+              pubDate={post.data.pubDate}
+              category={post.data.category}
+              heroImage={post.data.heroImage}
+              heroImageAlt={post.data.heroImageAlt}
+              variant="default"
+              readingTime={getReadingTime(post.body || '')}
+            />
+          ))}
+        </div>
       </div>
-    </section>
+    ))}
+  </div>
+
+  <!-- ═══ THIS MONTH — if there are older posts from this month ═══ -->
+  {thisMonth.length > 0 && (
+    <div style="background: var(--bg-warm); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+      <section class="max-w-7xl mx-auto px-5 sm:px-8 py-12">
+        <div class="flex items-center gap-4 mb-8 reveal">
+          <h2 class="section-title">This Month</h2>
+          <span class="text-sm" style="color: var(--text-muted); font-family: var(--sans);">The best from the last 30 days</span>
+          <div class="flex-1 h-px" style="background: var(--border)"></div>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {thisMonth.slice(0, 4).map((post) => (
+            <PostCard
+              title={post.data.title}
+              description={post.data.description}
+              slug={post.id}
+              pubDate={post.data.pubDate}
+              category={post.data.category}
+              heroImage={post.data.heroImage}
+              heroImageAlt={post.data.heroImageAlt}
+              variant="default"
+              readingTime={getReadingTime(post.body || '')}
+            />
+          ))}
+        </div>
+      </section>
+    </div>
   )}
 
-  <div class="rule max-w-7xl mx-auto"></div>
-
-  <!-- ─── CATEGORIES + KEEP READING (white bg) ────────── -->
-  <div style="background: white;">
-  <section class="max-w-7xl mx-auto px-5 sm:px-8 py-10">
-    <div class="flex items-baseline gap-4 mb-6 reveal">
-      <h2 class="eyebrow">Explore Topics</h2>
-      <div class="flex-1 h-px" style="background: var(--border)"></div>
-    </div>
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 reveal reveal-delay-1">
-      {categories.map(cat => (
-        <a
-          href={`/categories/${cat.slug}`}
-          class="no-underline flex flex-col items-center gap-2 py-5 px-3 border border-[var(--border)] rounded-lg text-center hover:border-[var(--accent)] hover:bg-[var(--accent-light)] transition-all duration-200 group"
-          style="background: white;"
-        >
-          <span class="text-sm font-medium tracking-wide uppercase group-hover:text-[var(--accent)] transition-colors" style="color: var(--text-muted); font-family: var(--sans); font-size: 0.6875rem; letter-spacing: 0.1em;">
-            {cat.label}
-          </span>
-        </a>
-      ))}
-    </div>
-  </section>
-
-  <!-- ─── MORE POSTS (numbered list) ─────────────────── -->
+  <!-- ═══ KEEP READING ═══ -->
   {recent.length > 0 && (
-    <section class="max-w-7xl mx-auto px-5 sm:px-8 py-10 border-t border-[var(--border)]">
-      <div class="flex items-center gap-4 mb-6 reveal">
-        <h2 class="eyebrow">Keep Reading</h2>
-        <div class="flex-1 h-px" style="background: var(--border)"></div>
-        <a href="/blog" class="cta-pill" style="flex-shrink: 0;">All posts</a>
-      </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-0">
-        {recent.map((post, i) => (
-          <PostCard
-            title={post.data.title}
-            description={post.data.description}
-            slug={post.id}
-            pubDate={post.data.pubDate}
-            category={post.data.category}
-            heroImage={post.data.heroImage}
-            heroImageAlt={post.data.heroImageAlt}
-            variant="horizontal"
-            readingTime={getReadingTime(post.body || '')}
-            index={i + 1}
-          />
-        ))}
-      </div>
-    </section>
+    <div style="background: white; border-top: 1px solid var(--border);">
+      <section class="max-w-7xl mx-auto px-5 sm:px-8 py-12">
+        <div class="flex items-center gap-4 mb-8 reveal">
+          <h2 class="section-title">Keep Reading</h2>
+          <div class="flex-1 h-px" style="background: var(--border)"></div>
+          <a href="/blog" class="cta-pill" style="flex-shrink: 0;">All posts</a>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-0" id="keep-reading-grid">
+          {recent.map((post, i) => (
+            <div data-slug={post.id}>
+              <PostCard
+                title={post.data.title}
+                description={post.data.description}
+                slug={post.id}
+                pubDate={post.data.pubDate}
+                category={post.data.category}
+                heroImage={post.data.heroImage}
+                heroImageAlt={post.data.heroImageAlt}
+                variant="horizontal"
+                readingTime={getReadingTime(post.body || '')}
+                index={i + 1}
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
   )}
 
-  </div><!-- end white bg wrapper -->
-
-  <!-- ─── CLOSING STRIP ──────────────────────────────── -->
-  <section class="border-t border-[var(--border)] mt-4" style="background: white;">
+  <!-- ═══ CLOSING STRIP ═══ -->
+  <section class="border-t border-[var(--border)]" style="background: white;">
     <div class="max-w-7xl mx-auto px-5 sm:px-8 py-16">
       <div class="max-w-xl mx-auto text-center reveal">
         <div class="rule-accent mx-auto mb-6"></div>
         <p style="font-family: var(--serif); font-size: clamp(1.25rem, 2.5vw, 1.625rem); font-weight: 400; line-height: 1.5; color: var(--text);">
-          Honest skincare intel. No brand deals, no sponsored reviews, no filler. Just what the science says and what actually works.
+          Skincare science, beauty business insights, and real product intel. For people who want to know what works — and why.
         </p>
         <a href="/blog" class="cta-pill filled mt-8 inline-flex">Browse all posts</a>
       </div>
     </div>
   </section>
+
+  <!-- Keep Reading: localStorage tracking -->
+  <script>
+    const STORAGE_KEY = 'glowintel_read';
+
+    function getReadPosts(): string[] {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      } catch { return []; }
+    }
+
+    function markRead(slug: string) {
+      const read = getReadPosts();
+      if (!read.includes(slug)) {
+        read.push(slug);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(read));
+      }
+    }
+
+    const match = window.location.pathname.match(/^\/blog\/(.+?)\/?$/);
+    if (match) markRead(match[1]);
+
+    const readPosts = getReadPosts();
+    const grid = document.getElementById('keep-reading-grid');
+    if (grid) {
+      grid.querySelectorAll('[data-slug]').forEach(el => {
+        const slug = (el as HTMLElement).dataset.slug;
+        if (slug && readPosts.includes(slug)) {
+          (el as HTMLElement).style.opacity = '0.5';
+          const badge = document.createElement('span');
+          badge.className = 'badge';
+          badge.textContent = 'Read';
+          badge.style.marginLeft = '0.5rem';
+          const eyebrow = el.querySelector('.eyebrow');
+          if (eyebrow?.parentElement) {
+            eyebrow.parentElement.appendChild(badge);
+          }
+        }
+      });
+    }
+  </script>
 </BaseLayout>

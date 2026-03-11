@@ -12,71 +12,63 @@ const currentPath = Astro.url.pathname;
 ---
 
 <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-  <div class="border-b border-[var(--border)] bg-[var(--bg)]/95 backdrop-blur-md">
+  <!-- Top accent bar -->
+  <div style="height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-hover), var(--accent));"></div>
+
+  <div class="border-b border-[var(--border)] bg-white/97 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-5 sm:px-8">
-      <div class="flex items-center justify-between h-16">
 
-        <!-- Left nav (desktop) -->
-        <nav class="hidden lg:flex items-center gap-7 flex-1">
-          {navLinks.slice(0, 3).map(link => (
-            <a
-              href={link.href}
-              class={`eyebrow transition-colors hover:text-[var(--accent)] no-underline ${
-                currentPath.startsWith(link.href) ? 'accent' : ''
-              }`}
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-
-        <!-- Logo -->
-        <a href="/" class="no-underline flex-shrink-0 lg:absolute lg:left-1/2 lg:-translate-x-1/2">
-          <span style="font-family: var(--serif); font-size: 1.5rem; font-weight: 900; letter-spacing: -0.01em; color: var(--text);">
+      <!-- Logo row -->
+      <div class="flex items-center justify-center py-4 border-b border-[var(--border-light)]">
+        <a href="/" class="no-underline">
+          <span style="font-family: var(--serif); font-size: 2.25rem; font-weight: 900; letter-spacing: -0.02em; color: var(--text); line-height: 1;">
             GLOW<span style="color: var(--accent);">INTEL</span>
           </span>
+          <span class="block text-center" style="font-family: var(--sans); font-size: 0.625rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin-top: 2px;">
+            Beauty &middot; Skincare &middot; Business
+          </span>
         </a>
-
-        <!-- Right nav (desktop) -->
-        <nav class="hidden lg:flex items-center gap-7 flex-1 justify-end">
-          {navLinks.slice(3).map(link => (
-            <a
-              href={link.href}
-              class={`eyebrow transition-colors hover:text-[var(--accent)] no-underline ${
-                currentPath.startsWith(link.href) ? 'accent' : ''
-              }`}
-            >
-              {link.label}
-            </a>
-          ))}
-          <a href="/blog" class="eyebrow no-underline hover:text-[var(--accent)] transition-colors">All Posts</a>
-        </nav>
 
         <!-- Mobile hamburger -->
         <button
           id="mobile-menu-btn"
-          class="lg:hidden p-2 -mr-2 text-[var(--text-muted)] hover:text-[var(--text)] transition-colors"
+          class="lg:hidden p-2 absolute right-5 text-[var(--text)] hover:text-[var(--accent)] transition-colors"
           aria-label="Toggle menu"
         >
-          <svg id="icon-open" width="20" height="14" viewBox="0 0 20 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-            <line x1="0" y1="1" x2="20" y2="1"/>
-            <line x1="0" y1="7" x2="20" y2="7"/>
-            <line x1="0" y1="13" x2="20" y2="13"/>
+          <svg id="icon-open" width="22" height="16" viewBox="0 0 22 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="0" y1="2" x2="22" y2="2"/>
+            <line x1="0" y1="8" x2="22" y2="8"/>
+            <line x1="0" y1="14" x2="22" y2="14"/>
           </svg>
-          <svg id="icon-close" class="hidden" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-            <line x1="1" y1="1" x2="15" y2="15"/>
-            <line x1="15" y1="1" x2="1" y2="15"/>
+          <svg id="icon-close" class="hidden" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="2" y1="2" x2="16" y2="16"/>
+            <line x1="16" y1="2" x2="2" y2="16"/>
           </svg>
         </button>
       </div>
+
+      <!-- Nav row (desktop) -->
+      <nav class="hidden lg:flex items-center justify-center gap-1 py-2">
+        {navLinks.map(link => (
+          <a
+            href={link.href}
+            class={`nav-link no-underline px-4 py-2 rounded transition-colors duration-200 ${
+              currentPath.startsWith(link.href) ? 'active' : ''
+            }`}
+          >
+            {link.label}
+          </a>
+        ))}
+        <a href="/blog" class="nav-link no-underline px-4 py-2 rounded transition-colors duration-200">All Posts</a>
+      </nav>
     </div>
   </div>
 
   <!-- Mobile menu -->
-  <div id="mobile-menu" class="hidden lg:hidden bg-[var(--bg)] border-b border-[var(--border)]">
-    <div class="max-w-7xl mx-auto px-5 py-6 flex flex-col gap-5">
+  <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-[var(--border)] shadow-lg">
+    <div class="max-w-7xl mx-auto px-5 py-6 flex flex-col gap-1">
       {[...navLinks, { href: '/blog', label: 'All Posts' }].map(link => (
-        <a href={link.href} class="eyebrow text-[var(--text-muted)] hover:text-[var(--accent)] no-underline transition-colors">
+        <a href={link.href} class="no-underline py-3 px-4 rounded-lg hover:bg-[var(--accent-light)] transition-colors" style="font-family: var(--sans); font-size: 0.9375rem; font-weight: 500; color: var(--text);">
           {link.label}
         </a>
       ))}
@@ -85,7 +77,7 @@ const currentPath = Astro.url.pathname;
 </header>
 
 <!-- Spacer for fixed header -->
-<div class="h-16"></div>
+<div class="h-28 lg:h-32"></div>
 
 <script>
   const btn = document.getElementById('mobile-menu-btn');
@@ -102,6 +94,6 @@ const currentPath = Astro.url.pathname;
 
   const header = document.getElementById('site-header');
   window.addEventListener('scroll', () => {
-    header?.classList.toggle('shadow-sm', window.scrollY > 8);
+    header?.classList.toggle('shadow-md', window.scrollY > 8);
   }, { passive: true });
 </script>

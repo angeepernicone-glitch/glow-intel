@@ -81,7 +81,7 @@ const readMin = readingTime ? `${readingTime} min read` : null;
 )}
 
 {(!variant || variant === 'default') && (
-  <article class="reveal group flex flex-col card-lift rounded-lg overflow-hidden" style="background: var(--bg);">
+  <article class="reveal group flex flex-col card-lift rounded-lg overflow-hidden border border-[var(--border-light)]" style="background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
     <a href={`/blog/${slug}`} class="no-underline flex flex-col h-full">
       <div class="aspect-[4/3] overflow-hidden img-zoom" style="background: var(--bg-alt)">
         {heroImage ? (
