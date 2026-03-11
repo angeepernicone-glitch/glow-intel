@@ -339,6 +339,102 @@ function scrub(text) {
     .replace(/It seems that /gi, '');
 }
 
+// ─── 9. Quality gate — auto-validate & fix before saving ─────────────────────
+function qualityGate(content, { keyword, category, title, tags, existingSlugs }) {
+  const issues = [];
+  const fixes = [];
+  let fixed = content;
+
+  // --- SEO checks ---
+  const kwLower = keyword.toLowerCase();
+  const firstPara = content.split('\n').find(l => l.trim() && !l.startsWith('#') && !l.startsWith('---')) || '';
+
+  if (!title.toLowerCase().includes(kwLower) && !title.toLowerCase().includes(kwLower.split(' ')[0])) {
+    issues.push(`SEO: keyword "${keyword}" not found in title`);
+  }
+
+  if (!firstPara.toLowerCase().includes(kwLower) && !firstPara.toLowerCase().includes(kwLower.replace(/ /g, '-'))) {
+    issues.push(`SEO: keyword not found in first paragraph`);
+  }
+
+  // --- Internal links check (need 2-3) ---
+  const internalLinkMatches = content.match(/\]\(\/blog\/[^)]+\)/g) || [];
+  if (internalLinkMatches.length < 2) {
+    issues.push(`SEO: only ${internalLinkMatches.length} internal links (need 2-3)`);
+    // Auto-inject internal links at end of relevant paragraphs
+    const available = existingSlugs
+      .filter(s => !content.includes(`/blog/${s}`))
+      .slice(0, 3 - internalLinkMatches.length);
+
+    for (const slug of available) {
+      const label = slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+      const paragraphs = fixed.split('\n\n');
+      // Find a middle paragraph that's actual text (not a heading)
+      const midIdx = Math.floor(paragraphs.length / 2);
+      for (let i = midIdx; i < paragraphs.length; i++) {
+        if (paragraphs[i].trim() && !paragraphs[i].startsWith('#') && !paragraphs[i].includes(`/blog/`)) {
+          paragraphs[i] += ` If you're interested, check out [${label}](/blog/${slug}).`;
+          fixes.push(`Auto-injected internal link to /blog/${slug}`);
+          break;
+        }
+      }
+      fixed = paragraphs.join('\n\n');
+    }
+  }
+
+  // --- External links check (need 1-2) ---
+  const externalLinkMatches = content.match(/\]\(https?:\/\/[^)]+\)/g) || [];
+  if (externalLinkMatches.length < 1) {
+    issues.push(`SEO: no external links (need 1-2 authoritative sources)`);
+  }
+
+  // --- Word count check ---
+  const wordCount = content.split(/\s+/).filter(Boolean).length;
+  if (wordCount < 1200) {
+    issues.push(`Content: only ${wordCount} words (target 1500-2500)`);
+  } else if (wordCount > 2800) {
+    issues.push(`Content: ${wordCount} words (target 1500-2500, may be padded)`);
+  }
+
+  // --- Residual slop check ---
+  const slopPatterns = [
+    /game.changer/i, /revolutionary/i, /groundbreaking/i, /dive deep/i,
+    /let's explore/i, /it's worth noting/i, /in today's world/i,
+    /without further ado/i, /^furthermore,/im, /^moreover,/im,
+    /^additionally,/im, /^in conclusion,/im, /as an ai/i,
+  ];
+  const slopFound = slopPatterns.filter(p => p.test(content));
+  if (slopFound.length > 0) {
+    issues.push(`Slop: ${slopFound.length} residual AI patterns found after scrub`);
+  }
+
+  // --- H2 check ---
+  const h2Count = (content.match(/^## /gm) || []).length;
+  if (h2Count < 3) {
+    issues.push(`Structure: only ${h2Count} H2 headings (recommend 4-6)`);
+  }
+
+  // --- Meta description length ---
+  const desc = extractDescription(content);
+  if (desc.length < 120) {
+    issues.push(`Meta: description too short (${desc.length} chars, need 150-160)`);
+  }
+
+  // Log results
+  if (issues.length === 0) {
+    console.log('  ✓ All quality checks passed');
+  } else {
+    console.log(`  ⚠ ${issues.length} issue(s) found:`);
+    issues.forEach(i => console.log(`    - ${i}`));
+  }
+  if (fixes.length > 0) {
+    console.log(`  🔧 ${fixes.length} auto-fix(es) applied:`);
+    fixes.forEach(f => console.log(`    - ${f}`));
+  }
+
+  return { content: fixed, issues, fixes };
+}
+
 // ─── Build frontmatter ───────────────────────────────────────────────────────
 function buildFrontmatter(target, image, description, title, tags) {
   const today = new Date().toISOString().split('T')[0];
@@ -437,13 +533,30 @@ async function main() {
   });
 
   const cleanContent = scrub(body);
-  const description  = extractDescription(cleanContent);
+
+  console.log('\nStep 4: Quality gate\n');
+  const existingSlugsList = fs.readdirSync(path.join(ROOT, 'src', 'content', 'blog'))
+    .filter(f => f.endsWith('.md'))
+    .map(f => f.replace('.md', ''));
+  const { content: validatedContent, issues } = qualityGate(cleanContent, {
+    keyword: target.keyword,
+    category: target.category,
+    title,
+    tags,
+    existingSlugs: existingSlugsList,
+  });
+
+  const description  = extractDescription(validatedContent);
   const frontmatter  = buildFrontmatter(target, image, description, title, tags);
-  const fullPost     = `${frontmatter}\n\n${cleanContent}`;
+  const fullPost     = `${frontmatter}\n\n${validatedContent}`;
 
   if (dryRun) {
     console.log('\n─── DRY RUN (first 800 chars) ───────────────\n');
     console.log(fullPost.slice(0, 800));
+    if (issues.length > 0) {
+      console.log('\n─── QUALITY ISSUES ──────────────────────────');
+      issues.forEach(i => console.log(`  ⚠ ${i}`));
+    }
     console.log('\n─── END DRY RUN ─────────────────────────────');
     return;
   }

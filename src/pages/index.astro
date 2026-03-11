@@ -47,7 +47,7 @@ const heroReadTime = hero ? getReadingTime(hero.body || '') : 0;
 
   <!-- ─── HERO POST ────────────────────────────────────── -->
   {hero && (
-    <section class="max-w-7xl mx-auto px-5 sm:px-8 pt-10 pb-10">
+    <section class="max-w-7xl mx-auto px-5 sm:px-8 pt-10 pb-10" style="background: white;">
       <a href={`/blog/${hero.id}`} class="no-underline group block">
         <div class="grid lg:grid-cols-2 gap-8 lg:gap-14 items-center">
 
@@ -69,13 +69,13 @@ const heroReadTime = hero ? getReadingTime(hero.body || '') : 0;
 
           <!-- Text -->
           <div class="reveal reveal-delay-2">
-            <div class="flex items-center gap-3 mb-4">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="eyebrow accent">
+                {hero.data.category.replace(/-/g, ' ')}
+              </span>
               <span class="badge trending">Latest</span>
               <span class="badge">{heroReadTime} min read</span>
             </div>
-            <span class="eyebrow accent block mb-3">
-              {hero.data.category.replace(/-/g, ' ')}
-            </span>
             <h1 style="font-family: var(--serif); font-weight: 900; font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.1; letter-spacing: -0.01em; color: var(--text);" class="group-hover:text-[var(--accent)] transition-colors duration-300 mb-5">
               {hero.data.title}
             </h1>
