@@ -4,7 +4,7 @@ description: "CeraVe Moisturizing Cream is everywhere — Reddit threads, dermat
 pubDate: 2026-03-11
 category: "reviews"
 tags: ["reviews", "moisturizer", "cerave", "dry skin", "drugstore skincare"]
-heroImage: "/images/blog/cerave-moisturizing-cream-review.jpg"
+heroImage: "/images/blog/cerave-moisturizing-cream-review.jpeg"
 heroImageAlt: "PROS & CONS: CERAVE MOISTURIZING CREAM & DAILY MOISTURIZING ..."
 draft: false
 ---

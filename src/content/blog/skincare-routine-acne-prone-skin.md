@@ -4,7 +4,7 @@ description: "Most acne routines online have you buying 8 products, half of whic
 pubDate: 2026-03-11
 category: "routines"
 tags: ["acne", "bha", "niacinamide", "routine", "non-comedogenic", "oily skin"]
-heroImage: "/images/blog/skincare-routine-acne-prone-skin.jpg"
+heroImage: "/images/blog/skincare-routine-acne-prone-skin.png"
 heroImageAlt: "Refinery29 Editors Share Their Skin-Care Routines"
 draft: false
 ---
