@@ -26,6 +26,7 @@ import Anthropic from '@anthropic-ai/sdk';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { createHash } from 'crypto';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -489,42 +490,62 @@ async function getNewsAngle(keyword) {
   }
 }
 
+// ─── Image deduplication: track URLs already used across posts ───────────────
+function getUsedImageUrls() {
+  const urls = new Set();
+  const blogDir = path.join(ROOT, 'src', 'content', 'blog');
+  if (!fs.existsSync(blogDir)) return urls;
+  for (const file of fs.readdirSync(blogDir).filter(f => f.endsWith('.md'))) {
+    const content = fs.readFileSync(path.join(blogDir, file), 'utf-8').slice(0, 500);
+    const match = content.match(/heroImage:\s*"([^"]+)"/);
+    if (match) urls.add(match[1]);
+  }
+  return urls;
+}
+
 // ─── 6a. Google Images via Serper (for specific products/brands) ─────────────
-async function fetchGoogleImage(keyword, category) {
+async function fetchGoogleImage(keyword, category, usedUrls) {
   const key = process.env.SERPER_API_KEY;
   if (!key) return null;
 
+  // Use keyword-specific queries to avoid duplicates across posts
   const queries = {
-    'reviews': `${keyword} product`,
-    'versus': `${keyword} skincare product`,
-    'beauty-business': `${keyword} brand logo skincare`,
-    'ingredients': `${keyword} skincare serum`,
-    'routines': `skincare routine products`,
-    'beginner-guides': `beginner skincare products`,
+    'reviews': `${keyword} product photo`,
+    'versus': `${keyword} skincare comparison`,
+    'beauty-business': `${keyword} brand skincare`,
+    'ingredients': `${keyword} serum bottle`,
+    'routines': `${keyword} skincare products flat lay`,
+    'beginner-guides': `${keyword} skincare basics products`,
   };
-  const query = queries[category] || `${keyword} skincare`;
+  const query = queries[category] || `${keyword} skincare product`;
 
   try {
     console.log('  -> Serper images (Google)...');
     const res = await fetch('https://google.serper.dev/images', {
       method: 'POST',
       headers: { 'X-API-KEY': key, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ q: query, gl: 'us', hl: 'en', num: 10 }),
+      body: JSON.stringify({ q: query, gl: 'us', hl: 'en', num: 20 }),
     });
     if (!res.ok) return null;
     const data = await res.json();
 
+    // Filter: skip faces/people, tiny images, icons, and already-used URLs
     const good = (data.images || []).find(img =>
       img.imageUrl &&
       img.imageWidth >= 600 &&
       img.imageHeight >= 400 &&
-      !/logo|icon|favicon|avatar|thumbnail/i.test(img.imageUrl)
+      // Skip logos, icons, avatars
+      !/logo|icon|favicon|avatar|thumbnail/i.test(img.imageUrl) &&
+      // Skip images with people/faces (filter by title/alt text hints)
+      !/selfie|portrait|face|person|woman|man|girl|boy|dermatologist|doctor|model|review.*by/i.test(img.title || '') &&
+      // Skip already-used image URLs
+      !usedUrls.has(img.imageUrl)
     );
 
     if (good) {
       return {
         url: good.imageUrl,
-        alt: good.title || keyword,
+        alt: (good.title || keyword).replace(/selfie|portrait|face|person/gi, '').trim(),
       };
     }
   } catch (e) {
@@ -583,6 +604,18 @@ async function fetchUnsplashImage(keyword, category) {
 }
 
 // ─── 6c. Download image to local public/images/blog/ ────────────────────────
+
+function getExistingImageHashes() {
+  const hashes = new Set();
+  const imgDir = path.join(ROOT, 'public', 'images', 'blog');
+  if (!fs.existsSync(imgDir)) return hashes;
+  for (const file of fs.readdirSync(imgDir)) {
+    const buf = fs.readFileSync(path.join(imgDir, file));
+    hashes.add(createHash('md5').update(buf).digest('hex'));
+  }
+  return hashes;
+}
+
 async function downloadImage(url, slug) {
   const imgDir = path.join(ROOT, 'public', 'images', 'blog');
   if (!fs.existsSync(imgDir)) fs.mkdirSync(imgDir, { recursive: true });
@@ -601,6 +634,14 @@ async function downloadImage(url, slug) {
     const buffer = Buffer.from(await res.arrayBuffer());
     if (buffer.length < 5000) return null;
 
+    // Check for duplicate: same content as an existing image
+    const hash = createHash('md5').update(buffer).digest('hex');
+    const existingHashes = getExistingImageHashes();
+    if (existingHashes.has(hash)) {
+      console.log(`    Skipped duplicate image (same content as existing)`);
+      return null;
+    }
+
     fs.writeFileSync(filepath, buffer);
     console.log(`  + Downloaded: public/images/blog/${filename} (${(buffer.length / 1024).toFixed(0)}KB)`);
     return `/images/blog/${filename}`;
@@ -612,7 +653,8 @@ async function downloadImage(url, slug) {
 
 // ─── 6. Hero image: Google → download local, Unsplash fallback ──────────────
 async function fetchHeroImage(keyword, category, slug) {
-  const googleImg = await fetchGoogleImage(keyword, category);
+  const usedUrls = getUsedImageUrls();
+  const googleImg = await fetchGoogleImage(keyword, category, usedUrls);
   if (googleImg) {
     const localPath = await downloadImage(googleImg.url, slug);
     if (localPath) {
