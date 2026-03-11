@@ -34,17 +34,30 @@ const schema = {
   "description": description,
   "datePublished": pubDate.toISOString(),
   "dateModified": (updatedDate || pubDate).toISOString(),
+  "author": { "@type": "Person", "name": "Angelo Pernicone" },
   "publisher": { "@type": "Organization", "name": "Glow Intel", "url": Astro.site?.href },
   "image": heroImage ? new URL(heroImage, Astro.site).href : undefined,
+  "mainEntityOfPage": { "@type": "WebPage", "@id": Astro.url.href },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": Astro.site?.href },
+    { "@type": "ListItem", "position": 2, "name": categoryLabels[category] || category, "item": new URL(`/categories/${category}`, Astro.site).href },
+    { "@type": "ListItem", "position": 3, "name": title },
+  ],
 };
 ---
 
 <BaseLayout title={title} description={description} image={heroImage} imageAlt={heroImageAlt} type="article" pubDate={pubDate} updatedDate={updatedDate}>
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
-  <!-- Hero image — full width, cinematic -->
+  <!-- Hero image — responsive aspect ratio -->
   {heroImage && (
-    <div class="w-full aspect-[21/8] overflow-hidden" style="background: var(--bg-alt)">
+    <div class="w-full overflow-hidden" style="aspect-ratio: 21/8; min-height: 200px; background: var(--bg-alt)">
       <img
         src={heroImage}
         alt={heroImageAlt || title}
@@ -54,11 +67,22 @@ const schema = {
     </div>
   )}
 
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-12">
+  <!-- Mobile meta strip -->
+  <div class="lg:hidden border-b border-[var(--border-light)]" style="background: white;">
+    <div class="max-w-7xl mx-auto px-5 py-4 flex items-center gap-3 flex-wrap">
+      <a href="/" class="eyebrow no-underline hover:text-[var(--accent)]">Home</a>
+      <span class="eyebrow">/</span>
+      <a href={`/categories/${category}`} class="eyebrow accent no-underline">{categoryLabels[category] || category}</a>
+      <span style="flex:1"></span>
+      <time class="eyebrow" datetime={pubDate.toISOString()}>{formattedDate}</time>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-10 lg:py-12">
     <div class="grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20">
 
-      <!-- ─── Left sidebar (sticky meta) ───────────────── -->
-      <aside class="lg:sticky lg:top-24 lg:self-start">
+      <!-- ─── Left sidebar (sticky meta, desktop only) ───────────────── -->
+      <aside class="hidden lg:block lg:sticky lg:top-24 lg:self-start">
         <!-- Breadcrumb -->
         <nav class="flex items-center gap-2 mb-8">
           <a href="/" class="eyebrow no-underline hover:text-[var(--accent)] transition-colors">Home</a>
@@ -95,10 +119,10 @@ const schema = {
           </div>
         )}
 
-        <!-- Back to top (desktop) -->
+        <!-- Back to top -->
         <button
           id="back-to-top"
-          class="hidden lg:flex items-center gap-2 mt-12 eyebrow hover:text-[var(--accent)] transition-colors cursor-pointer"
+          class="flex items-center gap-2 mt-12 eyebrow hover:text-[var(--accent)] transition-colors cursor-pointer"
           onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
         >
           ↑ Back to top

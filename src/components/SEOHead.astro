@@ -55,6 +55,9 @@ const absoluteImage = new URL(image, Astro.site).href;
 {type === 'article' && updatedDate && (
   <meta property="article:modified_time" content={updatedDate.toISOString()} />
 )}
+{type === 'article' && (
+  <meta property="article:author" content="Angelo Pernicone" />
+)}
 
 <!-- Favicons -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

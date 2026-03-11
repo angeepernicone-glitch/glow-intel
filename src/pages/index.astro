@@ -352,6 +352,24 @@ const categorySections = ['ingredients', 'beauty-business', 'routines']
     ))}
   </div>
 
+  <!-- ═══ MOBILE TOPICS STRIP (sidebar alt for small screens) ═══ -->
+  <div class="lg:hidden border-t border-[var(--border)]" style="background: white;">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-8">
+      <h2 class="section-title mb-4">Explore Topics</h2>
+      <div class="flex flex-wrap gap-2">
+        {Object.entries(categoryMeta).map(([slug, meta]) => (
+          <a
+            href={`/categories/${slug}`}
+            class="no-underline text-sm font-medium px-4 py-2 rounded-lg border border-[var(--border)] hover:border-[var(--accent)] hover:bg-[var(--accent-light)] hover:text-[var(--accent)] transition-all"
+            style="color: var(--text); font-family: var(--sans);"
+          >
+            {meta.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+
   <!-- ═══ THIS MONTH — if there are older posts from this month ═══ -->
   {thisMonth.length > 0 && (
     <div style="background: var(--bg-warm); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
