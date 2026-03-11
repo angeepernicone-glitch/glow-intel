@@ -4,8 +4,8 @@ description: "Most new skincare brands fail within two years. Here's what works 
 pubDate: 2026-03-10
 category: "beauty-business"
 tags: ["skincare brand", "beauty ecommerce", "DTC", "Shopify", "beauty business", "startup"]
-heroImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80"
-heroImageAlt: "Business planning and strategy for a skincare brand"
+heroImage: "https://www.packagingstrategies.com/ext/resources/2019-Postings/New-Packages/care-for-web.png"
+heroImageAlt: "Skincare brand packaging and product design"
 draft: false
 ---
 

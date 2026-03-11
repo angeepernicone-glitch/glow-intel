@@ -4,8 +4,8 @@ description: "CeraVe vs The Ordinary isn't the right comparison. One handles bar
 pubDate: 2026-03-10
 category: "versus"
 tags: ["CeraVe", "The Ordinary", "skincare brands", "budget skincare", "comparison"]
-heroImage: "https://images.unsplash.com/photo-1612817288484-6f916006741a?w=1200&q=80"
-heroImageAlt: "CeraVe and The Ordinary skincare products side by side"
+heroImage: "https://ukbeautyroom.com/wp-content/uploads/2022/06/CeraVe-vs-The-Ordinary.jpg.webp"
+heroImageAlt: "CeraVe vs The Ordinary skincare products comparison"
 draft: false
 ---
 

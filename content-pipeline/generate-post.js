@@ -141,7 +141,53 @@ async function getNewsAngle(keyword) {
   }
 }
 
-// ─── 6. Unsplash image (category-aware, relevance-filtered) ─────────────────
+// ─── 6a. Google Images via Serper (for specific products/brands) ─────────────
+async function fetchGoogleImage(keyword, category) {
+  const key = process.env.SERPER_API_KEY;
+  if (!key) return null;
+
+  // Build a specific query based on category
+  const queries = {
+    'reviews': `${keyword} product`,
+    'versus': `${keyword} skincare product`,
+    'beauty-business': `${keyword} brand logo skincare`,
+    'ingredients': `${keyword} skincare serum`,
+    'routines': `skincare routine products`,
+    'beginner-guides': `beginner skincare products`,
+  };
+  const query = queries[category] || `${keyword} skincare`;
+
+  try {
+    console.log('  → Serper images (Google)...');
+    const res = await fetch('https://google.serper.dev/images', {
+      method: 'POST',
+      headers: { 'X-API-KEY': key, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ q: query, gl: 'us', hl: 'en', num: 10 }),
+    });
+    if (!res.ok) return null;
+    const data = await res.json();
+
+    // Filter: skip tiny images, icons, and irrelevant results
+    const good = (data.images || []).find(img =>
+      img.imageUrl &&
+      img.imageWidth >= 600 &&
+      img.imageHeight >= 400 &&
+      !/logo|icon|favicon|avatar|thumbnail/i.test(img.imageUrl)
+    );
+
+    if (good) {
+      return {
+        url: good.imageUrl,
+        alt: good.title || keyword,
+      };
+    }
+  } catch (e) {
+    console.warn('    Google Images failed:', e.message);
+  }
+  return null;
+}
+
+// ─── 6b. Unsplash fallback (for generic/lifestyle imagery) ──────────────────
 async function fetchUnsplashImage(keyword, category) {
   const key = process.env.UNSPLASH_ACCESS_KEY;
   if (!key) {
@@ -188,6 +234,19 @@ async function fetchUnsplashImage(keyword, category) {
     url: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=1200&q=80',
     alt: keyword,
   };
+}
+
+// ─── 6. Hero image: Google Images first, Unsplash fallback ──────────────────
+async function fetchHeroImage(keyword, category) {
+  // Try Google Images first (best for specific products/brands)
+  const googleImg = await fetchGoogleImage(keyword, category);
+  if (googleImg) {
+    console.log(`  ✓ Image from Google: ${googleImg.url.slice(0, 60)}...`);
+    return googleImg;
+  }
+  // Fallback to Unsplash (better for generic/lifestyle)
+  console.log('  → Falling back to Unsplash...');
+  return fetchUnsplashImage(keyword, category);
 }
 
 // ─── 7. Generate post with Claude ────────────────────────────────────────────
@@ -517,8 +576,7 @@ async function main() {
   }
 
   console.log('\nStep 2: Image\n');
-  const image = await fetchUnsplashImage(target.keyword, target.category);
-  console.log(`  ✓ Image: ${image.url.slice(0, 60)}...`);
+  const image = await fetchHeroImage(target.keyword, target.category);
 
   console.log('\nStep 3: Writing\n');
   const existingSlugs = fs.readdirSync(path.join(ROOT, 'src', 'content', 'blog'))

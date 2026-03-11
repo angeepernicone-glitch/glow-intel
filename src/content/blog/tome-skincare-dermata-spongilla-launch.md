@@ -4,8 +4,8 @@ description: "Dermata Therapeutics — a San Diego pharma company — just annou
 pubDate: 2026-03-11
 category: "beauty-business"
 tags: ["tome skincare", "dermata therapeutics", "spongilla", "acne treatment", "beauty business", "skincare launch 2026"]
-heroImage: "https://images.unsplash.com/photo-1614859386044-8660004c5fd3?ixid=M3w4OTI2MDl8MHwxfHNlYXJjaHwxfHxza2luY2FyZSUyMHByb2R1Y3RzJTIwZmxhdCUyMGxheXxlbnwwfDB8fHwxNzczMjQ0OTk2fDA&ixlib=rb-4.1.0&w=1200&q=80&fm=jpg"
-heroImageAlt: "white plastic bottles on brown wooden table"
+heroImage: "https://s.yimg.com/ny/api/res/1.2/uV6z1zAhveXTQh3aHqmDgA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTIzNjQ7aD04ODY-/https://media.zenfs.com/en/accesswire.ca/6697c74cd5fc8131478d2ce4f0ffaee6"
+heroImageAlt: "Tome Skincare by Dermata Therapeutics brand announcement"
 draft: false
 ---
 

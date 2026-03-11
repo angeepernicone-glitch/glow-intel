@@ -4,8 +4,8 @@ description: "Niacinamide vs vitamin C — can you use both together? The scienc
 pubDate: 2026-03-10
 category: "versus"
 tags: ["niacinamide", "vitamin C", "layering", "active ingredients", "skincare routine"]
-heroImage: "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=1200&q=80"
-heroImageAlt: "Skincare serums and bottles on a clean surface"
+heroImage: "https://cdn.shopify.com/s/files/1/0612/3143/1929/files/2_5811a573-9880-4724-89d3-df87fc53a51e.png?v=1699456332"
+heroImageAlt: "Niacinamide vs Vitamin C serums comparison"
 ---
 
 You have probably seen the warning: "Don't mix niacinamide and vitamin C — they cancel each other out." It sounds convincing. It gets shared constantly. And it is, for the most part, not true.
