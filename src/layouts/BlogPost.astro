@@ -34,7 +34,6 @@ const schema = {
   "description": description,
   "datePublished": pubDate.toISOString(),
   "dateModified": (updatedDate || pubDate).toISOString(),
-  "author": { "@type": "Person", "name": "Angelo Pernicone" },
   "publisher": { "@type": "Organization", "name": "Glow Intel", "url": Astro.site?.href },
   "image": heroImage ? new URL(heroImage, Astro.site).href : undefined,
   "mainEntityOfPage": { "@type": "WebPage", "@id": Astro.url.href },
