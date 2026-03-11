@@ -222,7 +222,12 @@ STYLE RULES (follow strictly):
 - Internal links: include 2-3 naturally in the text using markdown [anchor text](/blog/slug)
 - External links: 1-2 links to PubMed, AAD, or authoritative dermatology sources
 
-OUTPUT: Return ONLY the markdown body content starting from the first paragraph (no frontmatter, no H1 title — that goes in frontmatter). Start directly with the opening paragraph.`;
+OUTPUT FORMAT — return exactly this structure (no extra text before or after):
+TITLE: <compelling editorial title for this post, 50-70 chars, includes keyword naturally>
+TAGS: <4-6 comma-separated lowercase tags like: niacinamide, retinol, skincare routine, oily skin>
+---
+<post body starting with the opening paragraph, no H1>`;
+
 
   const userPrompt = `Write a complete blog post for Glow Intel.
 
@@ -255,7 +260,18 @@ Instructions:
     messages: [{ role: 'user', content: userPrompt }],
   });
 
-  return message.content[0].text;
+  const raw = message.content[0].text;
+
+  // Parse TITLE, TAGS, and body from structured output
+  const titleMatch = raw.match(/^TITLE:\s*(.+)/m);
+  const tagsMatch = raw.match(/^TAGS:\s*(.+)/m);
+  const bodyMatch = raw.match(/^---\s*\n([\s\S]+)/m);
+
+  const title = titleMatch ? titleMatch[1].trim() : keyword.charAt(0).toUpperCase() + keyword.slice(1);
+  const tags = tagsMatch ? tagsMatch[1].split(',').map(t => t.trim()).filter(Boolean) : [target.category];
+  const body = bodyMatch ? bodyMatch[1].trim() : raw;
+
+  return { title, tags, body };
 }
 
 // ─── 8. AI slop scrubber ─────────────────────────────────────────────────────
@@ -283,15 +299,15 @@ function scrub(text) {
 }
 
 // ─── Build frontmatter ───────────────────────────────────────────────────────
-function buildFrontmatter(target, image, description) {
+function buildFrontmatter(target, image, description, title, tags) {
   const today = new Date().toISOString().split('T')[0];
-  const titleCased = target.keyword.charAt(0).toUpperCase() + target.keyword.slice(1);
+  const tagsFormatted = (tags || [target.category]).map(t => `"${t}"`).join(', ');
   return `---
-title: "${titleCased}"
+title: "${(title || target.keyword).replace(/"/g, "'")}"
 description: "${description.replace(/"/g, "'")}"
 pubDate: ${today}
 category: "${target.category}"
-tags: [${(target.notes || '').split(',').slice(0, 4).map(t => `"${t.trim().split(' ').slice(0, 2).join(' ')}"`).join(', ')}]
+tags: [${tagsFormatted}]
 heroImage: "${image.url}"
 heroImageAlt: "${image.alt}"
 draft: false
@@ -369,7 +385,7 @@ async function main() {
     .filter(f => f.endsWith('.md'))
     .map(f => f.replace('.md', ''));
 
-  const rawContent = await generatePost({
+  const { title, tags, body } = await generatePost({
     keyword: target.keyword,
     serpResults,
     paaQuestions,
@@ -379,9 +395,9 @@ async function main() {
     notes: target.notes,
   });
 
-  const cleanContent = scrub(rawContent);
+  const cleanContent = scrub(body);
   const description  = extractDescription(cleanContent);
-  const frontmatter  = buildFrontmatter(target, image, description);
+  const frontmatter  = buildFrontmatter(target, image, description, title, tags);
   const fullPost     = `${frontmatter}\n\n${cleanContent}`;
 
   if (dryRun) {
