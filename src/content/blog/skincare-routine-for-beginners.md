@@ -27,7 +27,7 @@ The other reason to keep it simple: consistency. A three-minute routine you actu
 
 A cleanser does one thing — removes oil, sunscreen, makeup, and environmental buildup from your skin. It shouldn't strip your skin to the point where it feels tight after washing.
 
-For most people, a gentle non-foaming or low-foam cleanser works well. CeraVe Hydrating Cleanser (~$15) is the starting point most dermatologists recommend for a reason — it cleans without disrupting the skin barrier. If you have oily or acne-prone skin, CeraVe Foaming Facial Cleanser (~$15) handles more sebum without being harsh.
+For most people, a gentle non-foaming or low-foam cleanser works well. CeraVe Hydrating Cleanser (around $15) is the starting point most dermatologists recommend for a reason — it cleans without disrupting the skin barrier. If you have oily or acne-prone skin, CeraVe Foaming Facial Cleanser (around $15) handles more sebum without being harsh.
 
 What to avoid: anything with a long list of fragrance ingredients, alcohol high on the ingredient list, or anything that leaves your skin feeling squeaky clean. Squeaky is not the goal.
 
@@ -35,7 +35,7 @@ What to avoid: anything with a long list of fragrance ingredients, alcohol high 
 
 Your skin loses water throughout the day. A moisturizer slows that process down. It's not about adding hydration — it's mostly about keeping what's already there.
 
-CeraVe Moisturizing Cream (~$20) is the default recommendation for dry or combination skin. It contains ceramides, which are the lipids your skin barrier is made of, and hyaluronic acid. For oily skin, CeraVe PM Facial Moisturizing Lotion (~$18) is lighter and non-comedogenic.
+CeraVe Moisturizing Cream (around $20) is the default recommendation for dry or combination skin. It contains ceramides, which are the lipids your skin barrier is made of, and hyaluronic acid. For oily skin, CeraVe PM Facial Moisturizing Lotion (around $18) is lighter and non-comedogenic.
 
 If you want to explore beyond CeraVe, look for ingredients: ceramides, hyaluronic acid, glycerin, niacinamide. That's the functional core of what a good moisturizer does.
 
@@ -45,7 +45,7 @@ This one is non-negotiable. UV exposure is the single biggest driver of prematur
 
 SPF 30 is the minimum. SPF 50 is better — the real-world difference between 30 and 50 is meaningful once you factor in that most people apply half the amount needed for full protection.
 
-If you live in Europe, European-formulated sunscreens (Altruist, Eucerin, La Roche-Posay Anthelios) use UV filters that aren't yet FDA-approved in the US but are generally considered superior in formulation. If you're in the US, EltaMD UV Clear (~$40) and La Roche-Posay Anthelios Melt-In Sunscreen Milk are solid options.
+If you live in Europe, European-formulated sunscreens (Altruist, Eucerin, La Roche-Posay Anthelios) use UV filters that aren't yet FDA-approved in the US but are generally considered superior in formulation. If you're in the US, EltaMD UV Clear (around $40) and La Roche-Posay Anthelios Melt-In Sunscreen Milk are solid options.
 
 The best sunscreen is the one you'll actually use every day. Don't buy a heavy, white-cast product and expect to enjoy wearing it.
 
@@ -54,7 +54,7 @@ The best sunscreen is the one you'll actually use every day. Don't buy a heavy, 
 After two weeks of consistent cleansing, moisturizing, and SPF, your skin will have adjusted to the routine. This is when you can add one active ingredient to address a specific concern.
 
 The options depend on what you're trying to do:
-- **Dark spots / uneven tone:** [niacinamide](/blog/niacinamide-vs-vitamin-c-which-goes-first) (low risk, high reward — The Ordinary Niacinamide 10% + Zinc 1%, ~$7)
+- **Dark spots / uneven tone:** [niacinamide](/blog/niacinamide-vs-vitamin-c-which-goes-first) (low risk, high reward — The Ordinary Niacinamide 10% + Zinc 1%, $7)
 - **Texture / anti-aging:** [retinol](/blog/how-to-use-retinol-without-irritation) (start low, go slow — 0.025% to 0.05% to start)
 - **Acne:** benzoyl peroxide for active breakouts, niacinamide or salicylic acid for prevention
 - **Dryness / plumpness:** hyaluronic acid serum under your moisturizer
@@ -82,11 +82,11 @@ Pick your four products. Use them consistently for 30 days. Then evaluate.
 
 | Product | Price | What it does |
 |---|---|---|
-| CeraVe Hydrating Cleanser | ~$15 | Gentle cleanse, barrier-safe |
-| CeraVe Moisturizing Cream | ~$20 | Hydration, barrier support |
-| La Roche-Posay Anthelios SPF 50 | ~$35 | UV protection |
-| The Ordinary Niacinamide 10% | ~$7 | Even tone, pore appearance |
+| CeraVe Hydrating Cleanser | $15 | Gentle cleanse, barrier-safe |
+| CeraVe Moisturizing Cream | $20 | Hydration, barrier support |
+| La Roche-Posay Anthelios SPF 50 | $35 | UV protection |
+| The Ordinary Niacinamide 10% | $7 | Even tone, pore appearance |
 
-Total: ~$77 to start. That's your entire beginner routine. Most serums and "advanced" products at ten times the price won't outperform this stack for someone just starting out.
+Total: $77 to start. That's your entire beginner routine. Most serums and "advanced" products at ten times the price won't outperform this stack for someone just starting out.
 
 Get comfortable with the basics first. The advanced stuff makes more sense once you know your skin.

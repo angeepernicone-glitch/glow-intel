@@ -41,7 +41,7 @@ If you're using OTC retinol and not seeing results, you may just need a stronger
 
 ### Start low
 
-Begin at 0.025% or 0.05% retinol. The Ordinary Retinol 0.2% in Squalane (~$8) is a reasonable starting point. Going straight to 1% because you want faster results is how you end up with a compromised skin barrier and a product you abandon.
+Begin at 0.025% or 0.05% retinol. The Ordinary Retinol 0.2% in Squalane (around $8) is a reasonable starting point. Going straight to 1% because you want faster results is how you end up with a compromised skin barrier and a product you abandon.
 
 ### Frequency before concentration
 

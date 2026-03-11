@@ -31,7 +31,7 @@ Niacinamide (vitamin B3) is one of the most well-rounded ingredients in skincare
 
 It is also extremely well-tolerated. Unlike retinol or vitamin C, most skin types handle niacinamide well from day one, with no purging or adjustment period.
 
-Good options at different price points: [The Ordinary Niacinamide 10% + Zinc 1%](https://theordinary.com) (~$7) is the benchmark. (For a full breakdown of when to pick CeraVe vs The Ordinary products, see [this comparison](/blog/cerave-vs-the-ordinary).) Paula's Choice 10% Niacinamide Booster (~$54) is excellent for oily or acne-prone skin.
+Good options at different price points: [The Ordinary Niacinamide 10% + Zinc 1%](https://theordinary.com) (around $7) is the benchmark. (For a full breakdown of when to pick CeraVe vs The Ordinary products, see [this comparison](/blog/cerave-vs-the-ordinary).) Paula's Choice 10% Niacinamide Booster (around $54) is excellent for oily or acne-prone skin.
 
 ## What vitamin C actually does
 
@@ -68,7 +68,7 @@ The effectiveness of vitamin C depends heavily on its concentration and formulat
 - A pH between 2.5 and 3.5
 - Freshness — if it smells off or looks orange, it has oxidized
 
-The Ordinary's vitamin C line can be confusing because they offer many different vitamin C derivatives (ascorbyl glucoside, ethylated ascorbic acid, etc.) with different stabilities and efficacies. If you want the most researched and effective form, L-ascorbic acid is still the standard. SkinCeuticals C E Ferulic (~$190) is the gold standard but not necessary — Timeless 20% Vitamin C + E Ferulic (~$25) performs comparably in most user tests.
+The Ordinary's vitamin C line can be confusing because they offer many different vitamin C derivatives (ascorbyl glucoside, ethylated ascorbic acid, etc.) with different stabilities and efficacies. If you want the most researched and effective form, L-ascorbic acid is still the standard. SkinCeuticals C E Ferulic (around $190) is the gold standard but not necessary — Timeless 20% Vitamin C + E Ferulic (around $25) performs comparably in most user tests.
 
 ## The short version
 

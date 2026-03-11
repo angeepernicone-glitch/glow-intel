@@ -29,7 +29,7 @@ The Ordinary is an actives brand. They sell single-ingredient or minimal-ingredi
 
 Their range covers: niacinamide, retinol, AHAs, BHAs, vitamin C derivatives, peptides, hyaluronic acid, azelaic acid, and more. If you want to target a specific skin concern with a specific ingredient at a concentration that actually does something, The Ordinary is where you look.
 
-What they do well: serums with functional actives at honest concentrations. Their Niacinamide 10% + Zinc 1% (~$7) is hard to beat. Their AHA 30% + BHA 2% Peeling Solution gets results. Their [retinol range](/blog/how-to-use-retinol-without-irritation) is straightforward and affordable.
+What they do well: serums with functional actives at honest concentrations. Their Niacinamide 10% + Zinc 1% (around $7) is hard to beat. Their AHA 30% + BHA 2% Peeling Solution gets results. Their [retinol range](/blog/how-to-use-retinol-without-irritation) is straightforward and affordable.
 
 What they're not great at: complete moisturizers and cleansers. Their Natural Moisturizing Factors + HA is decent but not as well-formulated as CeraVe for barrier repair. Their cleansers are fine but not exceptional.
 

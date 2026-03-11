@@ -336,7 +336,10 @@ function scrub(text) {
     .replace(/tends to be /gi, 'is ')
     .replace(/It's clear that /gi, '')
     .replace(/It appears that /gi, '')
-    .replace(/It seems that /gi, '');
+    .replace(/It seems that /gi, '')
+    // Fix tilde-dollar causing markdown strikethrough
+    .replace(/\(~\$/g, '(around $')
+    .replace(/~\$/g, '$');
 }
 
 // ─── 9. Quality gate — auto-validate & fix before saving ─────────────────────
