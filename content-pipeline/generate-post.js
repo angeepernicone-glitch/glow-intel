@@ -796,7 +796,12 @@ function scrub(text) {
     .replace(/It appears that /gi, '')
     .replace(/It seems that /gi, '')
     .replace(/\(~\$/g, '(around $')
-    .replace(/~\$/g, '$');
+    .replace(/~\$/g, '$')
+    // Strip hallucinated PubMed/NCBI links with specific IDs — replace with anchor text only
+    .replace(/\[([^\]]+)\]\(https?:\/\/pubmed\.ncbi\.nlm\.nih\.gov\/\d+\/?\)/g, '$1')
+    .replace(/\[([^\]]+)\]\(https?:\/\/(?:www\.)?ncbi\.nlm\.nih\.gov\/pmc\/articles\/PMC\d+\/?[^)]*\)/g, '$1')
+    // Bare pubmed root link (no ID — useless)
+    .replace(/\[([^\]]+)\]\(https?:\/\/pubmed\.ncbi\.nlm\.nih\.gov\/\)/g, '$1');
 }
 
 // ─── 9. Quality gate ─────────────────────────────────────────────────────────
