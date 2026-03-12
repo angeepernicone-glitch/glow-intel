@@ -9,7 +9,7 @@ heroImageAlt: "The Ultimate Skin-Care Routine Guide | SELF"
 draft: false
 ---
 
-Most people start skincare the wrong way. They find a "perfect routine" online, buy seven products, use them all for two weeks, see no results, and quit. Or they break out from something and have no idea which product caused it.
+Most people start [skincare](/blog/skincare-routine-dry-skin) the wrong way. They find a "perfect routine" online, buy seven products, use them all for two weeks, see no results, and quit. Or they break out from something and have no idea which product caused it.
 
 The real beginner move is to start with four products. That's it.
 
@@ -35,7 +35,7 @@ What to avoid: anything with a long list of fragrance ingredients, alcohol high 
 
 Your skin loses water throughout the day. A moisturizer slows that process down. It's not about adding hydration — it's mostly about keeping what's already there.
 
-CeraVe Moisturizing Cream (around $20) is the default recommendation for dry or combination skin. It contains ceramides, which are the lipids your skin barrier is made of, and hyaluronic acid. For oily skin, CeraVe PM Facial Moisturizing Lotion (around $18) is lighter and non-comedogenic.
+CeraVe Moisturizing Cream (around $20) is the default recommendation for dry or combination skin. It contains ceramides, which are the lipids your skin barrier is made of, and hyaluronic acid. For [oily skin](/blog/skincare-routine-oily-skin), CeraVe PM Facial Moisturizing Lotion (around $18) is lighter and non-comedogenic.
 
 If you want to explore beyond CeraVe, look for ingredients: ceramides, hyaluronic acid, glycerin, niacinamide. That's the functional core of what a good moisturizer does.
 
@@ -72,7 +72,7 @@ For a deeper breakdown on product layering, see the full [skincare routine order
 
 Expecting results too fast and changing products before giving them time to work.
 
-Niacinamide takes 4-8 weeks to visibly affect dark spots. Retinol takes 3-6 months to show real anti-aging results (and the first 6-8 weeks often look worse before they look better). A new cleanser needs at least two weeks before you know if it's causing breakouts.
+Niacinamide takes 4-8 weeks to visibly affect [dark spots](/blog/how-to-fade-dark-spots-hyperpigmentation). Retinol takes 3-6 months to show real anti-aging results (and the first 6-8 weeks often look worse before they look better). A new cleanser needs at least two weeks before you know if it's causing breakouts.
 
 The timeline for skincare is months, not days. If you change products every two weeks because you don't see instant results, you'll spend a lot of money and learn nothing about your skin.
 

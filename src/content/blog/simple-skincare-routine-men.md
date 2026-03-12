@@ -9,9 +9,9 @@ heroImageAlt: "Minimalist male skincare products on dark stone surface"
 draft: false
 ---
 
-Men's skincare has been overcomplicated by marketing. "For men!" labels on the same product in different packaging, sold at a different price point. Let me skip all of that.
+Men's [skincare](/blog/skincare-routine-acne-prone-skin) has been overcomplicated by marketing. "For men!" labels on the same product in different packaging, sold at a different price point. Let me skip all of that.
 
-Skin is skin. The same ingredients that work for women work for men. The difference is in messaging, routine simplicity, and a few actual skin characteristics that do matter.
+[Skin](/blog/how-to-layer-skincare-actives-correctly) is skin. The same ingredients that work for women work for men. The difference is in messaging, routine simplicity, and a few actual skin characteristics that do matter.
 
 ## What's Different About Male Skin
 
@@ -27,7 +27,7 @@ The product lineup doesn't change much, but the texture preferences often do —
 
 If you'll only do three things: a decent cleanser, moisturizer with SPF, and one active. That's it.
 
-**Cleanser**: CeraVe Hydrating Facial Cleanser (~$15) is the answer for most skin types. Oily skin does better with a gel cleanser — CeraVe Foaming Facial Cleanser (~$15) or La Roche-Posay Toleriane Purifying Foaming Cleanser (~$16). Wash twice a day, morning and before bed.
+**Cleanser**: CeraVe Hydrating Facial Cleanser (~$15) is the answer for most skin types. [Oily skin](/blog/skincare-routine-oily-skin) does better with a gel cleanser — CeraVe Foaming Facial Cleanser (~$15) or La Roche-Posay Toleriane Purifying Foaming Cleanser (~$16). Wash twice a day, morning and before bed.
 
 **Moisturizer with SPF**: This is the single product recommendation I make more than any other. A moisturizer with built-in SPF means one less step and eliminates the most common male skincare omission — no SPF. CeraVe AM Facial Moisturizing Lotion SPF 30 (~$18) is the straightforward answer. Kiehl's Ultra Facial Cream SPF 30 (~$38) if you want something that feels more premium.
 

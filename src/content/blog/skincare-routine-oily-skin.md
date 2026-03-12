@@ -9,7 +9,7 @@ heroImageAlt: "Refinery29 Editors Share Their Skin-Care Routines"
 draft: false
 ---
 
-Oily skin doesn't need a 10-step routine — it needs the right 4 products used consistently. The biggest mistakes people with oily skin make aren't using the wrong actives, they're stripping their skin with harsh cleansers and then wondering why they're even oilier by noon.
+[Oily](/blog/best-sunscreen-oily-skin) skin doesn't need a 10-step routine — it needs the right 4 products used consistently. The biggest mistakes people with oily skin make aren't using the wrong actives, they're stripping their skin with harsh cleansers and then wondering why they're even oilier by noon.
 
 Here's what actually works, and why.
 
@@ -65,9 +65,9 @@ The one caveat: a small number of people experience a "niacinamide flush" at 10%
 
 Once you've been consistent with the basics for at least 4-6 weeks and your skin is stable. Not before.
 
-Retinol is excellent for oily, acne-prone skin. It normalizes cell turnover, prevents clogged pores, and over time reduces the appearance of pores themselves. But it causes purging in the first 6-8 weeks for most people, and if you jump into it before your barrier is healthy, you'll have a really rough time and probably quit.
+Retinol is excellent for oily, [acne-prone skin](/blog/skincare-routine-acne-prone-skin). It normalizes cell turnover, prevents clogged pores, and over time reduces the appearance of pores themselves. But it causes purging in the first 6-8 weeks for most people, and if you jump into it before your barrier is healthy, you'll have a really rough time and probably quit.
 
-When you're ready, start with **The Ordinary Retinol 0.2% in Squalane** (around $8). That's a low enough concentration to introduce without destroying yourself. Use it twice a week at night, on dry skin, with a moisturizer on top. Increase frequency slowly over months.
+When you're ready, start with **The Ordinary Retinol 0.2% in Squalane** (around $8). That's a low enough concentration to introduce without destroying yourself. Use it twice a week at night, on [dry skin](/blog/skincare-routine-dry-skin), with a moisturizer on top. Increase frequency slowly over months.
 
 Tretinoin — the prescription retinoid — is genuinely more effective, and I think derms underpromoteit. If you have persistent oily acne-prone skin and you're willing to be patient, getting a prescription for tretinoin 0.025% and sticking with it for 8+ months will outperform any OTC retinol routine. Most people give up in month two when the purging is bad. Don't. I've written a full guide on how to get through that without destroying your barrier [here](/blog/how-to-use-retinol-without-irritation).
 

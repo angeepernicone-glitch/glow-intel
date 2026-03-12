@@ -9,15 +9,15 @@ heroImageAlt: "Sunscreen SPF product on bright sunny background"
 draft: false
 ---
 
-This is a question that generates a surprising amount of debate. The "sunscreen every day no exceptions" camp vs. "you're inside all day" camp. Let me give you the actual answer, which is more nuanced than either side usually admits.
+This is a question that generates a surprising amount of debate. The "[sunscreen](/blog/best-sunscreen-oily-skin) every day no exceptions" camp vs. "you're inside all day" camp. Let me give you the actual answer, which is more nuanced than either side usually admits.
 
 ## The UV Basics
 
 Sunlight contains two relevant UV wavelengths:
 
-**UVB (280-315nm)**: The "burn" rays. These cause sunburns and skin cancer. Glass blocks UVB almost entirely. If you're sitting inside behind a window and not in direct sunlight, UVB is not reaching your skin.
+**UVB (280-315nm)**: The "burn" rays. These cause sunburns and [skin](/blog/do-collagen-supplements-work-skin) cancer. Glass blocks UVB almost entirely. If you're sitting inside behind a window and not in direct sunlight, UVB is not reaching your skin.
 
-**UVA (315-400nm)**: The "aging" rays. These penetrate deeper into skin and cause DNA damage, photoaging, and hyperpigmentation. Standard glass only blocks about 50% of UVA. Car windshields are specially treated to block more, but side windows and home windows are not.
+**UVA (315-400nm)**: The "[aging](/blog/peptides-skincare-do-they-work)" rays. These penetrate deeper into skin and cause DNA damage, photoaging, and hyperpigmentation. Standard glass only blocks about 50% of UVA. Car windshields are specially treated to block more, but side windows and home windows are not.
 
 So: if you sit next to a window for extended periods, UVA is a legitimate concern.
 

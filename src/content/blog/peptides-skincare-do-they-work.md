@@ -9,11 +9,11 @@ heroImageAlt: "Close-up of skincare serum bottle with dropper"
 draft: false
 ---
 
-Peptides are one of those ingredients that sounds impressive on paper and shows up on basically every anti-aging product. But if you ask most people what peptides actually do, you get a blank stare. Let me give you the honest version.
+Peptides are one of those ingredients that sounds impressive on paper and shows up on basically every [anti](/blog/do-collagen-supplements-work-skin)-aging product. But if you ask most people what peptides actually do, you get a blank stare. Let me give you the honest version.
 
 ## What Peptides Are (In Plain Language)
 
-Peptides are short chains of amino acids — the building blocks of proteins. Your skin is mostly collagen and elastin, which are proteins. In theory, applying peptides topically signals your skin to produce more of those proteins.
+Peptides are short chains of amino acids — the building blocks of proteins. Your [skin](/blog/how-to-use-retinol-without-irritation) is mostly collagen and elastin, which are proteins. In theory, applying peptides topically signals your skin to produce more of those proteins.
 
 That's the pitch. The reality is a bit more complicated.
 
@@ -43,7 +43,7 @@ Also worth noting: most luxury peptide serums charge $100+ for the same peptide 
 
 ## How to Actually Use Peptides
 
-Peptides work best as a leave-on serum or moisturizer, applied to clean skin before heavier creams. They play well with hyaluronic acid, niacinamide, and most other actives.
+Peptides work best as a leave-on serum or moisturizer, applied to clean skin before heavier creams. They play well with [hyaluronic acid](/blog/hyaluronic-acid-benefits-skin), niacinamide, and most other actives.
 
 The one thing to watch: don't combine copper peptides with vitamin C or retinol in the same application. Copper peptides can destabilize vitamin C, and the combination with retinol causes unnecessary irritation for most skin types. Use them at different times of day.
 

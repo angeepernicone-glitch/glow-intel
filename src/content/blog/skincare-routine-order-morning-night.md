@@ -9,13 +9,13 @@ heroImageAlt: "Skin Care Routine: Morning vs. Night Steps"
 draft: false
 ---
 
-Skincare order advice tends to be overcomplicated. You'll find guides that tell you to wait exactly 30 seconds between each product, apply everything within a specific window, and follow a 12-step sequence or your routine won't work.
+[Skincare](/blog/how-to-layer-skincare-actives-correctly) order advice tends to be overcomplicated. You'll find guides that tell you to wait exactly 30 seconds between each product, apply everything within a specific window, and follow a 12-step sequence or your routine won't work.
 
 Most of that is noise. There's one real rule, a few things that genuinely matter, and the rest is largely irrelevant.
 
 ## The actual rule: thinnest to thickest
 
-Apply products from the thinnest consistency to the thickest. Water-based products before oil-based ones. Lighter textures before heavier ones.
+Apply [products](/blog/skincare-routine-acne-prone-skin) from the thinnest consistency to the thickest. Water-based products before oil-based ones. Lighter textures before heavier ones.
 
 Why: thinner products need direct contact with skin to absorb effectively. A heavy moisturizer applied before a watery serum will block that serum from penetrating properly.
 
@@ -86,6 +86,6 @@ That's it for most people. The elaborate 8-step routines exist for specific conc
 
 ## The mistake that actually affects results
 
-Applying too many active ingredients at once and not being able to identify what's causing irritation or improvement. If your morning routine has vitamin C, niacinamide, AHA, and retinol all stacked on top of each other, you don't have a skincare routine — you have a guessing game.
+Applying too many active ingredients at once and not being able to identify what's causing irritation or improvement. If your morning routine has vitamin C, niacinamide, AHA, and retinol all stacked on top of each other, you don't have a [skincare routine](/blog/skincare-routine-oily-skin) — you have a guessing game.
 
 One to two actives at a time, introduced slowly, gives you enough signal to know what's working. That's more valuable than the "optimal" theoretical layering order. If you're still building your routine from scratch, start with the [beginner skincare guide](/blog/skincare-routine-for-beginners).

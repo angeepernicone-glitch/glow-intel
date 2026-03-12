@@ -9,11 +9,11 @@ heroImageAlt: "Supplement capsules and skincare products on clean background"
 draft: false
 ---
 
-Collagen supplements are everywhere — powders, pills, gummies, drinks. The market is projected to hit $9 billion by 2030. The question most people aren't asking loudly enough: does swallowing collagen actually reach your skin?
+Collagen supplements are everywhere — powders, pills, gummies, drinks. The market is projected to hit $9 billion by 2030. The question most people aren't a[skin](/blog/how-to-use-retinol-without-irritation)g loudly enough: does swallowing collagen actually reach your skin?
 
 ## The Skeptic's Starting Point
 
-The obvious objection: when you eat protein, your digestive system breaks it down into amino acids. It doesn't preserve the specific collagen protein structure and ship it intact to your dermis. That's not how digestion works.
+The obvious objection: when you eat protein, your digestive system breaks it down into amino acids. It doesn't preserve the specific collagen protein structure and ship it intact to your dermis. That's not how digestion [work](/blog/peptides-skincare-do-they-work)s.
 
 So at first glance, "collagen supplements" sound like drinking beef broth and expecting your joints to absorb the protein directly. That's not quite how it works — but the reality is more interesting.
 
@@ -49,7 +49,7 @@ Collagen supplements make the most sense once your topical routine is solid. As 
 
 **Vital Proteins Marine Collagen** (~$35 for 30 servings) — marine source, well-absorbed, mixable. Decent brand with reasonable transparency.
 
-**Garden of Life Grass Fed Collagen Peptides** (~$30) — bovine, clean label, third-party tested.
+**Garden of Life Grass Fed Collagen Peptides** (~$30) — bovine, [clean](/blog/clean-beauty-worth-it-honest-take) label, third-party tested.
 
 **NeoCell Super Collagen** (~$25) — one of the most studied branded products with research backing their specific formulation.
 

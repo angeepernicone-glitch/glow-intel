@@ -9,11 +9,11 @@ heroImageAlt: "Modern beauty products and skincare arranged aesthetically"
 draft: false
 ---
 
-Gen Z is now the most influential consumer cohort in beauty. They're 18-28, they grew up on YouTube tutorials and TikTok routines, and they buy differently from every generation before them. If you're building a beauty brand and still thinking about millennial purchase behavior, you're already behind.
+Gen Z is now the most influential consumer cohort in beauty. They're 18-28, they grew up on YouTube tutorials and TikTok routines, and they buy differently from every generation before them. If you're building a [beauty brand](/blog/tiktok-beauty-brand-strategy) and still thinking about millennial purchase behavior, you're already behind.
 
 ## They Research Before They Buy — Obsessively
 
-The average Gen Z beauty consumer has watched more skincare content than most estheticians have studied. They know what INCI lists are. They cross-reference ingredients on CosDNA. They read Reddit's SkincareAddiction before buying anything over $30.
+The average Gen Z [beauty](/blog/rhode-beauty-brand-strategy-breakdown) consumer has watched more skincare content than most estheticians have studied. They know what INCI lists are. They cross-reference ingredients on CosDNA. They read Reddit's SkincareAddiction before buying anything over $30.
 
 This means the brand that wins with Gen Z can't just have good marketing. The product has to be defensible on its ingredients. Claims like "clinically tested" without specifics, "dermatologist-recommended" without context, or vague "natural formula" language are instantly dismissed by this cohort.
 
@@ -39,7 +39,7 @@ Brands building comprehensive skincare systems ("7 products that work together")
 
 The "for men" / "for women" product differentiation is eroding quickly with Gen Z. Gender-neutral formulations, gender-neutral packaging, and gender-neutral marketing are increasingly the expectation rather than the exception.
 
-The brands that market exclusively to women with highly gendered aesthetics risk alienating a cohort that doesn't organize its purchases along those lines. The most successful beauty brands with Gen Z audiences tend toward unisex aesthetics and educational marketing rather than gender-targeted messaging.
+The brands that market exclusively to women with highly gendered aesthetics risk alienating a cohort that doesn't organize its purchases along those lines. The most successful [beauty brands](/blog/beauty-influencer-marketing-guide) with Gen Z audiences tend toward unisex aesthetics and educational marketing rather than gender-targeted messaging.
 
 ## Where They Buy
 

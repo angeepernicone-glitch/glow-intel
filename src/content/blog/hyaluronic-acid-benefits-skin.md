@@ -9,13 +9,13 @@ heroImageAlt: "Hyaluronic Acid Serum Benefits - Dr Sabrina™"
 draft: false
 ---
 
-Hyaluronic acid is probably the most over-marketed ingredient in skincare right now — which is unfortunate because it's also genuinely useful. The problem is that most products using it either get the formulation wrong, use the wrong molecular weight, or slap it on as a marketing bullet point with barely effective concentrations.
+Hyaluronic acid is probably the most over-marketed ingredient in [skincare](/blog/peptides-skincare-do-they-work) right now — which is unfortunate because it's also genuinely useful. The problem is that most products using it either get the formulation wrong, use the wrong molecular weight, or slap it on as a marketing bullet point with barely effective concentrations.
 
 Here's what HA actually does, what the science says, and why the molecule size in your serum matters more than the brand name on the bottle.
 
 ## What Hyaluronic Acid Actually Does (The Short Version)
 
-HA is a glycosaminoglycan — a long sugar molecule — that your body already produces naturally. It lives in your skin, connective tissue, and eyes, and its main job is holding water. One gram of hyaluronic acid can hold up to six liters of water. That's the number brands love to quote, and honestly, it's the right number to quote because it explains the whole mechanism.
+HA is a glycosaminoglycan — a long sugar molecule — that your body already produces naturally. It lives in your skin, connective tissue, and eyes, and its main job is holding water. One gram of hyaluronic [acid](/blog/azelaic-acid-benefits-uses) can hold up to six liters of water. That's the number brands love to quote, and honestly, it's the right number to quote because it explains the whole mechanism.
 
 As a topical ingredient, HA works as a humectant. It draws moisture from the environment (or from deeper skin layers) and holds it in the upper layers of skin. This isn't "skin whitening" or some transformative repair process — it's hydration, and hydration done well. The immediate result is plumper-looking skin with reduced appearance of fine lines. That's the real benefit, and it's a legitimate one.
 
@@ -73,7 +73,7 @@ For people just starting out: don't make HA your first purchase. Get a cleanser,
 
 ## Sodium Hyaluronate vs Hyaluronic Acid — Same Thing?
 
-Essentially yes, with a minor distinction. Sodium hyaluronate is the sodium salt of hyaluronic acid. It's slightly smaller and slightly more stable than HA in its pure form, which means it's easier to formulate with and may penetrate marginally better. When you see sodium hyaluronate on an ingredient list, that's not a downgrade — it's actually the preferred form in most serious formulations.
+Essentially yes, with a minor distinction. Sodium hyaluronate is the sodium salt of hyaluronic acid. It's slightly smaller and slightly more stable than HA in its pure form, which [means it's](/blog/clean-beauty-worth-it-honest-take) easier to formulate with and may penetrate marginally better. When you see sodium hyaluronate on an ingredient list, that's not a downgrade — it's actually the preferred form in most serious formulations.
 
 Some brands market "pure hyaluronic acid" as superior but the evidence doesn't really support that claim. Both forms hydrate effectively. The molecular weight still matters more than whether it's listed as HA or sodium hyaluronate.
 

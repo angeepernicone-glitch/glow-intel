@@ -9,11 +9,11 @@ heroImageAlt: "Moisturizing skincare products on a clean bathroom shelf"
 draft: false
 ---
 
-Dry skin isn't just about moisturizer. Most people with dry skin apply a heavy cream and wonder why their skin still feels tight an hour later. The issue is usually that you're skipping the layers that actually hold moisture in place.
+Dry skin isn't just about moisturizer. Most people with dry skin apply a heavy cream and wonder why their skin still feels tight an hour later. The issue is usually that you're skipping the layers that [actual](/blog/skincare-routine-oily-skin)ly hold moisture in place.
 
 ## The Dry Skin Problem
 
-Dry skin has two related issues: it produces less sebum (oil) than other skin types, and its barrier often has lower ceramide levels, meaning it loses water faster. The technical term is transepidermal water loss (TEWL). Applying a heavy cream addresses one part of this equation but not both.
+Dry [skin](/blog/damaged-skin-barrier-how-to-fix) has two related issues: it produces less sebum (oil) than other skin types, and its barrier often has lower ceramide levels, meaning it loses water faster. The technical term is transepidermal water loss (TEWL). Applying a heavy cream addresses one part of this equation but not both.
 
 The solution is layered hydration — building from water-attracting ingredients (humectants) up to water-sealing ingredients (occlusives), with ceramide-rich moisturizers in between.
 
@@ -29,7 +29,7 @@ Best options: Klairs Supple Preparation Unscented Toner (~$22), COSRX Advanced S
 
 **Step 3 — Moisturizer with Ceramides**: This is the core of a dry skin routine. You need something rich enough to compensate for the lack of natural oils but not so occlusive it feels suffocating during the day.
 
-Best options: CeraVe Moisturizing Cream (~$18) for budget, La Roche-Posay Toleriane Double Repair Face Moisturizer (~$22) for something lighter, Tatcha The Water Cream (~$70) if you want a premium option with an elegant texture.
+Best options: [CeraVe Moisturizing Cream](/blog/cerave-moisturizing-cream-review) (~$18) for budget, La Roche-Posay Toleriane Double Repair Face Moisturizer (~$22) for something lighter, Tatcha The Water Cream (~$70) if you want a premium option with an elegant texture.
 
 **Step 4 — SPF**: Essential, and for dry skin, choose an SPF with moisturizing ingredients rather than a separate moisturizer + lightweight SPF. ISDIN Eryfotona Actinica SPF 100 (~$60) is incredible for dry skin. More affordable: EltaMD UV Physical SPF 41 (~$36).
 

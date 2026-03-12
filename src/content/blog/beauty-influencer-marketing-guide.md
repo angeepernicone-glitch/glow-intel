@@ -9,11 +9,11 @@ heroImageAlt: "Content creator filming beauty products with camera setup"
 draft: false
 ---
 
-Influencer marketing works. I want to be clear about that upfront, because there's a vocal minority in brand marketing circles who love to claim it doesn't. For beauty, it absolutely does — it's the primary driver of discovery for the fastest-growing brands in the space. The question is how to do it without wasting money.
+Influencer marketing works. I want to be clear about that upfront, because there's a vocal minority in [brand](/blog/how-to-start-a-skincare-brand-2026) marketing circles who love to claim it doesn't. For beauty, it absolutely does — it's the primary driver of discovery for the fastest-growing brands in the space. The question is how to do it without wasting money.
 
 ## The Fundamental Math
 
-A mega-influencer (5M+ followers) might charge $15,000-$50,000 for a sponsored post. If they deliver 100,000 video views and 0.5% click-through, you've gotten 500 website visits. Your conversion rate on cold traffic is probably 2-3%, so you've made maybe 10-15 sales. At a $50 average order value, that's $500-$750 in revenue from a $15,000 investment.
+A mega-influencer (5M+ followers) might charge $15,000-$50,000 for a sponsored post. If they deliver 100,000 video views and 0.5% click-through, you've gotten 500 website visits. Your [conversion](/blog/shopify-beauty-store-setup-guide) rate on cold traffic is probably 2-3%, so you've made maybe 10-15 sales. At a $50 average order value, that's $500-$750 in revenue from a $15,000 investment.
 
 This math is usually terrible for smaller brands. The awareness value is real, but it's intangible and hard to measure against those CPMs.
 
@@ -47,7 +47,7 @@ The rejection rate is high. A 20-30% acceptance rate on cold outreach is good. B
 
 ## The UGC Strategy
 
-Organic creator content has an additional value beyond immediate sales: it becomes your ad creative. The best-performing paid social ads for beauty brands are creator videos that look like organic content, not studio-produced brand ads.
+Organic creator content has an additional value beyond immediate sales: it becomes your ad creative. The best-performing paid social ads for [beauty brand](/blog/tiktok-beauty-brand-strategy)s are creator videos that look like organic content, not studio-produced brand ads.
 
 Build this into your creator agreements: you want usage rights for advertising. Most creators will grant this for a modest additional fee, or include it in the original deal if you ask.
 

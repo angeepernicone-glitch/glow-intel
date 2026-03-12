@@ -9,12 +9,12 @@ heroImageAlt: "Multiple skincare serums and bottles arranged in order on marble 
 draft: false
 ---
 
-The skincare routine order question gets more complicated as people add more products. The generic advice — "apply thinnest to thickest" — is a start, but it misses the ingredient interactions that actually determine whether your actives work or fight each other.
+The [skincare](/blog/how-to-fade-dark-spots-hyperpigmentation) routine order question gets more complicated as people add more products. The generic advice — "apply thinnest to thickest" — is a start, but it misses the ingredient interactions that actually determine whether your actives work or fight each other.
 
 ## The General Framework
 
 Thinnest to thickest texture is a reasonable starting rule because:
-- Thinner products (water-based serums) need direct skin contact to penetrate
+- Thinner products (water-based serums) need direct [skin](/blog/skincare-routine-acne-prone-skin) contact to penetrate
 - Heavier products (oils, creams) form films that would block lighter products applied after them
 
 But texture is a proxy for what you really care about: ensuring each active reaches skin cells and doesn't get inactivated by something applied before or after it.
@@ -23,7 +23,7 @@ But texture is a proxy for what you really care about: ensuring each active reac
 
 **1. Cleanser** → **2. Toner/Prep step (optional)** → **3. Vitamin C serum** → **4. Niacinamide serum (optional)** → **5. Lightweight moisturizer** → **6. SPF**
 
-The vitamin C goes first in the morning for two reasons: it's more stable on clean skin, and it provides photoprotection that stacks with SPF. Apply to slightly damp skin.
+The vitamin C [goes first](/blog/niacinamide-vs-vitamin-c-which-goes-first) in the morning for two reasons: it's more stable on clean skin, and it provides photoprotection that stacks with SPF. Apply to slightly damp skin.
 
 The old rule about "never mix vitamin C and niacinamide" is outdated. That concern was based on old formulations. Modern stable vitamin C (L-ascorbic acid or vitamin C derivatives) can be layered with niacinamide without issues. If you're using an unstable vitamin C and seeing flushing, it's usually the oxidation of the vitamin C, not the niacinamide combination.
 

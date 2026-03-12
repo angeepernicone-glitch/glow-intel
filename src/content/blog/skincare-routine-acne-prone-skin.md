@@ -9,13 +9,13 @@ heroImageAlt: "Refinery29 Editors Share Their Skin-Care Routines"
 draft: false
 ---
 
-Most acne routines online have you buying 8 products, half of which are probably making things worse. The reality is you need five products — maybe fewer — and the right ones will do more than a 10-step routine full of fragrance-loaded filler.
+Most acne [routine](/blog/skincare-routine-oily-skin)s online have you buying 8 products, half of which are probably making things worse. The reality is you need five products — maybe fewer — and the right ones will do more than a 10-step routine full of fragrance-loaded filler.
 
 Here's what actually works, and why.
 
 ## What Does Acne-Prone Skin Actually Need?
 
-Acne-prone skin has a few consistent problems: excess sebum production, clogged pores, bacterial overgrowth (specifically *C. acnes*), and inflammation. Your routine needs to address those things. It doesn't need rose water, face mists, or a "brightening essence." It needs a BHA to clear pores, niacinamide to regulate oil and calm inflammation, a non-comedogenic moisturizer so your skin barrier isn't stripped raw, and SPF.
+Acne-prone skin has a few consistent problems: excess sebum production, clogged pores, bacterial overgrowth (specifically *C. acnes*), and inflammation. Your [routine](/blog/azelaic-acid-benefits-skin) needs to address those things. It doesn't need rose water, face mists, or a "brightening essence." It needs a BHA to clear pores, niacinamide to regulate oil and calm inflammation, a non-comedogenic moisturizer so your skin barrier isn't stripped raw, and SPF.
 
 That's the skeleton. Everything else is optional.
 
@@ -26,7 +26,7 @@ The reason most people's acne routines fail isn't because they're missing some h
 Let me give you the actual structure before I break each step down.
 
 **Morning:** Gentle cleanser → Niacinamide serum → Non-comedogenic moisturizer → SPF  
-**Night:** Gentle cleanser → BHA exfoliant → Niacinamide serum (optional) → Non-comedogenic moisturizer
+**Night:** Gentle cleanser → BHA [exfoliant](/blog/aha-vs-bha-which-exfoliant-do-you-need) → Niacinamide serum (optional) → Non-comedogenic moisturizer
 
 Five products. Some nights you skip the niacinamide. That's it.
 

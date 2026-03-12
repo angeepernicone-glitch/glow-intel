@@ -9,17 +9,17 @@ heroImageAlt: "Refinery29 Editors Share Their Skin-Care Routines"
 draft: false
 ---
 
-Let me be upfront about something: you're not getting rid of dark spots in two days, and any article telling you otherwise is lying to you. The realistic timeline is 8-16 weeks of consistent effort with the right ingredients — and "fast" means not wasting months on products that don't move the needle.
+Let me be upfront about something: you're not getting rid of dark spots in two days, and any article telling you otherwise is lying to you. The realistic timeline is 8-16 weeks of consistent effort with the right ingredients — and "fast" means not wasting months on [products](/blog/skincare-routine-acne-prone-skin) that don't move the needle.
 
 ## What Actually Causes Dark Spots (Because It Changes Your Strategy)
 
-Dark spots are just excess melanin deposited in the skin. Your melanocytes — the cells that produce pigment — get triggered by UV exposure, inflammation from a pimple, or just age, and they overproduce. That's it. Understanding this matters because the fix has two parts: stop triggering more production, and break down what's already there. Most people only do the second part and wonder why nothing's working.
+Dark spots are just excess melanin deposited in the [skin](/blog/azelaic-acid-benefits-skin). Your melanocytes — the cells that produce pigment — get triggered by UV exposure, inflammation from a pimple, or just age, and they overproduce. That's it. Understanding this matters because the fix has two parts: stop triggering more production, and break down what's already there. Most people only do the second part and wonder why nothing's working.
 
 Post-inflammatory hyperpigmentation (PIH) from acne is the most common type. Sun spots or age spots come from cumulative UV damage. Melasma is hormonal and the trickiest to treat — it responds to the same ingredients but requires more patience and tends to return if you're not religious about SPF.
 
 ## What Clears Dark Spots the Fastest?
 
-The fastest legitimate approach combines three things: a tyrosinase inhibitor to block new melanin production, a cell-turnover ingredient to resurface skin and push out old pigment, and SPF every single day without exception. Skip any of those three and you're slowing yourself down significantly.
+The fastest legitimate approach combines three things: a tyrosinase inhibitor to block new melanin production, a cell-turnover ingredient to resurface [skin](/blog/how-to-layer-skincare-actives-correctly) and push out old pigment, and SPF every single day without exception. Skip any of those three and you're slowing yourself down significantly.
 
 Tyrosinase inhibitors are the real workhorses here. Tyrosinase is the enzyme that drives melanin synthesis — block it, and you slow down pigment production at the source. Niacinamide, azelaic acid, and vitamin C all work this way through slightly different mechanisms. Hydroquinone is the most potent option and still the clinical gold standard, but it's prescription-strength in many countries and needs to be cycled, so I'll come back to it.
 

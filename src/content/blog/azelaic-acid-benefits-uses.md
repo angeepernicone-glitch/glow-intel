@@ -9,13 +9,13 @@ heroImageAlt: "What Is Azelaic Acid and Its Benefits? | Paula's Choice"
 draft: false
 ---
 
-Azelaic acid is probably the most underrated active in skincare right now. It doesn't have tretinoin's cult status or niacinamide's TikTok moment, but for certain skin concerns — rosacea, post-inflammatory hyperpigmentation, acne — it genuinely delivers. Here's what the science actually says and who should be using it.
+Azelaic acid is probably the most [underrated active](/blog/azelaic-acid-benefits-skin) in skincare right now. It doesn't have tretinoin's cult status or niacinamide's TikTok moment, but for certain skin concerns — rosacea, post-inflammatory hyperpigmentation, acne — it genuinely delivers. Here's what the science actually says and who should be using it.
 
 ## What Even Is Azelaic Acid?
 
 Azelaic acid is a dicarboxylic acid that occurs naturally — your skin actually produces small amounts of it via yeast that lives on the skin surface. In skincare, it's synthesized and used at concentrations between 10% (over-the-counter) and 20% (prescription, branded as Finacea or Skinoren in many markets).
 
-It works through a few distinct mechanisms simultaneously: it inhibits the enzyme tyrosinase (which controls melanin production), it has documented antimicrobial properties against *Cutibacterium acnes*, and it reduces keratin synthesis, which means less clogged pores. That combination of mechanisms in one ingredient is honestly why I think it's slept on. Most actives do one thing. Azelaic acid does three.
+It works through a few distinct mechanisms simultaneously: it inhibits the enzyme tyrosinase (which controls melanin production), it has documented [anti](/blog/tretinoin-vs-retinol)microbial properties against *Cutibacterium acnes*, and it reduces keratin synthesis, which means less clogged pores. That combination of mechanisms in one ingredient is honestly why I think it's slept on. Most actives do one thing. Azelaic acid does three.
 
 ## What Are the Main Azelaic Acid Benefits for Skin?
 
@@ -94,7 +94,7 @@ The only combinations I'd avoid: don't layer multiple exfoliating acids (AHA/BHA
 The clearest candidates:
 
 - People with rosacea who want a clinically proven option
-- Anyone with PIH (post-acne dark spots, uneven tone from old breakouts)
+- Anyone with PIH (post-acne [dark spots](/blog/how-to-fade-dark-spots-hyperpigmentation), uneven tone from old breakouts)
 - Sensitive skin types who can't tolerate more aggressive actives
 - People pregnant or breastfeeding who need to avoid retinoids and salicylic acid
 - Acne-prone skin as a complementary or standalone treatment

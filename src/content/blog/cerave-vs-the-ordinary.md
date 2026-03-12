@@ -9,9 +9,9 @@ heroImageAlt: "SHELFIE] yes i hopped on the cerave/ the ordinary hype. my ..."
 draft: false
 ---
 
-The comparison comes up constantly: CeraVe or The Ordinary? Which brand is better? Which should you buy?
+The comparison comes up constantly: CeraVe or The [Ordinary](/blog/the-ordinary-retinol-review)? Which brand is better? Which should you buy?
 
-The framing is wrong. These two brands aren't doing the same thing, and comparing them directly is like asking whether a hammer or a screwdriver is better. Depends entirely on what you're building.
+The framing is wrong. These two brands aren't doing the same thing, and comparing them directly is like a[skin](/blog/skincare-routine-oily-skin)g whether a hammer or a screwdriver is better. Depends entirely on what you're building.
 
 ## What CeraVe actually is
 
@@ -51,7 +51,7 @@ This is actually what most people do, and it's the right call.
 A functional setup for most skin types:
 - **Cleanser:** CeraVe Hydrating or Foaming Cleanser
 - **Active serum (AM or PM):** The Ordinary ([niacinamide, vitamin C](/blog/niacinamide-vs-vitamin-c-which-goes-first), etc.)
-- **Moisturizer:** CeraVe Moisturizing Cream or PM Lotion
+- **Moisturizer:** [CeraVe Moisturizing Cream](/blog/cerave-moisturizing-cream-review) or PM Lotion
 - **SPF:** Something else entirely (neither brand leads here)
 
 CeraVe handles the foundation — barrier protection, cleansing, hydration. The Ordinary handles targeted treatment. They occupy different slots in the same routine.

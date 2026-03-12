@@ -15,13 +15,13 @@ Clean beauty is a $20 billion market built on a word that has no legal definitio
 
 The FDA does not regulate the term "clean" in cosmetics. Neither does the EU, which has the world's most comprehensive cosmetics regulations. A brand can call itself clean for banning parabens while using equally controversial preservatives. Another brand bans fragrance; another brand considers fragrance fine. There's no standard.
 
-What you get instead is a patchwork of brand-specific "ingredient blacklists" — Sephora Clean Beauty has a list of 50 banned ingredients, ILIA bans another set, Credo Beauty bans several hundred. None of them agree entirely.
+What you get instead is a patchwork of brand-specific "ingredient blacklists" — Sephora Clean Beauty has a list of 50 banned [ingredients](/blog/hyaluronic-acid-benefits-skin), ILIA bans another set, Credo Beauty bans several hundred. None of them agree entirely.
 
 This is the core problem: "clean" is a positioning strategy as much as it is an actual product attribute.
 
 ## When "Clean" Ingredients Actually Matter
 
-That said, there are real reasons to pay attention to certain ingredients — just not the ones the clean beauty industry usually emphasizes.
+That said, there are real reasons to pay attention to certain [ingredient](/blog/azelaic-acid-benefits-uses)s — just not the ones the clean beauty industry usually emphasizes.
 
 **Fragrance** is the biggest legitimate concern. "Fragrance" or "parfum" on an ingredient list can represent dozens of undisclosed chemicals, and it's the most common cause of cosmetic contact dermatitis. Avoiding fragrance — especially in products that stay on your skin — is genuinely sensible advice, clean beauty or not.
 
@@ -31,7 +31,7 @@ That said, there are real reasons to pay attention to certain ingredients — ju
 
 ## When "Clean" Is Mostly Theater
 
-The parabens panic is the most persistent piece of bad science in the beauty industry. The 2004 study linking parabens to breast cancer detected parabens in tissue — but proving detection isn't the same as proving causation. Every major dermatology organization considers parabens safe at cosmetic concentrations.
+The parabens panic is the most persistent piece of bad [science](/blog/peptides-skincare-do-they-work) in the beauty industry. The 2004 study linking parabens to breast cancer detected parabens in tissue — but proving detection isn't the same as proving causation. Every major dermatology organization considers parabens safe at cosmetic concentrations.
 
 Silicones — another frequent "clean beauty" ban — have no meaningful toxicity evidence and excellent skin compatibility. They're some of the most well-studied cosmetic ingredients that exist.
 

@@ -9,11 +9,11 @@ heroImageAlt: "Designers get creative with 4 standout skincare packaging ..."
 draft: false
 ---
 
-A lot of people want to start a skincare brand. The barrier to entry has never been lower — private label manufacturers, Shopify, and Instagram have made it possible to launch a beauty brand in weeks.
+A lot of people want to start a skincare brand. The barrier to entry has never been lower — private label manufacturers, Shopify, and Instagram have made it possible to launch a [beauty](/blog/rhode-beauty-brand-strategy-breakdown) brand in weeks.
 
 That's also why most of them fail. Everyone can launch. Not everyone can build something that lasts past the first year.
 
-After building ecommerce stores for multiple skincare and beauty brands, I've seen the patterns clearly. Here's what actually matters.
+After building ecommerce stores for multiple skincare and [beauty brand](/blog/tiktok-beauty-brand-strategy)s, I've seen the patterns clearly. Here's what actually matters.
 
 ## The wrong starting point
 
@@ -85,7 +85,7 @@ The other approach that works: send free product to 50-100 micro-influencers wit
 
 **Months 3-6:** Soft launch to your existing audience, gather feedback, iterate on product and messaging
 
-**Months 6-12:** Begin paid acquisition once your store converts well and you understand your CAC, expand content presence
+**Months 6-12:** Begin paid acquisition once your [store converts](/blog/shopify-beauty-store-setup-guide) well and you understand your CAC, expand content presence
 
 **Year 2+:** This is where the real growth happens if you've built correctly. Brands that are patient in year one are the ones that scale in year two.
 

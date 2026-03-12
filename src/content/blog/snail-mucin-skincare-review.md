@@ -9,7 +9,7 @@ heroImageAlt: "Skincare cream jar on marble surface"
 draft: false
 ---
 
-Snail mucin is the ingredient that makes people stop and ask "wait, what?" But it's been a staple in Korean skincare for over a decade, and the science behind it is more interesting than you'd expect. Let me give you the honest breakdown.
+Snail mucin is the ingredient that makes people stop and ask "wait, what?" But it's been a staple in Korean [skincare](/blog/skincare-routine-dry-skin) for over a decade, and the science behind it is more interesting than you'd expect. Let me give you the honest breakdown.
 
 ## What Snail Mucin Actually Contains
 
@@ -18,9 +18,9 @@ Snail secretion filtrate (the proper name) is the mucus that snails produce for 
 - **Glycoproteins** — moisture-binding, barrier-supporting
 - **Glycolic acid** — mild exfoliant (usually at low concentrations in secretion)
 - **Allantoin** — anti-inflammatory, wound-healing agent
-- **Zinc and manganese** — trace minerals with skin-supporting roles
+- **Zinc and manganese** — trace minerals with [skin](/blog/skincare-routine-oily-skin)-supporting roles
 - **Collagen and elastin fragments** — debated whether they penetrate effectively
-- **Hyaluronic acid** — hydration
+- **[Hyaluronic acid](/blog/hyaluronic-acid-benefits-skin)** — hydration
 
 The combination of hydration, mild exfoliation, and anti-inflammatory action is what makes it interesting. It's not one magic compound — it's the synergistic effect of multiple actives at gentle concentrations.
 

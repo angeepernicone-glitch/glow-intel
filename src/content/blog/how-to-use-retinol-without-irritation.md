@@ -9,15 +9,15 @@ heroImageAlt: "Amazon.com: CeraVe Anti Aging Retinol Serum For Face ..."
 draft: false
 ---
 
-Retinol has more peer-reviewed research behind it than almost any other skincare ingredient. It increases cell turnover, stimulates collagen production, reduces hyperpigmentation, and is one of the few ingredients with solid evidence for both acne treatment and anti-aging.
+[Retinol](/blog/tretinoin-vs-retinol) has more peer-reviewed research behind it than almost any other skincare ingredient. It increases cell turnover, stimulates collagen production, reduces hyperpigmentation, and is one of the few ingredients with solid evidence for both acne treatment and anti-aging.
 
-It also makes a lot of people quit after two weeks because their skin peels, turns red, and looks worse than before.
+It also makes a lot of people quit after two weeks because their [skin](/blog/retinol-purging-vs-breakout-difference) peels, turns red, and looks worse than before.
 
 The problem isn't retinol. The problem is how people introduce it.
 
 ## What retinol actually does
 
-Retinol is a vitamin A derivative. When applied topically, it converts in the skin to retinoic acid, which binds to retinoic acid receptors and increases cell turnover — the speed at which your skin sheds old cells and produces new ones.
+Retinol is a vitamin A derivative. When applied topically, it converts in the skin to retinoic [acid](/blog/azelaic-acid-benefits-uses), which binds to retinoic acid receptors and increases cell turnover — the speed at which your skin sheds old cells and produces new ones.
 
 This process is what creates the visible results: smoother texture, more even tone, reduced fine lines over time, clearer pores. It's also what creates the adjustment period. Faster cell turnover means more shedding, temporarily compromised barrier, and potential purging as clogged pores come to the surface faster than usual.
 

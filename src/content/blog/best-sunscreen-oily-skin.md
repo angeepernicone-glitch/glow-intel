@@ -9,9 +9,9 @@ heroImageAlt: "14 Best Sunscreens for Oily Skin, According to Dermatologists"
 draft: false
 ---
 
-Most sunscreen guides for oily skin just list the same five US drugstore options and call it a day. The reality is that European sunscreen formulations are genuinely ahead, and if you're still reaching for Neutrogena Ultra Sheer because a dermatologist recommended it in 2019, you're leaving better skin on the table.
+Most sunscreen guides for [oily skin](/blog/skincare-routine-oily-skin) just list the same five US drugstore options and call it a day. The reality is that European sunscreen formulations are genuinely ahead, and if you're still reaching for Neutrogena Ultra Sheer because a dermatologist recommended it in 2019, you're leaving better skin on the table.
 
-Oily skin doesn't just want SPF — it wants SPF that doesn't turn your face into a grease pan by 11am. Here's what actually works.
+Oily [skin](/blog/skincare-routine-acne-prone-skin) doesn't just want SPF — it wants SPF that doesn't turn your face into a grease pan by 11am. Here's what actually works.
 
 ## Why Most Sunscreens Feel Awful on Oily Skin
 
@@ -47,7 +47,7 @@ For broad-spectrum efficacy, the Mexoryl XL + Tinosorb combination is among the 
 
 Altruist is the underdog recommendation and I think it deserves way more attention than it gets. It's a UK-based brand that deliberately prices products to be accessible — the SPF 50 fluid is usually around £4-5, and it's genuinely good. Lightweight, no heavy cast, dries down relatively matte.
 
-For oily skin it's not quite as refined as La Roche-Posay's formula — there's a very slight white sheen immediately after application that fades — but at a quarter of the price, it's an easy recommendation as a secondary SPF (for reapplication throughout the day) or for anyone building their first real skincare routine and not ready to spend $30 on sunscreen yet. I think this is the best budget European SPF option available right now.
+For oily skin it's not quite as refined as La Roche-Posay's formula — there's a very slight white sheen immediately after application that fades — but at a quarter of the price, it's an easy recommendation as a secondary SPF (for reapplication throughout the day) or for anyone building their first real [skincare](/blog/how-to-fade-dark-spots-hyperpigmentation) routine and not ready to spend $30 on sunscreen yet. I think this is the best budget European SPF option available right now.
 
 ### La Roche-Posay Anthelios UV Mist SPF 50+
 

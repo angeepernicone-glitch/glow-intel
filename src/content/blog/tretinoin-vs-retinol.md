@@ -9,11 +9,11 @@ heroImageAlt: "Tretinoin vs. retinol: Is tretinoin really much better?"
 draft: false
 ---
 
-Most retinol content online is written to sell you something. Either a brand is pushing their $80 retinol serum, or a dermatologist with a supplement line is staying vague to keep everyone happy. I'm going to give you the actual comparison — what makes tretinoin and retinol chemically different, why that difference matters in practice, and how to get tretinoin if you've decided it's worth trying.
+Most [retinol](/blog/retinol-purging-vs-breakout-difference) content online is written to sell you something. Either a brand is pushing their $80 retinol serum, or a dermatologist with a supplement line is staying vague to keep everyone happy. I'm going to give you the actual comparison — what makes tretinoin and retinol chemically different, why that difference matters in practice, and how to get tretinoin if you've decided it's worth trying.
 
 ## What's Actually Different Between Tretinoin and Retinol
 
-Both are retinoids — derivatives of vitamin A — and both work by binding to retinoic acid receptors in your skin cells. That binding process is what drives collagen production, speeds up cell turnover, and helps clear acne. The mechanism is the same. The catch is how fast each one gets there.
+Both are retinoids — derivatives of vitamin A — and both work by binding to retinoic [acid](/blog/azelaic-acid-benefits-skin) receptors in your skin cells. That binding process is what drives collagen production, speeds up cell turnover, and helps clear acne. The mechanism is the same. The catch is how fast each one gets there.
 
 Tretinoin *is* retinoic acid. It's the active form. When you apply it, it goes to work immediately on those receptors. Retinol is a precursor — your skin has to convert it through two enzymatic steps before it becomes retinoic acid. First it converts to retinaldehyde, then to retinoic acid. Every conversion step loses potency. Studies estimate that retinol is roughly 20 times weaker than tretinoin at equivalent concentrations.
 
@@ -39,7 +39,7 @@ For managing the adjustment period, the basics work: moisturize more, use a gent
 
 ## Does Retinol Have Any Advantages?
 
-Honestly, yes — one main one. Retinol is accessible. You can buy The Ordinary Retinol 1% in Squalane for around $10, or a well-formulated option like Paula's Choice 1% Retinol Treatment for $62, without a prescription or a doctor's appointment. If you're new to retinoids and you're not sure how your skin will respond, starting with OTC retinol makes sense as a trial run.
+Honestly, yes — one main one. Retinol is accessible. You can buy The [Ordinary Retinol](/blog/the-ordinary-retinol-review) 1% in Squalane for around $10, or a well-formulated option like Paula's Choice 1% Retinol Treatment for $62, without a prescription or a doctor's appointment. If you're new to retinoids and you're not sure how your skin will respond, starting with OTC retinol makes sense as a trial run.
 
 The tolerance-building argument is real too. Some dermatologists recommend using retinol first to acclimate your skin before moving to tretinoin, and that logic holds — especially if you have sensitive skin. Starting on 0.25% retinol, building to 0.5%, then eventually moving to tretinoin gives your skin time to upregulate its tolerance to retinoids generally.
 

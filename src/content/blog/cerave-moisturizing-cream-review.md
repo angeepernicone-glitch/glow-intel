@@ -19,7 +19,7 @@ The MVE (MultiVesicular Emulsion) technology CeraVe talks about is basically con
 
 ## Who This Cream Is Actually For
 
-Dry to very dry skin. Full stop. If your skin is tight after cleansing, flaky around the nose and cheeks, or you live in a cold/dry climate — this is probably worth trying. It's also a solid option for eczema-prone skin because the ceramide-heavy formula actively works to repair compromised barriers rather than just sitting on top of skin.
+Dry to very [dry skin](/blog/skincare-routine-dry-skin). Full stop. If your skin is tight after cleansing, flaky around the nose and cheeks, or you live in a cold/dry climate — this is probably worth trying. It's also a solid option for eczema-prone skin because the ceramide-heavy formula actively works to repair compromised barriers rather than just sitting on top of skin.
 
 Body use is where it genuinely shines, no debate. Hands, elbows, legs, feet — it's rich enough to handle serious dryness without costing you $40 for a lotion that'll run out in a week. I've recommended it to people dealing with dry cracked hands specifically, and the feedback is consistently positive there. For dry skin on the face, it works, but with caveats I'll get into.
 
@@ -39,7 +39,7 @@ Oily skin types already produce enough sebum to act as a natural occlusive layer
 
 ## Is It Good for Acne-Prone Skin?
 
-This is where "non-comedogenic" labeling gets complicated. The cream is technically formulated to not block pores, and it doesn't contain known high-comedogenic ingredients. But the heaviness of the formula and the petrolatum occlusion can be problematic for some acne-prone skin, particularly if you're also dealing with oily skin.
+This is where "non-comedogenic" labeling gets complicated. The cream is technically formulated to not block pores, and it doesn't contain known high-comedogenic ingredients. But the heaviness of the formula and the petrolatum occlusion can be problematic for some acne-prone skin, particularly if you're also dealing with [oily skin](/blog/skincare-routine-oily-skin).
 
 For dry, acne-prone skin specifically — the combination that's often overlooked — this can actually work well. When your skin is dehydrated, it overproduces oil as compensation, which worsens breakouts. A rich moisturizer that genuinely hydrates and repairs your barrier can break that cycle. But you need to patch test and give it 3-4 weeks minimum to assess. If you're using tretinoin or any active that causes dryness, CeraVe Moisturizing Cream is one of the better options to combat that dryness without interfering with treatment.
 
@@ -73,7 +73,7 @@ Apply it to damp skin, not dry. This is the single biggest usage mistake. After 
 
 For body use, apply immediately after a shower while skin is still warm and slightly damp. This is especially effective if you deal with eczema on arms or legs — the barrier seal you get from damp-skin application with a petrolatum-based moisturizer is genuinely meaningful. The [research on petrolatum for eczema management](https://pubmed.ncbi.nlm.nih.gov/29935531/) consistently holds up.
 
-For face use in a layered routine: cleanser, any water-based serums (vitamin C, niacinamide, hyaluronic acid), then moisturizing cream, then SPF last. Let each layer sit 60 seconds before adding the next. Wait a full 10-15 minutes after the moisturizer before SPF to minimize pilling.
+For face use in a layered routine: cleanser, any water-based serums ([vitamin C](/blog/best-vitamin-c-serum), niacinamide, hyaluronic acid), then moisturizing cream, then SPF last. Let each layer sit 60 seconds before adding the next. Wait a full 10-15 minutes after the moisturizer before SPF to minimize pilling.
 
 ## My Actual Take
 

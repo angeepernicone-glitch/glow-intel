@@ -9,17 +9,17 @@ heroImageAlt: "Amazon.com: The Ordinary Retinol 0.2% in Squalane, Gentle ..."
 draft: false
 ---
 
-The Ordinary's retinol lineup is a searched, most debated, and most misunderstood ranges in affordable skincare. I'm going to break down every variant honestly — what the differences actually mean, who should use what, and whether any of it is worth your time.
+The Ordinary's [retinol](/blog/tretinoin-vs-retinol) lineup is a searched, most debated, and most misunderstood ranges in affordable skincare. I'm going to break down every variant honestly — what the differences actually mean, who should use what, and whether any of it is worth your time.
 
 ## What You're Actually Buying With The Ordinary Retinol
 
-The Ordinary sells retinol in squalane at three concentrations: 0.2%, 0.5%, and 1%. They also sell a granactive retinoid line (2% and 5% in emulsion, plus a 2% in squalane), and more recently launched a retinal 0.2% emulsion. These are not the same thing, and the naming is genuinely confusing — even for people who know skincare.
+The Ordinary sells retinol in squalane at three concentrations: 0.2%, 0.5%, and 1%. They also sell a granactive retinoid line (2% and 5% in emulsion, plus a 2% in squalane), and more recently launched a retinal 0.2% emulsion. These are not the same thing, and the naming is genuinely confusing — even for people who know [skincare](/blog/peptides-skincare-do-they-work).
 
 Here's the hierarchy in terms of potency and conversion efficiency:
 
 **Retinal (retinaldehyde) > Retinol > Granactive retinoid (hydroxypinacolone retinoate)**
 
-Retinal converts to retinoic acid in one step. Retinol takes two. Granactive retinoid is the mildest, least irritating, and also the least studied in terms of long-term efficacy compared to retinol. When people ask "are The Ordinary retinols any good," the honest answer is: it depends entirely on which product you're talking about.
+Retinal converts to retinoic [acid](/blog/azelaic-acid-benefits-uses) in one step. Retinol takes two. Granactive retinoid is the mildest, least irritating, and also the least studied in terms of long-term efficacy compared to retinol. When people ask "are The Ordinary retinols any good," the honest answer is: it depends entirely on which product you're talking about.
 
 ## The Retinol in Squalane Range: 0.2%, 0.5%, 1%
 

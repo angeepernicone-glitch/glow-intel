@@ -9,13 +9,13 @@ heroImageAlt: "Skincare routine products on clean bathroom vanity"
 draft: false
 ---
 
-Combination skin is the most common skin type and, ironically, one of the most poorly served by skincare marketing. Every product is designed for either oily skin or dry skin. When you're both simultaneously, generic advice breaks down fast.
+Combination skin is the most common skin type and, ironically, one of the most poorly served by skincare marketing. Every product is designed for either [oily skin](/blog/skincare-routine-oily-skin) or dry skin. When you're both simultaneously, generic advice breaks down fast.
 
 ## What Combination Skin Actually Means
 
-Classic combination skin: oily T-zone (forehead, nose, chin) with normal to dry cheeks. The reason is straightforward — sebaceous glands are more densely distributed in the T-zone. More glands equals more oil production.
+Classic combination [skin](/blog/skincare-routine-acne-prone-skin): oily T-zone (forehead, nose, chin) with normal to dry cheeks. The reason is straightforward — sebaceous glands are more densely distributed in the T-zone. More glands equals more oil production.
 
-The mistake most people make is treating the whole face like one skin type. Applying heavy cream everywhere causes congestion in the T-zone. Using a mattifying routine everywhere causes tightness and flaking on dry areas.
+The mistake most people make is treating the whole face like one skin type. Applying heavy cream everywhere causes congestion in the T-zone. Using a mattifying [routine](/blog/skincare-routine-dry-skin) everywhere causes tightness and flaking on dry areas.
 
 The solution isn't complicated, but it requires a slightly different approach to product application.
 

@@ -8,15 +8,15 @@ heroImage: "/images/blog/niacinamide-vs-vitamin-c-which-goes-first.jpg"
 heroImageAlt: "Vitamin C Brightening Serum With Niacinamide, 1.35 fl oz (40 ml)"
 ---
 
-You have probably seen the warning: "Don't mix niacinamide and vitamin C — they cancel each other out." It sounds convincing. It gets shared constantly. And it is, for the most part, not true.
+You have probably seen the warning: "Don't mix [niacinamide](/blog/skincare-routine-oily-skin) and vitamin C — they cancel each other out." It sounds convincing. It gets shared constantly. And it is, for the most part, not true.
 
 Here is what is actually going on, and how to use both ingredients properly.
 
 ## Where the myth came from
 
-The concern comes from older research showing that niacinamide and vitamin C can form a compound called niacin when combined. Niacin is associated with skin flushing — temporary redness and irritation.
+The concern comes from older research showing that niacinamide and vitamin C can form a compound called niacin when combined. Niacin is associated with [skin](/blog/how-to-layer-skincare-actives-correctly) flushing — temporary redness and irritation.
 
-The problem with this theory is the conditions required. The reaction happens at high temperatures (well above anything your skin or bathroom would ever reach) and needs significantly more time than you spend applying your skincare. In practice, under normal use conditions, this reaction is not happening on your face.
+The problem with this theory is the conditions required. The reaction happens at high temperatures (well above anything your skin or bathroom would ever reach) and needs significantly more time than you spend applying your [skincare](/blog/skincare-routine-acne-prone-skin). In practice, under normal use conditions, this reaction is not happening on your face.
 
 The idea has stuck around because the skincare internet loves a rule, and this one sounds scientific enough that people repeat it without checking the source.
 

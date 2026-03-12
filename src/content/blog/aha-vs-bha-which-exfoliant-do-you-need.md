@@ -9,13 +9,13 @@ heroImageAlt: "Skincare acid serum product on clean surface"
 draft: false
 ---
 
-If you've spent more than ten minutes on skincare forums, you've seen this debate. AHAs vs BHAs, glycolic vs salicylic, water-soluble vs oil-soluble. Let me cut through the noise and tell you what actually matters.
+If you've spent more than ten minutes on [skin](/blog/azelaic-acid-benefits-skin)care forums, you've seen this debate. AHAs vs BHAs, glycolic vs salicylic, water-soluble vs oil-soluble. Let me cut through the noise and tell you what actually matters.
 
 ## The Core Difference
 
-**AHAs (alpha hydroxy acids)** — glycolic, lactic, mandelic acid — are water-soluble. They work on the skin's surface, dissolving the glue holding dead skin cells together. Good for texture, brightness, and fine lines. Better suited to dry or normal skin.
+**AHAs (alpha hydroxy [acid](/blog/azelaic-acid-benefits-uses)s)** — glycolic, lactic, mandelic acid — are water-soluble. They work on the skin's surface, dissolving the glue holding dead skin cells together. Good for texture, brightness, and fine lines. Better suited to dry or normal skin.
 
-**BHAs (beta hydroxy acids)** — primarily salicylic acid — are oil-soluble. This is the key distinction. Because salicylic acid is oil-soluble, it can penetrate into pores and dissolve the sebum and dead cells that cause blackheads and breakouts. Essential for oily, acne-prone skin.
+**BHAs (beta hydroxy acids)** — primarily salicylic acid — are oil-soluble. This is the key distinction. Because salicylic acid is oil-soluble, it can penetrate into pores and dissolve the sebum and dead cells that cause blackheads and breakouts. Essential for oily, [acne-prone skin](/blog/skincare-routine-acne-prone-skin).
 
 That one structural difference explains most of the practical recommendations you'll see.
 

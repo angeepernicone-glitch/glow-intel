@@ -9,11 +9,11 @@ heroImageAlt: "The 7 Best Eyelash Growth Serums, Tested for 12 Weeks"
 draft: false
 ---
 
-Most lash serums are glorified conditioners sold at serum prices. A few of them actually grow your lashes longer and denser, and those are the ones worth talking about. I tested 14 serums over several months to figure out which category each one falls into.
+Most lash [serum](/blog/best-vitamin-c-serum)s are glorified conditioners sold at serum prices. A few of them actually grow your lashes longer and denser, and those are the ones worth talking about. I tested 14 serums over several months to figure out which category each one falls into.
 
 ## What Actually Makes a Lash Serum Work?
 
-This is where most reviews skip the science and go straight to "it made my lashes so fluffy!" — which tells you nothing useful.
+This is where most [review](/blog/cerave-moisturizing-cream-review)s skip the science and go straight to "it made my lashes so fluffy!" — which tells you nothing useful.
 
 Lash serums work through one of two mechanisms. The first is prostaglandin analogs, which extend the anagen (growth) phase of your lash cycle. The second is peptide-based formulas, which strengthen and condition existing lashes to reduce breakage and improve appearance. These are not the same thing. Prostaglandin analogs genuinely grow lashes — this is backed by [clinical data](https://pubmed.ncbi.nlm.nih.gov/19178590/). Peptide serums mostly make your current lashes look better.
 
@@ -35,7 +35,7 @@ Honestly, if you can get a prescription and your derm is comfortable prescribing
 
 ### GrandeLASH-MD Lash Enhancing Serum — $72 for 3ml
 
-This is the one everyone on TikTok has. It contains a prostaglandin-like compound (isopropyl cloprostenate) which is not FDA-approved for this use but functions similarly to bimatoprost. Results are real — I saw measurable improvement by week 10. The formula also includes hyaluronic acid and vitamin E, which help with the conditioning side.
+This is the one everyone on TikTok has. It contains a prostaglandin-like compound (isopropyl cloprostenate) which is not FDA-approved for this use but functions similarly to bimatoprost. Results are real — I saw measurable improvement by week 10. The formula also includes [hyaluronic acid](/blog/hyaluronic-acid-benefits-skin) and vitamin E, which help with the conditioning side.
 
 The controversy: isopropyl cloprostenate has been linked to the same side effects as prescription prostaglandin analogs (iris darkening, fat pad atrophy around the eyes with long-term use). GrandeLASH doesn't disclose this prominently. The results are legitimate, but if you're going to use a prostaglandin-adjacent ingredient, you should know you're using one.
 

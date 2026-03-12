@@ -9,13 +9,13 @@ heroImageAlt: "Skincare serum product on clean white background"
 draft: false
 ---
 
-Azelaic acid doesn't get the attention it deserves. It's not trending on TikTok the way niacinamide or retinol are, and it doesn't have the dramatic before-and-afters of strong exfoliants. But for specific skin concerns — particularly rosacea, post-acne marks, and sensitive skin that can't tolerate typical actives — it's one of the best options available.
+[Azelaic acid](/blog/azelaic-acid-benefits-uses) doesn't get the attention it deserves. It's not trending on TikTok the way niacinamide or retinol are, and it doesn't have the dramatic before-and-afters of strong exfoliants. But for specific skin concerns — particularly rosacea, post-acne marks, and sensitive skin that can't tolerate typical actives — it's one of the best options available.
 
 ## What Azelaic Acid Is
 
-Azelaic acid is a naturally occurring dicarboxylic acid found in grains like barley and wheat. It's synthesized for skincare use and available at different concentrations:
+[Azelaic](/blog/how-to-fade-dark-spots-hyperpigmentation) acid is a naturally occurring dicarboxylic acid found in grains like barley and wheat. It's synthesized for skincare use and available at different concentrations:
 
-- **15-20%**: Prescription strength, used for rosacea and moderate acne
+- **15-20%**: Prescription strength, used for rosacea and moderate [acne](/blog/how-to-use-retinol-without-irritation)
 - **10%**: Upper OTC range, most effective OTC concentration
 - **7.5%**: The most common OTC formula in the US (FDA-approved OTC maximum)
 

@@ -9,15 +9,15 @@ heroImageAlt: "Skincare retinol serum with clean product packaging"
 draft: false
 ---
 
-You just started retinol. Week two rolls around and your face looks worse than it did before you started. Before you throw the tube out, you need to figure out if this is purging or a genuine breakout — because the response to each is completely different.
+You just started [retinol](/blog/how-to-use-retinol-without-irritation). Week two rolls around and your face looks worse than it did before you started. Before you throw the tube out, you need to figure out if this is purging or a genuine breakout — because the response to each is completely different.
 
 ## What Purging Actually Is
 
-Purging happens when an active ingredient speeds up your skin's cell turnover. Retinol (and especially tretinoin) dramatically accelerates how quickly skin cells move from deeper layers to the surface. Any congestion that was already forming under the skin — microcomedones, plugged follicles — gets pushed out faster than it normally would.
+Purging happens when an active ingredient speeds up your skin's cell turnover. Retinol (and especially [tretinoin](/blog/tretinoin-vs-retinol)) dramatically accelerates how quickly skin cells move from deeper layers to the surface. Any congestion that was already forming under the skin — microcomedones, plugged follicles — gets pushed out faster than it normally would.
 
 The result looks like a breakout, but it's actually existing gunk clearing faster. You're not getting new breakouts — you're accelerating the ones that were already there.
 
-This is why purging is temporary. Once the backlog clears, the skin should be cleaner and clearer than before.
+This is why purging is temporary. Once the backlog clears, the [skin](/blog/azelaic-acid-benefits-skin) should be cleaner and clearer than before.
 
 ## Purging: What to Look For
 

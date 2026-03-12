@@ -9,7 +9,7 @@ heroImageAlt: "Close-up of moisturizer being applied to soft skin"
 draft: false
 ---
 
-Your skin barrier is the outermost layer of your skin — technically called the stratum corneum — and it has one critical job: keep moisture in and irritants out. When it's working, your skin feels balanced. When it's damaged, everything else falls apart.
+Your [skin](/blog/skincare-routine-oily-skin) barrier is the outermost layer of your skin — technically called the stratum corneum — and it has one critical job: keep moisture in and irritants out. When it's working, your skin feels balanced. When it's damaged, everything else falls apart.
 
 ## Signs Your Skin Barrier Is Compromised
 
@@ -20,7 +20,7 @@ Your skin barrier is the outermost layer of your skin — technically called the
 - Stinging when you apply serums, toners, or moisturizers
 - That dry-but-also-oily combination that makes no sense
 
-The classic presentation: someone starts a "good" skincare routine with actives, their skin gets worse, they add more products to fix it, it gets worse still. That spiral is almost always barrier disruption.
+The classic presentation: someone starts a "good" [skincare routine](/blog/skincare-routine-dry-skin) with actives, their skin gets worse, they add more products to fix it, it gets worse still. That spiral is almost always barrier disruption.
 
 ## What Damages the Barrier
 
@@ -40,7 +40,7 @@ The repair routine is simple:
 
 **Cleanser**: Low-pH, fragrance-free, gentle. CeraVe Hydrating Cleanser (~$15) is the standard recommendation because it doesn't strip and contains ceramides. La Roche-Posay Toleriane Hydrating Gentle Cleanser is equally good.
 
-**Moisturizer with ceramides**: Ceramides are the lipids that form the "mortar" between skin cells. CeraVe Moisturizing Cream (~$18) is the benchmark — three essential ceramides, hyaluronic acid, no fragrance. Cerave Moisturizing Lotion is the lighter option for oily skin. Dr. Jart+ Cicapair Tiger Grass Cream (~$52) is worth it if you have severe inflammation alongside barrier damage.
+**Moisturizer with ceramides**: Ceramides are the lipids that form the "mortar" between skin cells. [CeraVe Moisturizing Cream](/blog/cerave-moisturizing-cream-review) (~$18) is the benchmark — three essential ceramides, hyaluronic acid, no fragrance. Cerave Moisturizing Lotion is the lighter option for oily skin. Dr. Jart+ Cicapair Tiger Grass Cream (~$52) is worth it if you have severe inflammation alongside barrier damage.
 
 **Occlusive at night**: A thin layer of petroleum jelly (Vaseline) or a dedicated occlusives like Aquaphor over your moisturizer at night dramatically speeds up barrier repair. This technique is called "slugging" and the evidence behind petrolatum as a barrier repair agent is strong.
 

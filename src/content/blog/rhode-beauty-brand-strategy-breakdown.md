@@ -11,13 +11,13 @@ draft: false
 
 Rhode launched in June 2022 with three products. By 2024, it was reportedly valued at over $1 billion. No traditional advertising. No massive wholesale retail footprint. Just a founder with 50 million Instagram followers and a product that was genuinely good.
 
-But dismissing Rhode as "just a celebrity brand" misses most of what actually worked.
+But dismissing Rhode as "just a celebrity [brand](/blog/how-to-start-a-skincare-brand-2026)" misses most of what actually worked.
 
 ## The Product Was Legitimately Designed
 
 The Peptide Lip Treatment is Rhode's hero product. At ~$16, it's accessible. The formula — containing peptides, vitamin E, and various butters — is genuinely effective. The flavors are appealing without being gimmicky. It fits in your pocket.
 
-This matters more than people acknowledge. Celebrity brands fail all the time — Kylie Cosmetics went from a billion-dollar valuation to selling majority stake at a fraction of that price. The difference is usually whether the product holds up to scrutiny without the founder's name on it.
+This matters more than people acknowledge. Celebrity [brand](/blog/tiktok-beauty-brand-strategy)s fail all the time — Kylie Cosmetics went from a billion-dollar valuation to selling majority stake at a fraction of that price. The difference is usually whether the product holds up to scrutiny without the founder's name on it.
 
 Rhode's products would sell reasonably well without Hailey Bieber attached. That's the foundation. Everything else builds on it.
 
@@ -68,6 +68,6 @@ The brands that are winning right now at smaller scale are doing exactly this: n
 
 The 2024 Sephora launch marked the shift from DTC-only to omnichannel. That's the typical scaling play: prove demand direct-to-consumer, then use retail for broader distribution and legitimacy signaling. The risk is losing some of the brand's exclusivity feeling. The reward is reaching customers who buy from beauty counters and don't scroll TikTok.
 
-Rhode is navigating this well so far, but it's the moment where a lot of DTC beauty brands stumble. Retail margins require higher volumes to compensate, and the operational complexity increases significantly.
+Rhode is navigating this well so far, but it's the moment where a lot of DTC [beauty brands](/blog/beauty-influencer-marketing-guide) stumble. Retail margins require higher volumes to compensate, and the operational complexity increases significantly.
 
 Watching how Rhode manages the brand's "special" feeling as it scales into mass retail will be one of the more interesting brand stories of the next few years.
