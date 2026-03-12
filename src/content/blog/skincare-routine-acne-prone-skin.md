@@ -19,7 +19,7 @@ Acne-prone skin has a few consistent problems: excess sebum production, clogged 
 
 That's the skeleton. Everything else is optional.
 
-The reason most people's acne routines fail isn't because they're missing some hero ingredient — it's because they're using too many products with too many actives, over-irritating their skin, and then wondering why they keep breaking out. [Irritated skin and disrupted barrier function can actually worsen acne](https://pubmed.ncbi.nlm.nih.gov/34738083/), which is the exact opposite of what you're trying to do.
+The reason most people's acne routines fail isn't because they're missing some hero ingredient — it's because they're using too many products with too many actives, over-irritating their skin, and then wondering why they keep breaking out. Irritated skin and disrupted barrier function can actually worsen acne, which is the exact opposite of what you're trying to do.
 
 ## The 5-Product Routine (Morning and Night)
 
@@ -44,7 +44,7 @@ Use your cleanser morning and night. Don't double-cleanse unless you're wearing 
 
 BHA — beta hydroxy acid, usually salicylic acid — is the workhorse of any acne routine. Unlike AHAs (glycolic, lactic), BHA is oil-soluble, which means it can actually penetrate inside the pore and dissolve the sebum and dead skin cells that cause blackheads and non-inflammatory acne. It also has anti-inflammatory properties, which matters when you're dealing with red, angry breakouts.
 
-[Research consistently shows salicylic acid is effective for reducing both inflammatory and non-inflammatory acne lesions](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4505095/), and it's one of the few OTC actives that actually has the evidence to back up its reputation.
+Research consistently shows salicylic acid is effective for reducing both inflammatory and non-inflammatory acne lesions, and it's one of the few OTC actives that actually has the evidence to back up its reputation.
 
 **What I recommend:** Paula's Choice BHA 2% Skin Perfecting Liquid Exfoliant ($34 for 4oz) is the gold standard here, honestly. It's well-formulated, the 2% concentration is effective without being brutal, and it's been around long enough that the results are well-documented. If that price point doesn't work, The Ordinary Salicylic Acid 2% Solution ($6-8) is a solid budget alternative — just know it has a slightly different texture and some people find it more drying.
 

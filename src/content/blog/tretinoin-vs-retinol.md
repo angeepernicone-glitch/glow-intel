@@ -23,7 +23,7 @@ This isn't a small gap. A 0.025% tretinoin cream is doing meaningfully more than
 
 I've talked to people who used high-end retinol products for a year and saw modest improvement, then switched to tretinoin and noticed real change in their skin texture within three months. That's not anecdotal coincidence — it's the pharmacokinetics working as expected.
 
-The research backs this up. [Studies published on PubMed](https://pubmed.ncbi.nlm.nih.gov/1700939/) going back to the late 1980s showed tretinoin visibly reducing fine lines, improving skin texture, and increasing epidermal thickness. Retinol research shows similar effects, but the effect sizes are smaller and the timelines are longer. If you're comparing them honestly, tretinoin is the more proven molecule.
+The research backs this up. Studies published on PubMed going back to the late 1980s showed tretinoin visibly reducing fine lines, improving skin texture, and increasing epidermal thickness. Retinol research shows similar effects, but the effect sizes are smaller and the timelines are longer. If you're comparing them honestly, tretinoin is the more proven molecule.
 
 For acne specifically, tretinoin has decades of clinical use behind it. It's FDA-approved for acne treatment. Retinol is not — it's a cosmetic ingredient, which is also why it doesn't require a prescription. That regulatory distinction tells you something about the comparative evidence base.
 

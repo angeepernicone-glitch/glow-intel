@@ -29,7 +29,7 @@ If you have rosacea and you're not using azelaic acid, you should be. It's one o
 
 **For Post-Inflammatory Hyperpigmentation (PIH)**
 
-PIH is the dark spots left behind after acne, eczema, or any inflammation. The tyrosinase inhibition is what matters here — azelaic acid blocks the enzyme that produces excess melanin in response to inflammation. [Research published on PubMed](https://pubmed.ncbi.nlm.nih.gov/20534556/) shows azelaic acid at 20% is comparable to 4% hydroquinone for treating hyperpigmentation, with fewer side effects and without the safety concerns hydroquinone has accumulated over the years.
+PIH is the dark spots left behind after acne, eczema, or any inflammation. The tyrosinase inhibition is what matters here — azelaic acid blocks the enzyme that produces excess melanin in response to inflammation. Research published on PubMed shows azelaic acid at 20% is comparable to 4% hydroquinone for treating hyperpigmentation, with fewer side effects and without the safety concerns hydroquinone has accumulated over the years.
 
 The catch: it works best on PIH specifically, not on sun-induced melasma or purely sun damage. If you're dealing with brown spots from sun exposure and expecting azelaic acid to clear them, you'll be disappointed. Combine it with SPF 50 for anything pigment-related, full stop.
 

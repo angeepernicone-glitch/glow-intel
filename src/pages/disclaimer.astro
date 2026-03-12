@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const updated = '2026-03-11';
+---
+
+<BaseLayout
+  title="Disclaimer — Glow Intel"
+  description="Medical and content disclaimer for Glow Intel. This site is for informational purposes only."
+>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
+    <div class="max-w-2xl">
+      <h1 class="text-3xl font-bold mb-2">Disclaimer</h1>
+      <p class="text-sm mb-10" style="color: var(--text-muted);">Last updated: {updated}</p>
+
+      <div class="prose">
+        <h2>Not medical advice</h2>
+        <p>The content on Glow Intel — including articles, ingredient breakdowns, product reviews, and routine guides — is for informational and educational purposes only. Nothing on this site constitutes medical advice, diagnosis, or treatment.</p>
+        <p>If you have a skin condition, allergy, or health concern, consult a licensed dermatologist or healthcare professional before changing your skincare routine or trying new ingredients.</p>
+
+        <h2>Results vary</h2>
+        <p>Skincare results are individual. What works for one person may not work for another. Product mentions, ingredient recommendations, and routine suggestions on this site are based on available research and personal experience — they are not guarantees of results.</p>
+
+        <h2>Product information</h2>
+        <p>Product prices, formulations, and availability change frequently. Always verify current information directly with the brand or retailer before purchasing. Glow Intel is not responsible for outdated pricing or discontinued products mentioned in older posts.</p>
+
+        <h2>External sources</h2>
+        <p>Links to external sites (studies, brands, retailers) are provided for reference. Glow Intel does not control third-party content and is not responsible for its accuracy.</p>
+
+        <h2>No professional relationship</h2>
+        <p>Reading this site does not create a professional or advisory relationship between you and Glow Intel or its contributors.</p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

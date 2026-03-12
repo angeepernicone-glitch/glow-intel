@@ -71,7 +71,7 @@ La Roche-Posay Cicaplast Baume B5 is another comparison point, sits around $18-2
 
 Apply it to damp skin, not dry. This is the single biggest usage mistake. After cleansing, pat your face dry but leave it slightly damp — then apply the cream. It spreads more evenly, absorbs better, and the hyaluronic acid in the formula has water to actually bind to. On dry skin, HA has nothing to pull from and can actually draw moisture out of deeper skin layers, which is the opposite of what you want.
 
-For body use, apply immediately after a shower while skin is still warm and slightly damp. This is especially effective if you deal with eczema on arms or legs — the barrier seal you get from damp-skin application with a petrolatum-based moisturizer is genuinely meaningful. The [research on petrolatum for eczema management](https://pubmed.ncbi.nlm.nih.gov/29935531/) consistently holds up.
+For body use, apply immediately after a shower while skin is still warm and slightly damp. This is especially effective if you deal with eczema on arms or legs — the barrier seal you get from damp-skin application with a petrolatum-based moisturizer is genuinely meaningful. The research on petrolatum for eczema management consistently holds up.
 
 For face use in a layered routine: cleanser, any water-based serums ([vitamin C](/blog/best-vitamin-c-serum), niacinamide, hyaluronic acid), then moisturizing cream, then SPF last. Let each layer sit 60 seconds before adding the next. Wait a full 10-15 minutes after the moisturizer before SPF to minimize pilling.
 

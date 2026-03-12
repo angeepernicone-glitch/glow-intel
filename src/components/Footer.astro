@@ -66,6 +66,21 @@ const year = new Date().getFullYear();
         </ul>
       </div>
     </div>
+
+    <!-- Legal links -->
+    <div class="mt-10 pt-6" style="border-top: 1px solid #2a2a2a;">
+      <ul class="flex flex-wrap gap-x-6 gap-y-2">
+        {[
+          ['Privacy Policy', '/privacy'],
+          ['Disclaimer', '/disclaimer'],
+          ['Affiliate Disclosure', '/affiliate-disclosure'],
+        ].map(([label, href]) => (
+          <li>
+            <a href={href} class="no-underline hover:text-[var(--accent)] transition-colors text-xs" style="color: #666;">{label}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
   </div>
 
   <!-- Bottom bar -->

@@ -47,7 +47,7 @@ I honestly think the granactive retinoid range is best suited for people who've 
 
 ## The Retinal 0.2% Emulsion: Actually Worth Paying Attention To
 
-This is the most interesting product in the lineup, and it's genuinely underrated. Retinaldehyde is one step closer to retinoic acid than retinol — so theoretically, you get faster results with comparable (or slightly higher) irritation risk versus retinol. There's solid [published research on retinaldehyde](https://pubmed.ncbi.nlm.nih.gov/10595578/) showing it's effective for photoaging with a good tolerability profile.
+This is the most interesting product in the lineup, and it's genuinely underrated. Retinaldehyde is one step closer to retinoic acid than retinol — so theoretically, you get faster results with comparable (or slightly higher) irritation risk versus retinol. There's solid published research on retinaldehyde showing it's effective for photoaging with a good tolerability profile.
 
 At 0.2%, The Ordinary's retinal emulsion is priced around £19.90 / $22 USD. That's higher than their retinol range, but still very affordable compared to brands like Avene or Paula's Choice that use retinaldehyde.
 
@@ -65,7 +65,7 @@ The other honest limitation: The Ordinary is not a luxury experience. The textur
 
 They don't — at least not in terms of raw efficacy. Tretinoin (all-trans retinoic acid) is the actual active form. Your skin doesn't need to convert it. It binds directly to retinoid receptors. The clinical literature on tretinoin is the most robust of any topical ingredient in skincare, and it costs about the same as retinol when you factor in how slowly you use it.
 
-I've written before about how tretinoin is underrated — most derms don't push it enough, probably because there's no brand marketing behind generic tretinoin. It's the retinoid that actually has [40+ years of evidence](https://pubmed.ncbi.nlm.nih.gov/2180917/) behind it.
+I've written before about how tretinoin is underrated — most derms don't push it enough, probably because there's no brand marketing behind generic tretinoin. It's the retinoid that actually has 40+ years of evidence behind it.
 
 That said, not everyone can access tretinoin easily, and not everyone needs it. If your goals are mild texture improvement, some prevention of early lines, and general skin quality maintenance, The Ordinary's retinol range is completely adequate. If you want meaningful anti-aging results in your 30s and beyond, you should be pushing toward tretinoin through a derm.
 

@@ -710,7 +710,7 @@ VOICE:
 ${voiceContext}
 
 RULES:
-Intro=2-3 sentences, state point immediately. Paragraphs<=4 sentences. H2s=reader questions. 1500-2500 words, no padding. Use real product names+prices. Be opinionated ("I think","honestly","the catch"). 2-3 internal links [text](/blog/slug). 1-2 external links (PubMed/AAD). No em-dash excess.
+Intro=2-3 sentences, state point immediately. Paragraphs<=4 sentences. H2s=reader questions. 1500-2500 words, no padding. Use real product names+prices. Be opinionated ("I think","honestly","the catch"). 2-3 internal links [text](/blog/slug). 1-2 external links to authoritative sites (AAD.org, SkinCancer.org, EWG.org, or a well-known dermatology site) — NEVER link to specific PubMed article IDs (you hallucinate them). No em-dash excess.
 BANNED: "game-changer","revolutionary","dive deep","let's explore","it's worth noting","In today's world". No "Furthermore/Moreover/Additionally/In conclusion" as openers.
 
 FORMAT (exact, no extra text):
@@ -838,9 +838,10 @@ function qualityGate(content, { keyword, category, title, tags, existingSlugs })
     }
   }
 
-  const externalLinkMatches = content.match(/\]\(https?:\/\/[^)]+\)/g) || [];
+  const externalLinkMatches = (content.match(/\]\(https?:\/\/[^)]+\)/g) || [])
+    .filter(l => !l.includes('pubmed.ncbi.nlm.nih.gov') && !l.includes('ncbi.nlm.nih.gov/pmc'));
   if (externalLinkMatches.length < 1) {
-    issues.push(`SEO: no external links (need 1-2 authoritative sources)`);
+    issues.push(`SEO: no external links (need 1-2 authoritative sources — AAD, SkinCancer.org, etc. — no PubMed IDs)`);
   }
 
   const wordCount = content.split(/\s+/).filter(Boolean).length;

@@ -15,7 +15,7 @@ Most lash [serum](/blog/best-vitamin-c-serum)s are glorified conditioners sold a
 
 This is where most [review](/blog/cerave-moisturizing-cream-review)s skip the science and go straight to "it made my lashes so fluffy!" — which tells you nothing useful.
 
-Lash serums work through one of two mechanisms. The first is prostaglandin analogs, which extend the anagen (growth) phase of your lash cycle. The second is peptide-based formulas, which strengthen and condition existing lashes to reduce breakage and improve appearance. These are not the same thing. Prostaglandin analogs genuinely grow lashes — this is backed by [clinical data](https://pubmed.ncbi.nlm.nih.gov/19178590/). Peptide serums mostly make your current lashes look better.
+Lash serums work through one of two mechanisms. The first is prostaglandin analogs, which extend the anagen (growth) phase of your lash cycle. The second is peptide-based formulas, which strengthen and condition existing lashes to reduce breakage and improve appearance. These are not the same thing. Prostaglandin analogs genuinely grow lashes — this is backed by clinical data. Peptide serums mostly make your current lashes look better.
 
 Neither approach is wrong, but you should know which one you're buying. If you have naturally sparse, short lashes and want real density gains, you need a prostaglandin-based formula. If your lashes are fine but damaged from extensions or overuse of mascara, a conditioning peptide serum can legitimately help.
 

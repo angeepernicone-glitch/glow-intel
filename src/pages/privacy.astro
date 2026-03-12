@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const updated = '2026-03-11';
+---
+
+<BaseLayout
+  title="Privacy Policy — Glow Intel"
+  description="Privacy policy for Glow Intel. How we collect, use, and protect your data."
+>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
+    <div class="max-w-2xl">
+      <h1 class="text-3xl font-bold mb-2">Privacy Policy</h1>
+      <p class="text-sm mb-10" style="color: var(--text-muted);">Last updated: {updated}</p>
+
+      <div class="prose">
+        <h2>What data we collect</h2>
+        <p>Glow Intel does not collect personally identifiable information directly. If we use analytics tools (such as Google Analytics or Plausible), they may collect anonymized usage data including pages visited, time on site, device type, and general geographic location. We do not sell or share this data with third parties for marketing purposes.</p>
+
+        <h2>Cookies</h2>
+        <p>This site may use browser localStorage to remember reading preferences (e.g., "Keep Reading" position). We do not use tracking cookies for advertising. Third-party analytics tools may set their own cookies — you can disable these in your browser settings.</p>
+
+        <h2>Third-party links</h2>
+        <p>Posts on Glow Intel may contain links to external websites (retailers, studies, brand pages). We are not responsible for the privacy practices of those sites. Check their policies before submitting any personal information.</p>
+
+        <h2>Children</h2>
+        <p>This site is not directed at children under 13. We do not knowingly collect data from minors.</p>
+
+        <h2>Your rights (GDPR / CCPA)</h2>
+        <p>If you are located in the European Union or California, you have the right to request access to, correction of, or deletion of any personal data we hold about you. Since we do not collect personal data directly, requests should be directed to any third-party analytics provider we use. You can also opt out of analytics tracking by using a browser extension like uBlock Origin.</p>
+
+        <h2>Changes</h2>
+        <p>We may update this policy as the site evolves. The "Last updated" date at the top of this page will reflect any changes.</p>
+
+        <h2>Contact</h2>
+        <p>Questions? Reach out via the contact information listed on our <a href="/about">About page</a>.</p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
