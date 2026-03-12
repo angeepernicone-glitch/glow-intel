@@ -710,7 +710,7 @@ VOICE:
 ${voiceContext}
 
 RULES:
-Intro=2-3 sentences, state point immediately. Paragraphs<=4 sentences. H2s=reader questions. 1500-2500 words, no padding. Use real product names+prices. Be opinionated ("I think","honestly","the catch"). 2-3 internal links [text](/blog/slug). 1-2 external links to authoritative sites (AAD.org, SkinCancer.org, EWG.org, or a well-known dermatology site) — NEVER link to specific PubMed article IDs (you hallucinate them). No em-dash excess.
+Intro=2-3 sentences, state point immediately. Paragraphs<=4 sentences. H2s=reader questions. 1500-2500 words, no padding. Use real product names+prices. Be opinionated ("I think","honestly","the catch"). 2-3 internal links [text](/blog/slug). 1-2 external links to authoritative sources (PubMed studies you are CERTAIN exist, AAD.org, dermatology sites). If citing a PubMed study, only use IDs you genuinely know — do NOT invent plausible-sounding IDs. Links are verified against the PubMed API after generation. No em-dash excess.
 BANNED: "game-changer","revolutionary","dive deep","let's explore","it's worth noting","In today's world". No "Furthermore/Moreover/Additionally/In conclusion" as openers.
 
 FORMAT (exact, no extra text):
@@ -797,11 +797,96 @@ function scrub(text) {
     .replace(/It seems that /gi, '')
     .replace(/\(~\$/g, '(around $')
     .replace(/~\$/g, '$')
-    // Strip hallucinated PubMed/NCBI links with specific IDs — replace with anchor text only
-    .replace(/\[([^\]]+)\]\(https?:\/\/pubmed\.ncbi\.nlm\.nih\.gov\/\d+\/?\)/g, '$1')
-    .replace(/\[([^\]]+)\]\(https?:\/\/(?:www\.)?ncbi\.nlm\.nih\.gov\/pmc\/articles\/PMC\d+\/?[^)]*\)/g, '$1')
-    // Bare pubmed root link (no ID — useless)
+    // Bare pubmed root link (no specific ID — useless)
     .replace(/\[([^\]]+)\]\(https?:\/\/pubmed\.ncbi\.nlm\.nih\.gov\/\)/g, '$1');
+}
+
+// ─── 8b. Verify external links (PubMed/NCBI) ────────────────────────────────
+// Checks each PubMed/PMC link against the NCBI API:
+//   - Does the ID actually exist?
+//   - Is the study title related to the post topic (skincare/beauty/dermatology)?
+// Removes hallucinated or irrelevant links, keeps real ones.
+async function verifyExternalLinks(content, keyword) {
+  // Skincare/beauty relevance keywords — if a study title contains NONE of these, it's irrelevant
+  const relevanceTerms = [
+    'skin', 'dermat', 'acne', 'wrinkle', 'aging', 'ageing', 'retino', 'niacin',
+    'hyaluron', 'collagen', 'peptide', 'moistur', 'sunscreen', 'uv ', 'uvb', 'uva',
+    'photoag', 'photopro', 'melanin', 'pigment', 'hyperpigment', 'tyrosinase',
+    'sebum', 'sebaceous', 'epider', 'keratin', 'barrier', 'cosmetic', 'topical',
+    'lash', 'hair', 'azelaic', 'salicyl', 'glycol', 'ascorb', 'vitamin c',
+    'vitamin e', 'zinc', 'ceramide', 'spongi', 'exfoli', 'rosacea', 'eczema',
+    'atopic', 'emollient', 'petrolatum', 'antioxidant', 'anti-oxidant',
+    'beauty', 'skincare', 'facial', 'cream', 'serum', 'lotion', 'cleanser',
+    'spf', 'broad spectrum', 'tretinoin', 'retin', 'snail', 'mucin',
+    'anti-inflam', 'inflamm', 'wound heal', 'scar', 'fibroblast',
+    'eyelash', 'bimatoprost', 'prostaglandin', 'follicle',
+  ];
+
+  function isRelevant(studyTitle) {
+    const lower = studyTitle.toLowerCase();
+    return relevanceTerms.some(term => lower.includes(term));
+  }
+
+  // Find all PubMed links
+  const pubmedRe = /\[([^\]]+)\]\((https?:\/\/pubmed\.ncbi\.nlm\.nih\.gov\/(\d+))\/?(\))/g;
+  const pmcRe = /\[([^\]]+)\]\((https?:\/\/(?:www\.)?(?:ncbi\.nlm\.nih\.gov\/pmc\/articles|pmc\.ncbi\.nlm\.nih\.gov\/articles)\/PMC(\d+))[^)]*\)/g;
+
+  let result = content;
+  let verified = 0;
+  let removed = 0;
+
+  // Verify PubMed IDs
+  const pubmedMatches = [...content.matchAll(pubmedRe)];
+  for (const match of pubmedMatches) {
+    const [fullMatch, anchorText, url, pmid] = match;
+    try {
+      const res = await fetch(`https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id=${pmid}&retmode=json`);
+      const data = await res.json();
+      const item = data?.result?.[pmid];
+      if (!item || item.error) {
+        console.log(`    ✗ PubMed ${pmid}: does not exist → removed`);
+        result = result.replace(fullMatch, anchorText);
+        removed++;
+      } else if (!isRelevant(item.title)) {
+        console.log(`    ✗ PubMed ${pmid}: "${item.title.slice(0, 80)}..." — NOT relevant → removed`);
+        result = result.replace(fullMatch, anchorText);
+        removed++;
+      } else {
+        console.log(`    ✓ PubMed ${pmid}: "${item.title.slice(0, 80)}..." — relevant`);
+        verified++;
+      }
+    } catch (e) {
+      console.log(`    ? PubMed ${pmid}: API error (${e.message}) — keeping link`);
+    }
+  }
+
+  // Verify PMC IDs
+  const pmcMatches = [...content.matchAll(pmcRe)];
+  for (const match of pmcMatches) {
+    const [fullMatch, anchorText, url, pmcid] = match;
+    try {
+      const res = await fetch(`https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pmc&id=${pmcid}&retmode=json`);
+      const data = await res.json();
+      const item = data?.result?.[pmcid];
+      if (!item || item.error) {
+        console.log(`    ✗ PMC${pmcid}: does not exist → removed`);
+        result = result.replace(fullMatch, anchorText);
+        removed++;
+      } else if (!isRelevant(item.title || '')) {
+        console.log(`    ✗ PMC${pmcid}: "${(item.title || '').slice(0, 80)}..." — NOT relevant → removed`);
+        result = result.replace(fullMatch, anchorText);
+        removed++;
+      } else {
+        console.log(`    ✓ PMC${pmcid}: "${(item.title || '').slice(0, 80)}..." — relevant`);
+        verified++;
+      }
+    } catch (e) {
+      console.log(`    ? PMC${pmcid}: API error (${e.message}) — keeping link`);
+    }
+  }
+
+  console.log(`  Links: ${verified} verified, ${removed} removed`);
+  return result;
 }
 
 // ─── 9. Quality gate ─────────────────────────────────────────────────────────
@@ -843,10 +928,9 @@ function qualityGate(content, { keyword, category, title, tags, existingSlugs })
     }
   }
 
-  const externalLinkMatches = (content.match(/\]\(https?:\/\/[^)]+\)/g) || [])
-    .filter(l => !l.includes('pubmed.ncbi.nlm.nih.gov') && !l.includes('ncbi.nlm.nih.gov/pmc'));
+  const externalLinkMatches = content.match(/\]\(https?:\/\/[^)]+\)/g) || [];
   if (externalLinkMatches.length < 1) {
-    issues.push(`SEO: no external links (need 1-2 authoritative sources — AAD, SkinCancer.org, etc. — no PubMed IDs)`);
+    issues.push(`SEO: no external links (need 1-2 authoritative sources)`);
   }
 
   const wordCount = content.split(/\s+/).filter(Boolean).length;
@@ -1011,8 +1095,11 @@ async function main() {
 
   const cleanContent = scrub(body);
 
-  console.log('\nStep 4: Quality gate\n');
-  const { content: validatedContent, issues } = qualityGate(cleanContent, {
+  console.log('\nStep 4: Verify external links\n');
+  const verifiedContent = await verifyExternalLinks(cleanContent, target.keyword);
+
+  console.log('\nStep 5: Quality gate\n');
+  const { content: validatedContent, issues } = qualityGate(verifiedContent, {
     keyword: target.keyword,
     category: target.category,
     title,
