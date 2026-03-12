@@ -5,7 +5,7 @@ pubDate: 2026-03-10
 category: "ingredients"
 tags: ["retinol", "retinoids", "anti-aging", "acne", "active ingredients", "tretinoin"]
 heroImage: "/images/blog/how-to-use-retinol-without-irritation.jpg"
-heroImageAlt: "Amazon.com: CeraVe Anti Aging Retinol Serum For Face ..."
+heroImageAlt: "Retinol serum bottle with dropper for anti-aging skincare"
 draft: false
 ---
 
@@ -17,7 +17,7 @@ The problem isn't retinol. The problem is how people introduce it.
 
 ## What retinol actually does
 
-Retinol is a vitamin A derivative. When applied topically, it converts in the skin to retinoic [acid](/blog/azelaic-acid-benefits-uses), which binds to retinoic acid receptors and increases cell turnover — the speed at which your skin sheds old cells and produces new ones.
+Retinol is a vitamin A derivative. When applied topically, it converts in the skin to retinoic [acid](/blog/azelaic-acid-benefits-skin), which binds to retinoic acid receptors and increases cell turnover — the speed at which your skin sheds old cells and produces new ones.
 
 This process is what creates the visible results: smoother texture, more even tone, reduced fine lines over time, clearer pores. It's also what creates the adjustment period. Faster cell turnover means more shedding, temporarily compromised barrier, and potential purging as clogged pores come to the surface faster than usual.
 

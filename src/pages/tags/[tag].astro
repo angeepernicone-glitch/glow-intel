@@ -1,0 +1,75 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+
+function toTagSlug(tag: string) {
+  return tag.toLowerCase().replace(/\s+/g, '-');
+}
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+
+  // Collect every unique tag
+  const tagMap = new Map<string, typeof allPosts>();
+
+  for (const post of allPosts) {
+    for (const tag of post.data.tags) {
+      const slug = tag.toLowerCase().replace(/\s+/g, '-');
+      if (!tagMap.has(slug)) tagMap.set(slug, []);
+      tagMap.get(slug)!.push(post);
+    }
+  }
+
+  return [...tagMap.entries()].map(([slug, posts]) => ({
+    params: { tag: slug },
+    props: {
+      tagLabel: posts[0].data.tags.find(t => t.toLowerCase().replace(/\s+/g, '-') === slug) || slug,
+      posts: posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()),
+    },
+  }));
+}
+
+const { tag } = Astro.params;
+const { tagLabel, posts } = Astro.props;
+---
+
+<BaseLayout
+  title={`Posts tagged: ${tagLabel}`}
+  description={`All Glow Intel articles tagged "${tagLabel}". ${posts.length} post${posts.length === 1 ? '' : 's'} about ${tagLabel}.`}
+>
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-12">
+
+    <!-- Header -->
+    <div class="mb-10 reveal">
+      <div class="rule-accent mb-5"></div>
+      <h1 style="font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; line-height: 1.1; color: var(--text);">
+        Posts tagged: {tagLabel}
+      </h1>
+      <p class="eyebrow mt-3">{posts.length} article{posts.length === 1 ? '' : 's'}</p>
+    </div>
+
+    {posts.length === 0 ? (
+      <p class="text-center py-24 eyebrow">No posts with this tag yet.</p>
+    ) : (
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        {posts.map(post => (
+          <PostCard
+            title={post.data.title}
+            description={post.data.description}
+            slug={post.id}
+            pubDate={post.data.pubDate}
+            category={post.data.category}
+            heroImage={post.data.heroImage}
+            heroImageAlt={post.data.heroImageAlt}
+          />
+        ))}
+      </div>
+    )}
+
+    <!-- Back to blog -->
+    <div class="mt-12 text-center">
+      <a href="/blog/" class="cta-pill no-underline">← All Posts</a>
+    </div>
+  </div>
+</BaseLayout>

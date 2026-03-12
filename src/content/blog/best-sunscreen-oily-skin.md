@@ -25,7 +25,7 @@ The short version: filter choice + base formula = everything. SPF number alone t
 
 I get asked this constantly and the honest answer is: it depends on your specific skin, but chemical (or hybrid) tends to win for most oily skin types. Here's why.
 
-Mineral filters are thicker by nature — zinc oxide especially sits on the skin and can look chalky and feel occlusive. That said, some newer mineral formulations use micronized zinc and very dry silicone bases, and those can work well. If you have acne-prone skin alongside oiliness, zinc oxide actually has some anti-inflammatory benefits worth considering — [azelaic acid works similarly](/blog/azelaic-acid-benefits-uses) and pairs well with a good mineral SPF if you're dealing with active breakouts.
+Mineral filters are thicker by nature — zinc oxide especially sits on the skin and can look chalky and feel occlusive. That said, some newer mineral formulations use micronized zinc and very dry silicone bases, and those can work well. If you have acne-prone skin alongside oiliness, zinc oxide actually has some anti-inflammatory benefits worth considering — [azelaic acid works similarly](/blog/azelaic-acid-benefits-skin) and pairs well with a good mineral SPF if you're dealing with active breakouts.
 
 Chemical filters absorb into the skin and tend to leave less residue, making them easier to layer under makeup or wear alone with a matte finish. The newer European chemical filters (Tinosorb, Mexoryl) are lighter than old-school avobenzone formulas. For most oily skin types, a well-formulated European chemical SPF 50 is going to be the most wearable daily option.
 
@@ -77,7 +77,7 @@ For oily skin specifically, I'd rank: La Roche-Posay Invisible Fluid > Biore Aqu
 
 This question comes up constantly and it's a legitimate one. Yes — with an important nuance. Sunscreen doesn't prevent acne scars from forming, but UV exposure significantly worsens post-inflammatory hyperpigmentation (PIH), which is the dark mark left after a breakout. Without SPF, those marks darken faster and take much longer to fade.
 
-If you're using any actives — tretinoin, retinol, niacinamide, [azelaic acid](/blog/azelaic-acid-benefits-uses) — daily SPF is non-negotiable. These ingredients increase photosensitivity and their benefits get undermined without proper sun protection. The [AAD recommends](https://www.aad.org/public/everyday-care/sun-protection/sunscreen-patients/sunscreen-faqs) SPF 30 minimum daily, but for anyone on actives or with hyperpigmentation concerns, I think SPF 50 is the right default.
+If you're using any actives — tretinoin, retinol, niacinamide, [azelaic acid](/blog/azelaic-acid-benefits-skin) — daily SPF is non-negotiable. These ingredients increase photosensitivity and their benefits get undermined without proper sun protection. The [AAD recommends](https://www.aad.org/public/everyday-care/sun-protection/sunscreen-patients/sunscreen-faqs) SPF 30 minimum daily, but for anyone on actives or with hyperpigmentation concerns, I think SPF 50 is the right default.
 
 ## What Ingredients Should Oily Skin Actually Avoid in Sunscreen?
 

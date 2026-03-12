@@ -1,0 +1,6 @@
+# Cloudflare Pages redirects
+# Format: /old-path /new-path status-code
+
+# Duplicate content consolidation
+/blog/azelaic-acid-benefits-uses /blog/azelaic-acid-benefits-skin 301
+/blog/azelaic-acid-benefits-uses/ /blog/azelaic-acid-benefits-skin 301

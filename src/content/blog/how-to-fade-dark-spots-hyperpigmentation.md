@@ -5,7 +5,7 @@ pubDate: 2026-03-11
 category: "routines"
 tags: ["dark spots", "hyperpigmentation", "niacinamide", "azelaic acid", "skincare routines", "spf"]
 heroImage: "/images/blog/how-to-fade-dark-spots-hyperpigmentation.jpg"
-heroImageAlt: "Refinery29 Editors Share Their Skin-Care Routines"
+heroImageAlt: "Skincare routine products for treating dark spots and hyperpigmentation"
 draft: false
 ---
 
@@ -41,7 +41,7 @@ Start with SPF. Seriously, do this before anything else because UV is actively m
 The Ordinary Niacinamide 10% + Zinc 1% is $7 and is genuinely one of the best-value dark spot products available. Niacinamide at 10% concentration has good evidence for reducing hyperpigmentation by inhibiting melanosome transfer from melanocytes to skin cells. Apply a few drops after cleansing, before SPF. It also does useful side things like reducing sebum production and strengthening the skin barrier, which matters if your dark spots come from acne.
 
 **Evening:**
-This is where azelaic acid earns its place. The Ordinary Azelaic Acid Suspension 10% is around $10 and works well. Azelaic acid is interesting because it selectively targets hyperactive melanocytes — meaning it's particularly effective on PIH and melasma without significantly lightening normal skin. It's also anti-inflammatory and antibacterial, so if acne is causing your dark spots, it's addressing both problems at once. I've written more about [how azelaic acid works and its full benefits](/blog/azelaic-acid-benefits-uses) if you want the deeper version.
+This is where azelaic acid earns its place. The Ordinary Azelaic Acid Suspension 10% is around $10 and works well. Azelaic acid is interesting because it selectively targets hyperactive melanocytes — meaning it's particularly effective on PIH and melasma without significantly lightening normal skin. It's also anti-inflammatory and antibacterial, so if acne is causing your dark spots, it's addressing both problems at once. I've written more about [how azelaic acid works and its full benefits](/blog/azelaic-acid-benefits-skin) if you want the deeper version.
 
 If you can get a tretinoin prescription (0.025% to start), add it 2-3 nights per week alternating with the azelaic acid. The combination is significantly more effective than either alone. Tretinoin will cause purging for the first 6-8 weeks — do not quit during this phase. Paula's Choice 1% Retinol (about $60) is an OTC alternative if you can't get a prescription, though lower potency.
 

@@ -27,7 +27,7 @@ I think derivatives are a reasonable option for people with sensitive skin who c
 
 You will see this comparison everywhere, and honestly, it's the right comparison to make.
 
-**SkinCeuticals C E Ferulic** is $185 for 30ml. It's L-ascorbic acid at 15%, combined with vitamin E at 1% and ferulic acid at 0.5%. The ferulic acid combination is genuinely smart formulation — ferulic acid stabilizes both vitamins C and E and roughly doubles their photoprotection. The original patent for this combo was held by SkinCeuticals. This serum has more peer-reviewed research behind it than almost any other topical antioxidant product. The texture is watery, absorbs fast, and the pH is right. It [work](/blog/best-eyelash-growth-serums-that-actually-work)s. But $185 for 30ml is a lot, and it's a formula that has been off-patent for years.
+**SkinCeuticals C E Ferulic** is $185 for 30ml. It's L-ascorbic acid at 15%, combined with vitamin E at 1% and ferulic acid at 0.5%. The ferulic acid combination is genuinely smart formulation — ferulic acid stabilizes both vitamins C and E and roughly doubles their photoprotection. The original patent for this combo was held by SkinCeuticals. This serum has more peer-reviewed research behind it than almost any other topical antioxidant product. The texture is watery, absorbs fast, and the pH is right. It works. But $185 for 30ml is a lot, and it's a formula that has been off-patent for years.
 
 **Timeless 20% Vitamin C + E Ferulic Acid Serum** is $25 for 30ml. It's the same core formulation — L-ascorbic acid at 20% (slightly higher than SkinCeuticals), vitamin E, and ferulic acid. Same concept, dramatically different price. I've used both. The Timeless formula is slightly more irritating at first because of the higher concentration, but for most people, it works. The packaging is the weak point — the dark amber bottle with a dropper is decent, but I'd suggest decanting it into a smaller bottle and keeping the main bottle in a cool, dark place.
 
@@ -63,7 +63,7 @@ One thing I'll add: vitamin C works well paired with SPF in the morning because 
 
 Yes, with caveats. L-ascorbic acid inhibits tyrosinase, which is the enzyme responsible for melanin production. This is how it addresses hyperpigmentation. It's not the most potent ingredient for this purpose — niacinamide, azelaic acid, and tretinoin will outperform it for stubborn dark spots — but it contributes, especially when used consistently over months.
 
-If dark spots are your primary concern, vitamin C shouldn't be your only active. I'd pair it with niacinamide or [azelaic acid](/blog/azelaic-acid-benefits-uses), and look at a more comprehensive approach to [fading hyperpigmentation](/blog/how-to-fade-dark-spots-hyperpigmentation). Vitamin C is excellent as a daily antioxidant that also happens to support an even skin tone over time. Treating it like a spot-corrector that'll show dramatic results in four weeks is how people get disappointed and quit.
+If dark spots are your primary concern, vitamin C shouldn't be your only active. I'd pair it with niacinamide or [azelaic acid](/blog/azelaic-acid-benefits-skin), and look at a more comprehensive approach to [fading hyperpigmentation](/blog/how-to-fade-dark-spots-hyperpigmentation). Vitamin C is excellent as a daily antioxidant that also happens to support an even skin tone over time. Treating it like a spot-corrector that'll show dramatic results in four weeks is how people get disappointed and quit.
 
 ## The Korean Vitamin C Serums Worth Knowing
 

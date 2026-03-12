@@ -9,7 +9,7 @@ heroImageAlt: "Skincare serum product on clean white background"
 draft: false
 ---
 
-[Azelaic acid](/blog/azelaic-acid-benefits-uses) doesn't get the attention it deserves. It's not trending on TikTok the way niacinamide or retinol are, and it doesn't have the dramatic before-and-afters of strong exfoliants. But for specific skin concerns — particularly rosacea, post-acne marks, and sensitive skin that can't tolerate typical actives — it's one of the best options available.
+[Azelaic acid](/blog/azelaic-acid-benefits-skin) doesn't get the attention it deserves. It's not trending on TikTok the way niacinamide or retinol are, and it doesn't have the dramatic before-and-afters of strong exfoliants. But for specific skin concerns — particularly rosacea, post-acne marks, and sensitive skin that can't tolerate typical actives — it's one of the best options available.
 
 ## What Azelaic Acid Is
 

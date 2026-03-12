@@ -5,7 +5,7 @@ pubDate: 2026-03-10
 category: "beginner-guides"
 tags: ["skincare routine", "beginners", "basics", "cleansing", "moisturizer", "SPF"]
 heroImage: "/images/blog/skincare-routine-for-beginners.jpg"
-heroImageAlt: "The Ultimate Skin-Care Routine Guide | SELF"
+heroImageAlt: "Basic skincare products lined up for a beginner routine"
 draft: false
 ---
 

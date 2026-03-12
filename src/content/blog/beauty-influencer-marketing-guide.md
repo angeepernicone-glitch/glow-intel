@@ -47,7 +47,7 @@ The rejection rate is high. A 20-30% acceptance rate on cold outreach is good. B
 
 ## The UGC Strategy
 
-Organic creator content has an additional value beyond immediate sales: it becomes your ad creative. The best-performing paid social ads for [beauty brand](/blog/tiktok-beauty-brand-strategy)s are creator videos that look like organic content, not studio-produced brand ads.
+Organic creator content has an additional value beyond immediate sales: it becomes your ad creative. The best-performing paid social ads for beauty brands are creator videos that look like organic content, not studio-produced brand ads.
 
 Build this into your creator agreements: you want usage rights for advertising. Most creators will grant this for a modest additional fee, or include it in the original deal if you ask.
 

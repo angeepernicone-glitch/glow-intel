@@ -15,7 +15,7 @@ CeraVe Moisturizing Cream is everywhere — Reddit threads, dermatologist office
 
 The formula is built around three ceramides (1, 3, 6-II), hyaluronic acid, and petrolatum. That combination does two things well: it reinforces your skin barrier and locks in moisture. Ceramides are lipids your skin already produces — supplementing them topically with a well-formulated product has real research backing it. This isn't marketing fluff.
 
-The MVE (MultiVesicular Emulsion) technology CeraVe talks about is basically controlled, time-release delivery of those actives. Honestly, I'm not convinced it's dramatically different from a good standard emulsion, but the ingredient list itself is solid. Niacinamide is in there too at a low percentage — not enough to replace a dedicated [niacinamide serum](/blog/azelaic-acid-benefits-uses), but it adds a subtle anti-inflammatory benefit. The formula is fragrance-free, non-comedogenic, and pH-appropriate for skin. At around $17-19 for the 16 oz tub, the value argument is hard to dispute.
+The MVE (MultiVesicular Emulsion) technology CeraVe talks about is basically controlled, time-release delivery of those actives. Honestly, I'm not convinced it's dramatically different from a good standard emulsion, but the ingredient list itself is solid. Niacinamide is in there too at a low percentage — not enough to replace a dedicated [niacinamide serum](/blog/azelaic-acid-benefits-skin), but it adds a subtle anti-inflammatory benefit. The formula is fragrance-free, non-comedogenic, and pH-appropriate for skin. At around $17-19 for the 16 oz tub, the value argument is hard to dispute.
 
 ## Who This Cream Is Actually For
 

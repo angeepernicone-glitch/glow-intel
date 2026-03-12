@@ -1,0 +1,100 @@
+---
+---
+
+<section class="email-signup" aria-label="Newsletter signup">
+  <div class="rule-accent mb-4"></div>
+  <h2 class="signup-heading">Stay in the loop</h2>
+  <p class="signup-text">Science-backed skincare tips, product picks, and honest reviews. No spam, no fluff.</p>
+  <form
+    action="https://embeds.beehiiv.com/YOUR_PUBLICATION_ID"
+    method="POST"
+    class="signup-form"
+  >
+    <input
+      type="email"
+      name="email"
+      placeholder="Your email address"
+      required
+      autocomplete="email"
+      class="signup-input"
+      aria-label="Email address"
+    />
+    <button type="submit" class="signup-btn">Subscribe</button>
+  </form>
+</section>
+
+<style>
+  .email-signup {
+    max-width: 68ch;
+    margin: 3rem 0;
+    padding: 2rem 2rem 2.25rem;
+    background: var(--bg-alt);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+  }
+
+  .signup-heading {
+    font-family: var(--serif);
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 0.5rem;
+    line-height: 1.3;
+  }
+
+  .signup-text {
+    font-family: var(--sans);
+    font-size: 0.9375rem;
+    color: var(--text-muted);
+    margin: 0 0 1.25rem;
+    line-height: 1.6;
+  }
+
+  .signup-form {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .signup-input {
+    flex: 1 1 220px;
+    padding: 0.625rem 0.875rem;
+    font-family: var(--sans);
+    font-size: 0.875rem;
+    color: var(--text);
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+
+  .signup-input::placeholder {
+    color: var(--text-muted);
+    opacity: 0.7;
+  }
+
+  .signup-input:focus {
+    border-color: var(--accent);
+  }
+
+  .signup-btn {
+    padding: 0.625rem 1.5rem;
+    font-family: var(--sans);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: white;
+    background: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+
+  .signup-btn:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+  }
+</style>

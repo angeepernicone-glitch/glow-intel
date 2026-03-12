@@ -1,0 +1,83 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+
+export async function getStaticPaths({ paginate }) {
+  const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+  const sorted = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  return paginate(sorted, { pageSize: 12 });
+}
+
+const { page } = Astro.props;
+---
+
+<BaseLayout
+  title={page.currentPage === 1 ? 'All Posts' : `All Posts — Page ${page.currentPage}`}
+  description="Every skincare and beauty article on Glow Intel. Ingredient breakdowns, product reviews, versus comparisons, and more."
+>
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-12">
+
+    <!-- Header -->
+    <div class="mb-10 reveal">
+      <div class="rule-accent mb-5"></div>
+      <h1 style="font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; line-height: 1.1; color: var(--text);">
+        All Posts
+      </h1>
+      <p class="eyebrow mt-3">{page.total} articles{page.lastPage > 1 ? ` — Page ${page.currentPage} of ${page.lastPage}` : ''}</p>
+    </div>
+
+    {page.data.length === 0 ? (
+      <p class="text-center py-24 eyebrow">No posts yet. Check back soon.</p>
+    ) : (
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        {page.data.map(post => (
+          <PostCard
+            title={post.data.title}
+            description={post.data.description}
+            slug={post.id}
+            pubDate={post.data.pubDate}
+            category={post.data.category}
+            heroImage={post.data.heroImage}
+            heroImageAlt={post.data.heroImageAlt}
+          />
+        ))}
+      </div>
+    )}
+
+    <!-- Pagination -->
+    {page.lastPage > 1 && (
+      <nav class="mt-14 flex items-center justify-center gap-4" aria-label="Pagination">
+        {page.url.prev ? (
+          <a href={page.url.prev} class="cta-pill no-underline">← Previous</a>
+        ) : (
+          <span class="cta-pill opacity-40 cursor-default select-none">← Previous</span>
+        )}
+
+        <div class="flex items-center gap-2">
+          {Array.from({ length: page.lastPage }, (_, i) => i + 1).map(num => (
+            <a
+              href={num === 1 ? '/blog/' : `/blog/${num}`}
+              class:list={[
+                'inline-flex items-center justify-center w-9 h-9 rounded-full text-sm font-semibold no-underline transition-colors duration-200',
+                num === page.currentPage
+                  ? 'bg-[var(--accent)] text-white'
+                  : 'hover:bg-[var(--bg-alt)]',
+              ]}
+              style={num !== page.currentPage ? 'color: var(--text-muted)' : ''}
+              aria-current={num === page.currentPage ? 'page' : undefined}
+            >
+              {num}
+            </a>
+          ))}
+        </div>
+
+        {page.url.next ? (
+          <a href={page.url.next} class="cta-pill no-underline">Next →</a>
+        ) : (
+          <span class="cta-pill opacity-40 cursor-default select-none">Next →</span>
+        )}
+      </nav>
+    )}
+  </div>
+</BaseLayout>

@@ -735,7 +735,7 @@ Beat the SERP angles. Use PAA for H2 inspiration. 1500-2500 words. Specific, opi
   console.log('  -> Claude API writing post...');
   const message = await client.messages.create({
     model: 'claude-sonnet-4-6',
-    max_tokens: 2500,
+    max_tokens: 4096,
     system: systemPrompt,
     messages: [{ role: 'user', content: userPrompt }],
   });
@@ -975,6 +975,24 @@ function qualityGate(content, { keyword, category, title, tags, existingSlugs })
   return { content: fixed, issues, fixes };
 }
 
+// ─── Clean alt text (strip scraped attributions) ────────────────────────────
+function cleanAltText(alt, keyword) {
+  if (!alt) return keyword;
+  // If alt contains obvious scraped patterns, replace with keyword-based alt
+  const scrapedPatterns = [
+    /amazon\.com/i, /shutterstock/i, /getty/i, /alamy/i, /istock/i,
+    /unsplash/i, /pexels/i, /photo by/i, /SHELFIE/i, /\.com/,
+    /\|/,  // "Title | SiteName" pattern
+    /\.\.\./,  // truncated alt texts
+  ];
+  if (scrapedPatterns.some(p => p.test(alt))) {
+    // Generate a clean alt from the keyword
+    const clean = keyword.charAt(0).toUpperCase() + keyword.slice(1);
+    return `${clean} skincare product`;
+  }
+  return alt.replace(/"/g, "'");
+}
+
 // ─── Build frontmatter ───────────────────────────────────────────────────────
 function buildFrontmatter(target, image, description, title, tags) {
   const today = new Date().toISOString().split('T')[0];
@@ -986,7 +1004,7 @@ pubDate: ${today}
 category: "${target.category}"
 tags: [${tagsFormatted}]
 heroImage: "${image.url}"
-heroImageAlt: "${image.alt}"
+heroImageAlt: "${cleanAltText(image.alt, title || target.keyword)}"
 draft: false
 ---`;
 }
@@ -1106,6 +1124,19 @@ async function main() {
     tags,
     existingSlugs: existingSlugs.map(s => typeof s === 'string' ? s : s.slug),
   });
+
+  // Block on critical quality issues
+  const criticalIssues = issues.filter(i =>
+    i.startsWith('SEO:') || i.startsWith('Slop:') || i.includes('word count')
+  );
+
+  if (criticalIssues.length > 0 && !dryRun) {
+    console.log('\n  BLOCKED — critical quality issues:');
+    criticalIssues.forEach(i => console.log(`    ✗ ${i}`));
+    console.log('\n  Post NOT saved. Fix the pipeline prompt or re-run.');
+    console.log('  (Non-critical issues are allowed through with warnings)\n');
+    process.exit(1);
+  }
 
   const description  = extractDescription(validatedContent);
   const frontmatter  = buildFrontmatter(target, image, description, title, tags);

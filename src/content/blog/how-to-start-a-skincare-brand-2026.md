@@ -5,7 +5,7 @@ pubDate: 2026-03-10
 category: "beauty-business"
 tags: ["skincare brand", "beauty ecommerce", "DTC", "Shopify", "beauty business", "startup"]
 heroImage: "/images/blog/how-to-start-a-skincare-brand-2026.jpg"
-heroImageAlt: "Designers get creative with 4 standout skincare packaging ..."
+heroImageAlt: "Skincare product packaging and branding layout"
 draft: false
 ---
 
@@ -13,7 +13,7 @@ A lot of people want to start a skincare brand. The barrier to entry has never b
 
 That's also why most of them fail. Everyone can launch. Not everyone can build something that lasts past the first year.
 
-After building ecommerce stores for multiple skincare and [beauty brand](/blog/tiktok-beauty-brand-strategy)s, I've seen the patterns clearly. Here's what actually matters.
+After building ecommerce stores for multiple skincare and beauty brands, I've seen the patterns clearly. Here's what actually matters.
 
 ## The wrong starting point
 

@@ -5,13 +5,13 @@ pubDate: 2026-03-10
 category: "versus"
 tags: ["CeraVe", "The Ordinary", "skincare brands", "budget skincare", "comparison"]
 heroImage: "/images/blog/cerave-vs-the-ordinary.jpg"
-heroImageAlt: "SHELFIE] yes i hopped on the cerave/ the ordinary hype. my ..."
+heroImageAlt: "CeraVe and The Ordinary skincare products side by side"
 draft: false
 ---
 
 The comparison comes up constantly: CeraVe or The [Ordinary](/blog/the-ordinary-retinol-review)? Which brand is better? Which should you buy?
 
-The framing is wrong. These two brands aren't doing the same thing, and comparing them directly is like a[skin](/blog/skincare-routine-oily-skin)g whether a hammer or a screwdriver is better. Depends entirely on what you're building.
+The framing is wrong. These two brands aren't doing the same thing, and comparing them directly is like asking whether a hammer or a screwdriver is better. Depends entirely on what you're building.
 
 ## What CeraVe actually is
 

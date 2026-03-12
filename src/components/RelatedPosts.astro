@@ -1,0 +1,71 @@
+---
+import { getCollection } from 'astro:content';
+
+interface Props {
+  currentSlug: string;
+  currentTags: string[];
+  currentCategory: string;
+}
+
+const { currentSlug, currentTags, currentCategory } = Astro.props;
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+
+const categoryLabels: Record<string, string> = {
+  'ingredients': 'Ingredients',
+  'routines': 'Routines',
+  'reviews': 'Reviews',
+  'versus': 'Versus',
+  'beauty-business': 'Beauty Business',
+  'beginner-guides': 'Beginner Guides',
+};
+
+const scored = allPosts
+  .filter(post => post.id !== currentSlug)
+  .map(post => {
+    let score = 0;
+    // Shared tags: 3 pts each
+    for (const tag of post.data.tags) {
+      if (currentTags.includes(tag)) score += 3;
+    }
+    // Same category: 2 pts
+    if (post.data.category === currentCategory) score += 2;
+    return { post, score };
+  })
+  .filter(({ score }) => score > 0)
+  .sort((a, b) => b.score - a.score)
+  .slice(0, 3);
+
+const related = scored.map(({ post }) => post);
+---
+
+{related.length > 0 && (
+  <section class="border-t border-[var(--border)] pt-10 mt-12">
+    <h2 style="font-family: var(--serif); font-weight: 700; font-size: 1.5rem; color: var(--text);" class="mb-6">
+      You might also like
+    </h2>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {related.map(post => (
+        <a href={`/blog/${post.id}`} class="group no-underline flex flex-col rounded-lg overflow-hidden border border-[var(--border-light)] card-lift" style="background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+          <div class="aspect-[4/3] overflow-hidden img-zoom" style="background: var(--bg-alt)">
+            {post.data.heroImage ? (
+              <img src={post.data.heroImage} alt={post.data.heroImageAlt || post.data.title} class="w-full h-full object-cover" loading="lazy" />
+            ) : (
+              <div class="w-full h-full flex items-center justify-center">
+                <span class="text-3xl" style="color: var(--border)">&#10022;</span>
+              </div>
+            )}
+          </div>
+
+          <div class="p-5 flex flex-col flex-1">
+            <span class="eyebrow accent mb-2">{categoryLabels[post.data.category] || post.data.category}</span>
+            <h3 style="font-family: var(--serif); font-weight: 700; font-size: 1.0625rem; line-height: 1.35; color: var(--text);" class="group-hover:text-[var(--accent)] transition-colors duration-200 line-clamp-2">
+              {post.data.title}
+            </h3>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+)}

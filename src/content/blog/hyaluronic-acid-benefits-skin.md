@@ -15,7 +15,7 @@ Here's what HA actually does, what the science says, and why the molecule size i
 
 ## What Hyaluronic Acid Actually Does (The Short Version)
 
-HA is a glycosaminoglycan — a long sugar molecule — that your body already produces naturally. It lives in your skin, connective tissue, and eyes, and its main job is holding water. One gram of hyaluronic [acid](/blog/azelaic-acid-benefits-uses) can hold up to six liters of water. That's the number brands love to quote, and honestly, it's the right number to quote because it explains the whole mechanism.
+HA is a glycosaminoglycan — a long sugar molecule — that your body already produces naturally. It lives in your skin, connective tissue, and eyes, and its main job is holding water. One gram of hyaluronic [acid](/blog/azelaic-acid-benefits-skin) can hold up to six liters of water. That's the number brands love to quote, and honestly, it's the right number to quote because it explains the whole mechanism.
 
 As a topical ingredient, HA works as a humectant. It draws moisture from the environment (or from deeper skin layers) and holds it in the upper layers of skin. This isn't "skin whitening" or some transformative repair process — it's hydration, and hydration done well. The immediate result is plumper-looking skin with reduced appearance of fine lines. That's the real benefit, and it's a legitimate one.
 

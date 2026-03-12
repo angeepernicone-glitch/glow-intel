@@ -9,7 +9,7 @@ heroImageAlt: "Moisturizing skincare products on a clean bathroom shelf"
 draft: false
 ---
 
-Dry skin isn't just about moisturizer. Most people with dry skin apply a heavy cream and wonder why their skin still feels tight an hour later. The issue is usually that you're skipping the layers that [actual](/blog/skincare-routine-oily-skin)ly hold moisture in place.
+Dry skin isn't just about moisturizer. Most people with dry skin apply a heavy cream and wonder why their skin still feels tight an hour later. The issue is usually that you're skipping the layers that actually hold moisture in place.
 
 ## The Dry Skin Problem
 

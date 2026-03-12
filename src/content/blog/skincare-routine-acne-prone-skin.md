@@ -9,7 +9,7 @@ heroImageAlt: "Refinery29 Editors Share Their Skin-Care Routines"
 draft: false
 ---
 
-Most acne [routine](/blog/skincare-routine-oily-skin)s online have you buying 8 products, half of which are probably making things worse. The reality is you need five products — maybe fewer — and the right ones will do more than a 10-step routine full of fragrance-loaded filler.
+Most acne routines online have you buying 8 products, half of which are probably making things worse. The reality is you need five products — maybe fewer — and the right ones will do more than a 10-step routine full of fragrance-loaded filler.
 
 Here's what actually works, and why.
 
@@ -88,7 +88,7 @@ The five-product routine handles prevention, barrier health, and daily treatment
 
 **Benzoyl peroxide spot treatment (2.5-5%)**: Applied only to active spots, not the whole face. PanOxyl Acne Foaming Wash 4% or the Neutrogena On-The-Spot 2.5% gel. Benzoyl peroxide kills *C. acnes* bacteria effectively, but it bleaches fabric and can be irritating if overused. Spot use only.
 
-**Azelaic acid**: If your skin is sensitive or you're dealing with both acne and redness (or rosacea overlap), [azelaic acid](/blog/azelaic-acid-benefits-uses) is worth knowing about. It's gentler than BHA, still anti-inflammatory, and helps with hyperpigmentation. The Ordinary Azelaic Acid Suspension 10% ($10-12) is accessible and well-priced.
+**Azelaic acid**: If your skin is sensitive or you're dealing with both acne and redness (or rosacea overlap), [azelaic acid](/blog/azelaic-acid-benefits-skin) is worth knowing about. It's gentler than BHA, still anti-inflammatory, and helps with hyperpigmentation. The Ordinary Azelaic Acid Suspension 10% ($10-12) is accessible and well-priced.
 
 You don't need both. Pick one based on your skin's sensitivity and how aggressive you want to be.
 

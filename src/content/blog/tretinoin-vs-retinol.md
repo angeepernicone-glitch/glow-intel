@@ -75,7 +75,7 @@ A functional starting routine:
 
 **PM:** Same cleanser → Moisturizer → Tretinoin (pea-sized amount, entire face)
 
-That's it for the first 2-3 months. No vitamin C at night, no other exfoliants, no glycolic acid. Wait until your skin has fully adjusted before adding anything. If you want to address hyperpigmentation during the adaptation phase, [azelaic acid](/blog/azelaic-acid-benefits-uses) is one of the few actives that pairs well with tretinoin without stacking irritation — it's anti-inflammatory, so it can actually help with the redness while handling pigmentation simultaneously.
+That's it for the first 2-3 months. No vitamin C at night, no other exfoliants, no glycolic acid. Wait until your skin has fully adjusted before adding anything. If you want to address hyperpigmentation during the adaptation phase, [azelaic acid](/blog/azelaic-acid-benefits-skin) is one of the few actives that pairs well with tretinoin without stacking irritation — it's anti-inflammatory, so it can actually help with the redness while handling pigmentation simultaneously.
 
 The SPF point is worth emphasizing: tretinoin increases photosensitivity by accelerating cell turnover, so your newer skin cells are more vulnerable to UV damage. Skipping sunscreen while using tretinoin is actively counterproductive. You're undoing the collagen work during the day.
 

@@ -9,11 +9,11 @@ heroImageAlt: "The 7 Best Eyelash Growth Serums, Tested for 12 Weeks"
 draft: false
 ---
 
-Most lash [serum](/blog/best-vitamin-c-serum)s are glorified conditioners sold at serum prices. A few of them actually grow your lashes longer and denser, and those are the ones worth talking about. I tested 14 serums over several months to figure out which category each one falls into.
+Most lash serums are glorified conditioners sold at serum prices. A few of them actually grow your lashes longer and denser, and those are the ones worth talking about. I tested 14 serums over several months to figure out which category each one falls into.
 
 ## What Actually Makes a Lash Serum Work?
 
-This is where most [review](/blog/cerave-moisturizing-cream-review)s skip the science and go straight to "it made my lashes so fluffy!" — which tells you nothing useful.
+This is where most reviews skip the science and go straight to "it made my lashes so fluffy!" — which tells you nothing useful.
 
 Lash serums work through one of two mechanisms. The first is prostaglandin analogs, which extend the anagen (growth) phase of your lash cycle. The second is peptide-based formulas, which strengthen and condition existing lashes to reduce breakage and improve appearance. These are not the same thing. Prostaglandin analogs genuinely grow lashes — this is backed by clinical data. Peptide serums mostly make your current lashes look better.
 
@@ -51,7 +51,7 @@ The price is hard to justify for what is essentially a premium conditioning seru
 
 ### Vegamour GRO Lash Serum — $78 for 3ml
 
-Vegamour markets itself heavily on being "clean" and vegan. The formula uses phyto-actives — mung bean and red clover — as alternatives to prostaglandins. Clean beauty credentials are fine, but I think the [clean beauty framework](/blog/azelaic-acid-benefits-uses) often prioritizes ingredient sourcing over ingredient efficacy.
+Vegamour markets itself heavily on being "clean" and vegan. The formula uses phyto-actives — mung bean and red clover — as alternatives to prostaglandins. Clean beauty credentials are fine, but I think the [clean beauty framework](/blog/azelaic-acid-benefits-skin) often prioritizes ingredient sourcing over ingredient efficacy.
 
 Results at 12 weeks: marginal. My lashes looked slightly more conditioned, but nothing I'd pay $78 for repeatedly. If clean formulas are your priority and you understand you're trading efficacy for that, Vegamour is a reasonable choice. But don't buy it expecting Latisse-level growth because it will not deliver that.
 

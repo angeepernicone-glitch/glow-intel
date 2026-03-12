@@ -15,7 +15,7 @@ Dermata Therapeutics — a San Diego pharma company — just announced they're l
 
 Tome is Dermata's pivot from pharmaceutical-grade dermatology into the direct-to-consumer [skincare](/blog/how-to-layer-skincare-actives-correctly) market. The first product expected to launch is an over-the-counter once-weekly acne and resurfacing treatment built around something called Spongilla technology. That's the headline ingredient — and it's genuinely interesting, which I'll get to.
 
-Dermata hired Kyra Peckaitis as VP of Marketing in March 2026 specifically to drive this launch. That hire matters because it signals they know their pharma roots alone won't sell product in a space where [brand](/blog/tiktok-beauty-brand-strategy)ing, aesthetics, and community are just as important as the science. Hiring a dedicated marketing lead this early is smart — most pharma spinoffs underestimate how different consumer skincare is from a clinical trial.
+Dermata hired Kyra Peckaitis as VP of Marketing in March 2026 specifically to drive this launch. That hire matters because it signals they know their pharma roots alone won't sell product in a space where branding, aesthetics, and community are just as important as the science. Hiring a dedicated marketing lead this early is smart — most pharma spinoffs underestimate how different consumer skincare is from a clinical trial.
 
 The brand's stated tagline is "the oldest new thing in skincare." That's a nod to Spongilla, which is a freshwater sponge with a documented history in dermatology. We'll see if that narrative lands with consumers who have approximately 400 other options on Sephora's shelves.
 

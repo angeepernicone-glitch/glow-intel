@@ -21,7 +21,7 @@ This is the core problem: "clean" is a positioning strategy as much as it is an 
 
 ## When "Clean" Ingredients Actually Matter
 
-That said, there are real reasons to pay attention to certain [ingredient](/blog/azelaic-acid-benefits-uses)s — just not the ones the clean beauty industry usually emphasizes.
+That said, there are real reasons to pay attention to certain ingredients — just not the ones the clean beauty industry usually emphasizes.
 
 **Fragrance** is the biggest legitimate concern. "Fragrance" or "parfum" on an ingredient list can represent dozens of undisclosed chemicals, and it's the most common cause of cosmetic contact dermatitis. Avoiding fragrance — especially in products that stay on your skin — is genuinely sensible advice, clean beauty or not.
 

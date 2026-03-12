@@ -5,7 +5,7 @@ pubDate: 2026-03-11
 category: "reviews"
 tags: ["retinol", "the ordinary", "anti-aging", "skincare reviews", "ingredients", "beginner skincare"]
 heroImage: "/images/blog/the-ordinary-retinol-review.jpg"
-heroImageAlt: "Amazon.com: The Ordinary Retinol 0.2% in Squalane, Gentle ..."
+heroImageAlt: "The Ordinary Retinol 0.2% in Squalane bottle"
 draft: false
 ---
 
@@ -19,7 +19,7 @@ Here's the hierarchy in terms of potency and conversion efficiency:
 
 **Retinal (retinaldehyde) > Retinol > Granactive retinoid (hydroxypinacolone retinoate)**
 
-Retinal converts to retinoic [acid](/blog/azelaic-acid-benefits-uses) in one step. Retinol takes two. Granactive retinoid is the mildest, least irritating, and also the least studied in terms of long-term efficacy compared to retinol. When people ask "are The Ordinary retinols any good," the honest answer is: it depends entirely on which product you're talking about.
+Retinal converts to retinoic [acid](/blog/azelaic-acid-benefits-skin) in one step. Retinol takes two. Granactive retinoid is the mildest, least irritating, and also the least studied in terms of long-term efficacy compared to retinol. When people ask "are The Ordinary retinols any good," the honest answer is: it depends entirely on which product you're talking about.
 
 ## The Retinol in Squalane Range: 0.2%, 0.5%, 1%
 

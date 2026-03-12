@@ -17,7 +17,7 @@ But dismissing Rhode as "just a celebrity [brand](/blog/how-to-start-a-skincare-
 
 The Peptide Lip Treatment is Rhode's hero product. At ~$16, it's accessible. The formula — containing peptides, vitamin E, and various butters — is genuinely effective. The flavors are appealing without being gimmicky. It fits in your pocket.
 
-This matters more than people acknowledge. Celebrity [brand](/blog/tiktok-beauty-brand-strategy)s fail all the time — Kylie Cosmetics went from a billion-dollar valuation to selling majority stake at a fraction of that price. The difference is usually whether the product holds up to scrutiny without the founder's name on it.
+This matters more than people acknowledge. Celebrity brands fail all the time — Kylie Cosmetics went from a billion-dollar valuation to selling majority stake at a fraction of that price. The difference is usually whether the product holds up to scrutiny without the founder's name on it.
 
 Rhode's products would sell reasonably well without Hailey Bieber attached. That's the foundation. Everything else builds on it.
 
